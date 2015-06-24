@@ -5,7 +5,7 @@ class SorceryCore < ActiveRecord::Migration
       t.string :crypted_password
       t.string :salt
       t.string :name
-      t.string :class
+      t.string :classe
       t.string :celular
 
       t.timestamps
