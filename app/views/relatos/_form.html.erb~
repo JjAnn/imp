@@ -1,0 +1,47 @@
+
+
+<%= form_for(@relato) do |f| %>
+  <% if @relato.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@relato.errors.count, "error") %> prohibited this relato from being saved:</h2>
+
+      <ul>
+      <% @relato.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cliente_id,"Cliente" %><br>
+ <%= f.collection_select :cliente_id, Cliente.order(:name), :id, :name, prompt: "Selecionar" %>
+  </div>
+  <div class="field">
+    <%= f.label :projeto_id, "Projeto do Cliente" %><br>
+ <%= f.grouped_collection_select :projeto_id, Cliente.order(:name), :projetos, :name, :id, :name, prompt: "Selecionar" %>
+  </div>
+  <div class="field">
+    <%= f.label :local_id, "Local de Atendimento" %><br>
+  <%= f.grouped_collection_select :local_id, Cliente.order(:name), :locals, :name, :id, :logra, prompt: "Selecionar" %>
+  </div>
+  <div class="field">
+    <%= f.label :task_id, "Atividade Exercida" %><br>
+     <%= f.grouped_collection_select :task_id, Projeto.order(:name), :tasks, :name, :id, :descr, prompt: "Selecionar" %>
+  </div>
+  <div class="field">
+    <%= f.label :time, "Horas Executadas" %><br>
+    <%= f.number_field :time %>
+  </div>
+  <div class="field">
+    <%= f.label :comment, "Comentários sobre Atividade" %><br>
+    <%= f.text_field :comment %>
+  </div>
+  <div class="field">
+    <%= f.label :isdoe, "Atividade Finalizada?" %><br>
+    <%= f.check_box :isdoe %>
+  </div>
+  <div class="actions">
+<%= f.submit 'Enviar', class: 'btn btn-primary btn-lg' %>
+  </div>
+<% end %>

@@ -1,0 +1,6 @@
+<h1>Cadastro de Atividades</h1>
+
+<%= render 'form' %>
+
+<%= button_tag "Adicionar Tarefa", :class => "btn btn-primary", :type => "button", :id => "moreFields" %>
+<%= link_to 'Back', tasks_path %>

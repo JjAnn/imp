@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @relato.cliente.name %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @relato.projeto.name %>
+</p>
+
+<p>
+  <strong>Local:</strong>
+  <%= @relato.local_id %>
+</p>
+
+<p>
+  <strong>Taskid:</strong>
+  <%= @relato.task_id %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @relato.time %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @relato.comment %>
+</p>
+
+<p>
+  <strong>Isdoe:</strong>
+  <%= @relato.isdoe %>
+</p>
+
+<%= link_to 'Edit', edit_relato_path(@relato) %> |
+<%= link_to 'Back', relatos_path %>

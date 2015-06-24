@@ -1,0 +1,7 @@
+<h1>Cadastro de Relatórios</h1>
+
+
+
+<%= render 'form' %>
+
+<%= link_to 'Lista de Relatórios', relatos_path %>

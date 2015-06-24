@@ -1,0 +1,1 @@
+json.extract! @projeto, :id, :cliente, :name, :descr, :typo, :user, :dateini, :datefin, :status, :created_at, :updated_at

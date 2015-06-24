@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+
+
+<p>
+  <strong>Seq:</strong>
+  <%= @task.each.seq %>
+</p>
+
+<p>
+  <strong>Descr:</strong>
+  <%= @task.each.descr %>
+</p>
+
+<p>
+  <strong>Seqpai:</strong>
+  <%= @task.each.seqpai %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @task.each.typo %>
+</p>
+
+<p>
+  <strong>Hour:</strong>
+  <%= @task.each.hour %>
+</p>
+
+<p>
+  <strong>Projeto:</strong>
+  <%= @task.each.projeto.name %>
+</p>
+<%= link_to 'Nova Atividade', new_task_path %> | 
+<%= link_to 'Editar', edit_task_path(@task) %> |
+<%= link_to 'Lista de Atividades', tasks_path %>

@@ -1,0 +1,46 @@
+<%= form_for(@projeto) do |f| %>
+  <% if @projeto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@projeto.errors.count, "error") %> prohibited this projeto from being saved:</h2>
+
+      <ul>
+      <% @projeto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cliente_id %><br>
+     <%= f.collection_select(:cliente_id, Cliente.all, :id, :name, prompt: "Selecionar") %>
+  </div>
+  <div class="field">
+    <%= f.label :name, "Nome do Projeto" %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :descr, "Descrição do Projeto" %><br>
+    <%= f.text_field :descr %>
+  </div>
+  <div class="field">
+    <%= f.label :typo, "Tipo do Projeto" %><br>
+    <%= f.select("typo", {"Avulso" => "Avulso", "Padrão" => "Padrao"}) %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id, "Gerente do Projeto" %><br>
+     <%= f.collection_select(:user_id, User.all, :id, :name, prompt: "Selecionar") %>
+  </div>
+  <div class="field">
+    <%= f.label :dateini, "Data de Inicio" %><br>
+    <%= f.date_select :dateini %>
+  </div>
+  <div class="field">
+    <%= f.label :datefin, "Data de Finalização" %><br>
+    <%= f.date_select :datefin %>
+  </div>
+ 
+  <div class="actions">
+    <%= f.submit "Enviar" %>
+  </div>
+<% end %>

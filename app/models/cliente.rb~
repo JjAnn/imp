@@ -1,0 +1,4 @@
+class Cliente < ActiveRecord::Base
+has_many :projeto
+has_many :local
+end

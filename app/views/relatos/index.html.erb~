@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+ 
+<h1>Relatórios</h1>
+
+<table id="customers">
+  <thead>
+    <tr class="alt">
+      <th>Cliente</th>
+      <th>Projeto</th>
+      <th>Cód. do Local</th>
+      <th>Cód. da Atividade</th>
+      <th>Horas Executadas</th>
+     <th>Comentários</th>
+     <th>Finalizada?</th>
+     <th colspan="2"></th>
+    </tr>
+  </thead>
+<% if can? :read, Relato %> 
+  <tbody>
+    <% @relatos.each do |relato| %>
+      <tr class="alt">
+        <td><%= relato.cliente.name %></td>  
+         <td><%= relato.projeto.name %></td>  
+          <td><%= relato.local_id %></td>  
+         <td><%= relato.task_id %></td>  
+          <td><%= relato.time %></td>  
+       <td><%= relato.comment %></td>  
+      <td><%= relato.isdoe %></td>  
+           <td><%= link_to 'Editar', edit_relato_path(relato) %></td>  
+          <td><%= link_to 'Deletar', relato, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </tr>
+    <% end %>
+
+  </tbody>
+<% end %>
+</table>
+
+<br>
+
+<%= link_to 'Novo Relatório', new_relato_path %>

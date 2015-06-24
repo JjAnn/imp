@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cliente</strong>
+  <%= @projeto.cliente.name %>
+</p>
+
+<p>
+  <strong>Nome do Projeto:</strong>
+  <%= @projeto.name %>
+</p>
+
+<p>
+  <strong>Descrição do Projeto:</strong>
+  <%= @projeto.descr %>
+</p>
+
+<p>
+  <strong>Tipo do Projeto:</strong>
+  <%= @projeto.typo %>
+</p>
+
+<p>
+  <strong>Gerente do Projeto:</strong>
+  <%= @projeto.user.name %>
+</p>
+
+<p>
+  <strong>Data de Inicio:</strong>
+  <%= @projeto.dateini %>
+</p>
+
+<p>
+  <strong>Data de Finalização:</strong>
+  <%= @projeto.datefin %>
+</p>
+
+<p>
+  <strong>Andamento:</strong>
+  <%= @projeto.status %>
+</p>
+
+<%= link_to 'Editar', edit_projeto_path(@projeto) %> |
+<%= link_to 'Lista de Projetos', projetos_path %>

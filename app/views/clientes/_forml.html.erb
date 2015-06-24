@@ -1,0 +1,41 @@
+<%= form_for(@local) do |f| %>
+  <% if @local.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@local.errors.count, "error") %> prohibited this local from being saved:</h2>
+
+      <ul>
+      <% @local.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cliente_id %><br>
+    <%= f.collection_select(:cliente_id, Cliente.all, :id, :name, prompt: true) %>
+  </div>
+  <div class="field">
+    <%= f.label :logra %><br>
+    <%= f.text_field :logra %>
+  </div>
+  <div class="field">
+    <%= f.label :cep %><br>
+    <%= f.text_field :cep %>
+  </div>
+  <div class="field">
+    <%= f.label :uf %><br>
+    <%= f.text_field :uf %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :km %><br>
+    <%= f.number_field :km %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

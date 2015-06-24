@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Gerenciamento de Projetos</title>
+  <%= stylesheet_link_tag    'application', media: 'all'%>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to 'Entrar', root_path, class: 'navbar-brand' %>
+    </div>
+    <div id="navbar">
+      <ul class="nav navbar-nav">
+        <% if current_user %>
+          
+        <% else %>
+        
+          <li><%= link_to 'Entrar', log_in_path %></li>
+        <% end %>
+      </ul>
+      <% if current_user %>
+        <ul class="nav navbar-nav pull-right">
+          <li><span><%= current_user.name %></span></li>
+<% if can? :read, @Application %> 
+     <li><%= link_to 'Consultor', sign_up_path %></li>
+<li><%= link_to 'Cliente', clienta_path %></li>
+<li><%= link_to 'Projeto', projete_path %></li>
+<li><%= link_to 'Atividade', taski_path %></li>
+<% end %>
+<li><%= link_to 'Relatorio', relatoss_path %></li><% if can? :read, @Application %> 
+<li><%= link_to 'Local de Atendimento', loca_path %></li>
+<li><%= link_to 'Condicional', condit_path %></li><% end %>
+          <li><%= link_to 'Sair', log_out_path, method: :delete %></li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>">
+      <%= value %>
+    </div>
+  <% end %>
+
+  <div class="col-sm-9">
+    <%= yield %>
+  </div>
+
+</div>
+
+<div id="footer">
+  <div class="container">
+    <p class="text-muted">Sistema desenvolvido por InfinIT</p>
+  </div>
+</div>
+
+</body>
+</html>

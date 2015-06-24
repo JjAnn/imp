@@ -1,0 +1,6 @@
+module TasksHelper
+
+def button_tag(type: 'button') do
+ content_tag(:strong, 'Ask me!')
+ end
+end

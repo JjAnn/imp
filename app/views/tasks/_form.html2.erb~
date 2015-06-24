@@ -1,0 +1,52 @@
+
+
+<%= form_for(@task, remote: true) do |f| %>
+  <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% @task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<table height="100%" id="tablebody" >
+  <thead>
+ <tr>
+<th> <%= f.label :projeto_id, "Projeto da Atividade" %><br> </th>
+<th> <%= f.label :seq, "Raiz Sequencial" %><br> </th>
+
+   <th> <%= f.label :seqpai, "Ramo Sequencial" %><br> </th>
+    <th> <%= f.label :descr, "Descrição da Atividade" %><br> </th>
+<th>  <%= f.label :hour, "Horas de Execução" %> </th>
+<th>  <%= f.label :typo, "Tipo da Atividade" %><br> </th>
+<th> <%= f.label :_destroy, "Desabilitar" %> </th>
+</tr>
+</thead>
+<tbody name="bodao" class="jqueryform" id="bodao">
+<tr class="tr" id="tr">
+<td name="projetoid" class="projetoid" id="projetoid"> <%= f.grouped_collection_select :projeto_id, Cliente.order(:name), :projetos, :name, :id, :name, prompt: "Selecionar", required: true, :namespace => 'projetoid1' %>  </td>
+<td name="raiz" class="raiz" id="raiz">     <%= f.number_field :seq,  required: true, :namespace => 'projetoid1' %>  </td>
+<td name="seqpai" class="seqpai" id="seqpai">  <%= f.number_field :seqpai, required: false, :namespace => 'projetoid1'  %>  </td>
+<td name="descr" class="descr" id="descr">    <%= f.text_field :descr, required: true, :namespace => 'projetoid1'  %> </td>
+
+<td name="hour" id="hour" class="hour">    <%= f.number_field :hour, required: true, :namespace => 'projetoid1'  %> </td>
+<td name="typo" id="typo" class="typo">   <%= f.select("typo", {"Analitica" => "Analitica", "Sintetica" => "Sintetica"}, required: true, :namespace => 'projetoid1') %> </td>
+<td></td>
+</tr>
+
+  </tbody>
+</thead>
+</table>
+
+<br>
+
+
+
+<br><br><br>
+  <%= f.submit 'Enviar', class: 'btn btn-primary btn-lg' %>
+
+<% end %>
+

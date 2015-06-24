@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Clienteid:</strong>
+  <%= @projeto.cliente.name %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @projeto.name %>
+</p>
+
+<p>
+  <strong>Descr:</strong>
+  <%= @projeto.descr %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @projeto.typo %>
+</p>
+
+<p>
+  <strong>Manager:</strong>
+  <%= @projeto.user.name %>
+</p>
+
+<p>
+  <strong>Dateini:</strong>
+  <%= @projeto.dateini %>
+</p>
+
+<p>
+  <strong>Datefin:</strong>
+  <%= @projeto.datefin %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @projeto.status %>
+</p>
+
+<%= link_to 'Edit', edit_projeto_path(@projeto) %> |
+<%= link_to 'Back', projetos_path %>

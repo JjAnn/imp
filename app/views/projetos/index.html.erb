@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lista de Projetos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cliente</th>
+      <th>Nome do Projeto</th>
+      <th>Descrição do Projeto</th>
+      <th>Tipo de Projeto</th>
+      <th>Gerente do Projeto</th>
+      <th>Data de Inicio</th>
+      <th>Data de Finalização</th>
+      <th>Andamento</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @projetos.each do |projeto| %>
+      <tr>
+        <td><%= projeto.cliente.name %></td>
+        <td><%= projeto.name %></td>
+        <td><%= projeto.descr %></td>
+        <td><%= projeto.typo %></td>
+        <td><%= projeto.user.name %></td>
+        <td><%= projeto.dateini %></td>
+        <td><%= projeto.datefin %></td>
+        <td><%= projeto.status %></td>
+        <td><%= link_to 'Visualizar', projeto %></td>
+        <td><%= link_to 'Editar', edit_projeto_path(projeto) %></td>
+        <td><%= link_to 'Deletar', projeto, method: :delete, data: { confirm: 'Certeza?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Criar novo Projeto', new_projeto_path %>

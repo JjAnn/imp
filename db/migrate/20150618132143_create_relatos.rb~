@@ -1,0 +1,15 @@
+class CreateRelatos < ActiveRecord::Migration
+  def change
+    create_table :relatos do |t|
+      t.references :cliente
+      t.references :projeto
+      t.references :local
+      t.references :task
+      t.integer :time
+      t.string :comment
+      t.boolean :isdoe
+
+      t.timestamps null: false
+    end
+  end
+end
