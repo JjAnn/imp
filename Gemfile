@@ -6,8 +6,6 @@ gem 'rails', '4.2.2'
 
 gem 'cancancan' 
 
-gem 'rolify'
-
 gem 'nested_form'
 
 

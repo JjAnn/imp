@@ -8,7 +8,7 @@ gem 'cancancan'
 
 gem 'rolify'
 
-gem "nested_form"
+gem 'nested_form'
 
 
 gem 'validates_email_format_of'

@@ -1,5 +1,4 @@
 class Relato < ActiveRecord::Base
-resourcify
   belongs_to :cliente
   belongs_to :projeto
   belongs_to :locals

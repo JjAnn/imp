@@ -17,7 +17,6 @@
 #
 
 class User < ActiveRecord::Base
-  rolify
 
  ROLES = %w[admin normal]
 
