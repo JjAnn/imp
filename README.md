@@ -1,5 +1,10 @@
-Source code for the [Magical Authentication with Sorcery](http://www.sitepoint.com/magical-authentication-sorcery/) article on
-SitePoint,
-created by Ilya Bodrov ([radiant-wind.com](http://radiant-wind.com)).
+Sistema de Gerenciamento de Projeto .
 
-[Working demo](http://sitepoint-sorcery.herokuapp.com).
+
+Bugs = Erro no logi no Heroku - 
+
+Problema no add_fields ou jQuery 
+
+Problema no CanCanCan não visualizando role do usuario normal 
+
+
