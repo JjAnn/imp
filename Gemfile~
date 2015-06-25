@@ -1,12 +1,10 @@
 source 'https://rubygems.org'
 
-ruby '2.2.2'
+ruby '2.1.5'
 
 gem 'rails', '4.2.2'
 
 gem 'cancancan' 
-
-gem 'rolify'
 
 gem 'nested_form'
 
