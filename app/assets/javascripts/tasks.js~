@@ -1,24 +1,13 @@
-var ready; ready = function(){
+$( document ).ready(function() {
+  $(".adicionar").click(function(){
+    linha = $(".linha:first").clone();
+    $(".tabela").append("<tr class='linha'>"+$(linha).html()+"</tr>");
+    remover();
+  });
+});
 
-var counter = 0;
-
-function moreFields() {
-	counter++;
-	var newFields = document.getElementById('bodao').cloneNode(true);
-	newFields.id = '';
-	newFields.style.display = 'block';
-	var newField = newFields.childNodes;
-	for (var i=0;i<newField.length;i++) {
-		var theName = newField[i].name
-		if (theName)
-			newField[i].name = theName + counter;
-	}
-	var insertHere = document.getElementById('writeroot');
-	insertHere.parentNode.insertBefore(newFields,insertHere);
+function remover() {
+  $(".remover").click(function(){
+    $(this).parent().parent().remove();
+  });
 }
-
-window.onload = moreFields;
-
-
-
- } $(document).ready(ready); $(document).on('page:load', ready);

@@ -1,13 +1,13 @@
 $( document ).ready(function() {
   $(".adicionar").click(function(){
     linha = $(".linha:first").clone();
-    $(".tabela").append("<div class='linha'>"+$(linha).html()+"</div>");
+    $(".tabela").append("<tr class='linha'>"+$(linha).html()+"</tr>");
     remover();
   });
 });
 
 function remover() {
   $(".remover").click(function(){
-    $(this).parent().parent().parent().remove();
+    $(this).parent().parent().remove();
   });
 }
