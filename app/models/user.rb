@@ -25,7 +25,7 @@ has_many :clientes
 has_many :relatos
 has_many :tasks
 has_many :conditionals
-  authenticates_with_sorcery!
+authenticates_with_sorcery!
 
   validates :password, length: { minimum: 3 }
   validates :password, confirmation: true

@@ -10,14 +10,15 @@ class ClientesController < ApplicationController
   # GET /clientes/1
   # GET /clientes/1.json
   def show
+  @cliente = Cliente.find(params[:id])
+
   end
 
   # GET /clientes/new
   def new
-    @cliente = Cliente.new
-  
-  end
-
+ @cliente = Cliente.new
+  @cliente.build_local
+end
   # GET /clientes/1/edit
   def edit
   end
@@ -29,7 +30,7 @@ class ClientesController < ApplicationController
 
     respond_to do |format|
       if @cliente.save
-        format.html { redirect_to loca_path, notice: 'Cliente cadastrado com sucesso!' }
+        format.html { redirect_to loca_path, notice: 'Cliente cadastrado com sucesso! Por gentileza, Adicioar o Local de Atendimento' }
         format.json { render :show, status: :created, location: @cliente }
       else
         format.html { render :new }
@@ -70,6 +71,7 @@ class ClientesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cliente_params
-      params.require(:cliente).permit(:name, :telefone, :celular, :email)
+      params.require(:cliente).permit(:name, :telefone, :celular, :email, :local_attributes => [:logra, :cep, :uf, :city, :km])
     end
+
 end

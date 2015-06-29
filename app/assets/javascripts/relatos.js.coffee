@@ -11,7 +11,6 @@ jQuery ->
   else
    $('#relato_projeto_id').empty();
 
-jQuery ->
  locals = $('#relato_local_id').html()
  $('#relato_local_id').change ->
   clienti = $('#relato_cliente_id :selected').text()
@@ -21,7 +20,6 @@ jQuery ->
   else
    $('#relato_local_id').empty();
 
-jQuery ->
  tasks = $('#relato_task_id').html()
  $('#relato_task_id').change ->
   projeti = $('#relato_projeto_id :selected').text()

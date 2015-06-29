@@ -4,6 +4,8 @@ ruby '2.2.2'
 
 gem 'rails', '4.2.2'
 
+gem 'jstree-rails', :git => 'git://github.com/tristanm/jstree-rails.git'
+
 gem 'cancancan' 
 
 gem 'nested_form'

@@ -10,14 +10,15 @@ class ClientesController < ApplicationController
   # GET /clientes/1
   # GET /clientes/1.json
   def show
+  @cliente = Cliente.find(params[:id])
+@cliente.build_local
   end
 
   # GET /clientes/new
   def new
-    @cliente = Cliente.new
+ @cliente = Cliente.new
   
-  end
-
+end
   # GET /clientes/1/edit
   def edit
   end
@@ -70,6 +71,7 @@ class ClientesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cliente_params
-      params.require(:cliente).permit(:name, :telefone, :celular, :email)
+      params.require(:cliente).permit(:name, :telefone, :celular, :email, :local_attributes => [:logra, :cep, :uf, :city, :km])
     end
+
 end

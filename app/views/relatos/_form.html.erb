@@ -31,7 +31,7 @@
       <tr class="linha">
         <td><%= f.collection_select :cliente_id, Cliente.order(:name), :id, :name, prompt: "Selecionar" %></td>
         <td> <%= f.grouped_collection_select :projeto_id, Cliente.order(:name), :projetos, :name, :id, :name, prompt: "Selecionar" %></td>
-        <td> <%= f.grouped_collection_select :local_id, Cliente.order(:name), :locals, :name, :id, :logra, prompt: "Selecionar" %></td>
+        <td> <%= f.grouped_collection_select :local_id, Cliente.order(:name), :locals, :name, :id, :cep, prompt: "Selecionar" %></td>
         <td>    <%= f.grouped_collection_select :task_id, Projeto.order(:name), :tasks, :name, :id, :descr, prompt: "Selecionar" %></td>
         <td> <%= f.number_field :time %></td>
 <td>    <%= f.text_field :comment %></td>
