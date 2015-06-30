@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   get '/consultor', to: 'users#new', as: :sign_up
 get '/cliente', to: 'clientes#new', as: :clienta
-get '/projetos', to: 'projetos#new', as: :projete
+get '/projetos', to: 'projetos#index', as: :projete
 get '/atividades', to: 'tasks#new', as: :taski
 get '/relatorio', to: 'relatos#new', as: :relatoss
 get '/condicional', to: 'conditionals#new', as: :condit
@@ -72,7 +72,14 @@ get '/local', to: 'locals#new', as: :loca
   #       get 'recent', on: :collection
   #     end
   #   end
+resources :pages do
+  collection do
+    get :manage
 
+    # required for Sortable GUI server side actions
+    post :rebuild
+  end
+end
 
   # Example resource route with concerns:
   #   concern :toggleable do

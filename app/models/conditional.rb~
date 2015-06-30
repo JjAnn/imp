@@ -1,3 +1,0 @@
-class Conditional < ActiveRecord::Base
-belongs_to :relato
-end

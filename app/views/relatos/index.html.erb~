@@ -15,14 +15,14 @@
      <th colspan="2"></th>
     </tr>
   </thead>
-<% if can? :read, Relato %> 
+<% if can? :manage, Relato %> 
   <tbody>
     <% @relatos.each do |relato| %>
       <tr class="alt">
         <td><%= relato.cliente.name %></td>  
          <td><%= relato.projeto.name %></td>  
-          <td><%= relato.local_id %></td>  
-         <td><%= relato.task_id %></td>  
+          <td><%= relato.local.logra %></td>  
+         <td><%= relato.task.descr %></td>  
           <td><%= relato.time %></td>  
        <td><%= relato.comment %></td>  
       <td><%= relato.isdoe %></td>  

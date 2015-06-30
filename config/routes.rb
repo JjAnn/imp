@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   get '/consultor', to: 'users#new', as: :sign_up
 get '/cliente', to: 'clientes#new', as: :clienta
-get '/projetos/new', to: 'projetos#new', as: :projete
+get '/projetos', to: 'projetos#index', as: :projete
 get '/atividades', to: 'tasks#new', as: :taski
 get '/relatorio', to: 'relatos#new', as: :relatoss
 get '/condicional', to: 'conditionals#new', as: :condit

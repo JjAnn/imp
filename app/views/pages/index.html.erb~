@@ -1,3 +1,32 @@
-<h1>Welcome!</h1>
+<%= stylesheet_link_tag    '/themes/default/style.min.css', media: 'all'%>
+<%= javascript_include_tag '/jstree.min.js' %>
 
-<p>Restricted area for authorized users only.</p>
+<h1>Bem-Vindo ao Sistema de Gerenciamento de Projetos</h1>
+
+<br>
+
+<h1>Projeto Tree Test</h1>
+
+<br>
+
+<p id="notice"><%= notice %></p>
+ <% @tasks.each do |task| %>
+
+ <div id="jstree">
+    <!-- in this example the tree is populated from inline HTML -->
+    <ul>
+      <li> <%= task.projeto.cliente.name %>
+        <ul>
+          <li id="child_node_1"><%= task.projeto.name %>
+<ul>
+          <li id="child_node_2"><%= task.descr %></li></li></ul>
+
+        </ul>
+      </li>
+    </ul>
+  </div>
+<% end %>
+   
+  
+   
+ 

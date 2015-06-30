@@ -1,8 +1,0 @@
-<h1>Cadastro de Cliente</h1>
-
-<%= render 'form' %>
-
-<br>
-
-
-<%= link_to 'Back', clientes_path %>

@@ -1,8 +1,7 @@
-//
-//= require self
-//= require dataTables/jquery.dataTables
-//= require_tree
-//
+//*= require jstree-default-dark 
+//*= require tree
+//*= require sortable_tree
+//*= require nested_options
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "bootstrap/theme";

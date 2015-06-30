@@ -12,7 +12,7 @@ jQuery ->
    $('#relato_projeto_id').empty();
 
  locals = $('#relato_local_id').html()
- $('#relato_local_id').change ->
+ $('#relato_cliente_id').change ->
   clienti = $('#relato_cliente_id :selected').text()
   options = $(locals).filter("optgroup[label='#{clienti}']").html()
   if options 
@@ -21,7 +21,7 @@ jQuery ->
    $('#relato_local_id').empty();
 
  tasks = $('#relato_task_id').html()
- $('#relato_task_id').change ->
+ $('#relato_projeto_id').change ->
   projeti = $('#relato_projeto_id :selected').text()
   options = $(tasks).filter("optgroup[label='#{projeti}']").html()
   if options 

@@ -1,3 +1,6 @@
+<%= stylesheet_link_tag    '/themes/default/style.min.css', media: 'all'%>
+<%= javascript_include_tag '/jstree.min.js' %>
+
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Tasks</h1>
@@ -16,14 +19,14 @@
   </thead>
 
   <tbody>
-    <% @tasks.each do |task| %>
+    <% @tasks do |task| %>
       <tr>
         <td><%= task.seq %></td>
         <td><%= task.descr %></td>
         <td><%= task.seqpai %></td>
         <td><%= task.typo %></td>
         <td><%= task.hour %></td>
-       
+        <td><%= task.projeto.name %></td>
         <td><%= link_to 'Show', task %></td>
         <td><%= link_to 'Edit', edit_task_path(task) %></td>
         <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -4,10 +4,13 @@ ruby '2.2.2'
 
 gem 'rails', '4.2.2'
 
+gem 'jstree-rails', :git => 'git://github.com/tristanm/jstree-rails.git'
+
 gem 'cancancan' 
 
 gem 'nested_form'
 
+gem 'jstree-rails-4', '~> 3.1.1'
 
 gem 'validates_email_format_of'
 

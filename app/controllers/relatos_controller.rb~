@@ -7,7 +7,7 @@ class RelatosController < ApplicationController
   # GET /relatos.json
   def index
     @relatos = Relato.all
-    authorize! :read, @relato
+    authorize! :read, Relato
   end
 
   # GET /relatos/1

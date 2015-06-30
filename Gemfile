@@ -10,6 +10,10 @@ gem 'cancancan'
 
 gem 'nested_form'
 
+gem 'jstree-rails-4', '~> 3.1.1'
+
+gem 'awesome_nested_set' # or any similar gem (gem 'nested_set')
+gem "the_sortable_tree", "~> 2.5.0"
 
 gem 'validates_email_format_of'
 

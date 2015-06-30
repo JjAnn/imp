@@ -7,12 +7,12 @@
 
 <p>
   <strong>Project:</strong>
-  <%= @relato.projeto.name %>
+  <%= @relato.projeto_id %>
 </p>
 
 <p>
   <strong>Local:</strong>
-  <%= @relato.local.logra %>
+  <%= @relato.local_id %>
 </p>
 
 <p>

@@ -11,13 +11,13 @@ class ClientesController < ApplicationController
   # GET /clientes/1.json
   def show
   @cliente = Cliente.find(params[:id])
-@cliente.build_local
+
   end
 
   # GET /clientes/new
   def new
  @cliente = Cliente.new
-  
+  @cliente.build_local
 end
   # GET /clientes/1/edit
   def edit

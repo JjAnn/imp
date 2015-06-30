@@ -32,7 +32,7 @@
 <li><%= link_to 'Projeto', projete_path %></li>
 <li><%= link_to 'Atividade', taski_path %></li>
 <% end %>
-<li><%= link_to 'Relatorio', relatoss_path %></li><% if can? :read, @Application %> 
+<li><%= link_to 'Relatorio', relatoss_path %></li>
 <li><%= link_to 'Local de Atendimento', loca_path %></li>
 <li><%= link_to 'Condicional', condit_path %></li><% end %>
           <li><%= link_to 'Sair', log_out_path, method: :delete %></li>

@@ -15,19 +15,19 @@
      <th colspan="2"></th>
     </tr>
   </thead>
-<% if can? :index, Relato %> 
+<% if can? :manage, Relato %> 
   <tbody>
     <% @relatos.each do |relato| %>
       <tr class="alt">
         <td><%= relato.cliente.name %></td>  
          <td><%= relato.projeto.name %></td>  
-          <td><%= relato.local_id %></td>  
-         <td><%= relato.task_id %></td>  
+          <td><%= relato.local.logra %></td>  
+         <td><%= relato.task.descr %></td>  
           <td><%= relato.time %></td>  
        <td><%= relato.comment %></td>  
       <td><%= relato.isdoe %></td>  
            <td><%= link_to 'Editar', edit_relato_path(relato) %></td>  
-          <td><%= link_to 'Deletar', relato, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <td><%= link_to 'Deletar', relato, method: :delete, data: { confirm: 'Tem certeza?' } %>
       </tr>
     <% end %>
 

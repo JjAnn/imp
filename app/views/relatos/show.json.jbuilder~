@@ -1,1 +1,0 @@
-json.extract! @relato, :id, :client, :project, :local, :taskid, :time, :comment, :isdoe, :created_at, :updated_at

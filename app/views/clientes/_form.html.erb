@@ -13,41 +13,41 @@
 
  <div class="form-group">
     <%= f.label :name, "Nome do Cliente" %><br>
-    <%= f.text_field :name, class: 'namecli' %>
+    <%= f.text_field :name, class: 'namecli', :required => true %>
   </div>
  <div class="form-group">
     <%= f.label :telefone %><br>
-    <%= f.text_field :telefone %>
+    <%= f.text_field :telefone, :required => true %>
   </div>
   <div class="form-group">
     <%= f.label :celular %><br>
-    <%= f.text_field :celular %>
+    <%= f.text_field :celular, :required => true %>
   </div>
  <div class="form-group">
     <%= f.label :email %><br>
-    <%= f.text_field :email, class: 'namecli' %>
+    <%= f.text_field :email, class: 'namecli', :required => true %>
   </div>
 
    <%= f.fields_for :local do |ff| %>
 <table> 
 <tr>
 <th>
-    <%= ff.label :logra %><br></th>
+    <%= ff.label :logra, "Logradouro" %><br></th>
 <th>
-     <%= ff.label :cep %></th>
+     <%= ff.label :cep, "CEP" %></th>
 <th>
-     <%= ff.label :uf %></th>
+     <%= ff.label :uf, "Estado" %></th>
 <th>
-    <%= ff.label :city %></th>
-<th>  <%= ff.label :km %> </th>
+    <%= ff.label :city, "Cidade" %></th>
+<th>  <%= ff.label :km, "Distancia em KM" %> </th>
 </tr>
 <tbody class="tabela">
 <tr class="linha" >
-<td>  <%= ff.text_field :logra  %>  </td>
-    <td>  <%= ff.text_field :cep  %>  </td>
-<td>      <%= ff.text_field :uf  %>  </td>
-<td>   <%= ff.text_field :city  %>  </td>
-<td>   <%= ff.text_field :km %> </td>
+<td>  <%= ff.text_field :logra,  :required => true %>  </td>
+    <td>  <%= ff.text_field :cep , :required => true %>  </td>
+<td>      <%= ff.text_field :uf , :required => true %>  </td>
+<td>   <%= ff.text_field :city , :required => true %>  </td>
+<td>   <%= ff.text_field :km, :required => true %> </td>
 <td><%= f.button 'Remover Local', type: 'button', class: 'remover' %></td>
 
 </tr>

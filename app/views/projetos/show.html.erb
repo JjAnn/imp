@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Cliente</strong>
+  <strong>Cliente:</strong>
   <%= @projeto.cliente.name %>
 </p>
 
@@ -39,6 +39,13 @@
   <strong>Andamento:</strong>
   <%= @projeto.status %>
 </p>
+
+<p>
+  <strong>Andamento:</strong>
+  <%= @task.id %>
+</p>
+
+
 
 <%= link_to 'Editar', edit_projeto_path(@projeto) %> |
 <%= link_to 'Lista de Projetos', projetos_path %>

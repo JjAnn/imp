@@ -1,0 +1,8 @@
+class Page < ActiveRecord::Base
+  include TheSortableTree::Scopes
+has_many :projetos
+has_many :clientes
+has_many :tasks
+belongs_to :task
+  # any code here
+end

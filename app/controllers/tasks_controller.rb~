@@ -6,6 +6,7 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     @tasks = Task.all
+@projetos = Projeto.where(:id == @task.projeto_id)
   end
 
 
@@ -18,7 +19,7 @@ class TasksController < ApplicationController
   def new
     @task = Task.new
 
-end
+
   end
 
   # GET /tasks/1/edit

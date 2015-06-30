@@ -1,6 +1,11 @@
 class Task < ActiveRecord::Base
 belongs_to :relato
-belongs_to :user
+has_many :relatos
 has_many :projetos, :dependent => :destroy
+belongs_to :projeto
+belongs_to :page
+has_many :pages
+belongs_to :cliente, :through => :projeto
+has_many :clientes , :through => :projetos
 accepts_nested_attributes_for :projetos, :allow_destroy => true
 end

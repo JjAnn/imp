@@ -1,44 +1,51 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Clienteid:</strong>
+  <strong>Cliente:</strong>
   <%= @projeto.cliente.name %>
 </p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nome do Projeto:</strong>
   <%= @projeto.name %>
 </p>
 
 <p>
-  <strong>Descr:</strong>
+  <strong>Descrição do Projeto:</strong>
   <%= @projeto.descr %>
 </p>
 
 <p>
-  <strong>Type:</strong>
+  <strong>Tipo do Projeto:</strong>
   <%= @projeto.typo %>
 </p>
 
 <p>
-  <strong>Manager:</strong>
+  <strong>Gerente do Projeto:</strong>
   <%= @projeto.user.name %>
 </p>
 
 <p>
-  <strong>Dateini:</strong>
+  <strong>Data de Inicio:</strong>
   <%= @projeto.dateini %>
 </p>
 
 <p>
-  <strong>Datefin:</strong>
+  <strong>Data de Finalização:</strong>
   <%= @projeto.datefin %>
 </p>
 
 <p>
-  <strong>Status:</strong>
+  <strong>Andamento:</strong>
   <%= @projeto.status %>
 </p>
 
-<%= link_to 'Edit', edit_projeto_path(@projeto) %> |
-<%= link_to 'Back', projetos_path %>
+<p>
+  <strong>Andamento:</strong>
+  <%= @projeto.task.id %>
+</p>
+
+
+
+<%= link_to 'Editar', edit_projeto_path(@projeto) %> |
+<%= link_to 'Lista de Projetos', projetos_path %>

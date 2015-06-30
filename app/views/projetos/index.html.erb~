@@ -1,10 +1,12 @@
+<%= stylesheet_link_tag    '/themes/default/style.min.css', media: 'all'%>
+<%= javascript_include_tag '/jstree.min.js' %>
 <p id="notice"><%= notice %></p>
 
 <h1>Lista de Projetos</h1>
 
-<table>
+<table id="customers">
   <thead>
-    <tr>
+    <tr class="alt">
       <th>Cliente</th>
       <th>Nome do Projeto</th>
       <th>Descrição do Projeto</th>
@@ -19,8 +21,8 @@
 
   <tbody>
     <% @projetos.each do |projeto| %>
-      <tr>
-        <td><%= projeto.cliente.name %></td>
+      <tr class="alt">
+        <td><%= projeto.cliente_id %></td>
         <td><%= projeto.name %></td>
         <td><%= projeto.descr %></td>
         <td><%= projeto.typo %></td>
@@ -28,9 +30,9 @@
         <td><%= projeto.dateini %></td>
         <td><%= projeto.datefin %></td>
         <td><%= projeto.status %></td>
-        <td><%= link_to 'Visualizar', projeto %></td>
+        <td><%= link_to 'TreeView', projeto %></td>
         <td><%= link_to 'Editar', edit_projeto_path(projeto) %></td>
-        <td><%= link_to 'Deletar', projeto, method: :delete, data: { confirm: 'Certeza?' } %></td>
+        <td><%= link_to 'Deletar', projeto, method: :delete, data: { confirm: 'Alerta: O projeto será excluído!' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -38,4 +40,4 @@
 
 <br>
 
-<%= link_to 'New Projeto', new_projeto_path %>
+<%= link_to 'Criar novo Projeto', new_projeto_path %>
