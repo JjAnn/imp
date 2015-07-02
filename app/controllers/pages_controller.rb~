@@ -7,19 +7,21 @@ class PagesController < ApplicationController
 
   # any code here
 
-  def index
+
+ def index
+@pages = Page.new
+end
+
+  def find
   
-@tasks = Task.all
-@projetos 
+@tasks = Task.where("projeto_id = ?", projeto.id)
+@projetos = Projeto.where("cliente_id = ?", cliente.id)
 @clientes = Cliente.all
 
-def new
-    @page = Page.index
 
-
-  end
-
-
+def pages_params
+      params.require(:page).permit(:cliente, :task, :projeto, :user)
+    end
 end
 end
 

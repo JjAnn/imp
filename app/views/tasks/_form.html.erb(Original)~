@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag    '/themes/default/style.min.css', media: 'all'%>
+<%= javascript_include_tag '/jstree.min.js' %>
 <%= form_for(@task) do |f| %>
   <% if @task.errors.any? %>
   <div id="error_explanation">
@@ -10,32 +12,27 @@
   </ul>
 </div>
   <% end %>
-<div class="tabela">
-  <div class="linha">
-    <div class="field">
-      <%= f.label :projeto_id, "Projeto da Atividade" %><br>
+<div>
+  
+  <li>
       <%= f.grouped_collection_select :projeto_id, Cliente.order(:name), :projetos, :name, :id, :name, prompt: "Selecionar" %>
-    </div>
-    <div class="field">
-      <%= f.label :seq, "Raiz Sequencial" %><br>
+    
+   <li>
       <%= f.number_field :seq %>
-    </div>
-    <div class="field">
-      <%= f.label :descr, "Descrição da Atividade" %><br>
+  
+      
       <%= f.text_field :descr %>
-    </div>
-    <div class="field">
-      <%= f.label :seqpai, "Ramo Sequencial" %><br>
+    
+  
       <%= f.number_field :seqpai %>
-    </div>
-    <div class="field">
-      <%= f.label :typo, "Tipo da Atividade" %><br>
+  
+    
       <%= f.select("typo", {"Analitica" => "Analitica", "Sintetica" => "Sintetica"}) %>
-    </div>
-    <div class="field">
-      <%= f.label :hour, "Horas de Execução" %><br>
+    
+      
       <%= f.number_field :hour %>
-    </div>
+</li>   </li></ul>
+    </div>   
     <div class="field">
       <div class="remover">
         <%= f.button 'Remover', type: 'button', class: 'remover' %>

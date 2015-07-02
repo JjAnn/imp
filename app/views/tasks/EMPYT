@@ -14,3 +14,8 @@
   });
   });
 
+<%= stylesheet_link_tag    '/themes/default/style.min.css', media: 'all'%>
+<%= javascript_include_tag '/jstree.min.js' %>
+
+
+include TheSortableTreeController::Rebuild

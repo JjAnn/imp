@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag    '/themes/default/style.min.css', media: 'all'%>
 <%= javascript_include_tag '/jstree.min.js' %>
 
-<h1>Bem-Vindo ao Sistema de Gerenciamento de Projetos</h1>
+<h1>Bem-vindo!</h1>
 
 <br>
 
@@ -10,16 +10,16 @@
 <br>
 
 <p id="notice"><%= notice %></p>
- <% @tasks.each do |task| %>
+ <%= form_for(@page) do |f| %>
 
  <div id="jstree">
     <!-- in this example the tree is populated from inline HTML -->
     <ul>
-      <li> <%= task.projeto.cliente.name %>
+      <li> <%= f.collection_select :cliente_id, Cliente.order(:name), :id, :name, prompt: "Selecionar", :required => true %>
         <ul>
-          <li id="child_node_1"><%= task.projeto.name %>
+          <li id="child_node_1"><%= f.projeto.name %>
 <ul>
-          <li id="child_node_2"><%= task.descr %></li></li></ul>
+          <li id="child_node_2"><%= f.task.descr %></li></li></ul>
 
         </ul>
       </li>

@@ -3,7 +3,6 @@ class Page < ActiveRecord::Base
 has_many :projetos
 has_many :clientes
 has_many :tasks
-belongs_to :task
-belongs_to :cliente
+has_many :users 
   # any code here
 end
