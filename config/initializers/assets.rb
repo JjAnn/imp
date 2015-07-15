@@ -5,7 +5,6 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( style.css )
 Rails.application.config.assets.precompile += %w( button.css )
 Rails.application.config.assets.precompile += %w( form.css )
-Rails.application.config.assets.precompile += %w( metro-ui/iconFont.eot )
 Rails.application.config.assets.precompile += %w( metro.css )
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path

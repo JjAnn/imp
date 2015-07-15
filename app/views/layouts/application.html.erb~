@@ -40,8 +40,9 @@
 </ul></li>
 <% end %>
 <li class='last'><%= link_to 'Relatorio', relatoss_path %></li><% if can? :read, @Application %>
-<img src="http://jjan.com.br/logonew.png" width="155px" height="70px" align="right">
+
 <% end %>
+<img src="http://jjan.com.br/logonew.png" width="155px" height="70px" align="right">
           <li><%= link_to 'Sair', log_out_path, method: :delete %></li>
         </ul>
       <% end %>

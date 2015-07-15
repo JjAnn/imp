@@ -8,7 +8,6 @@ gem "cocoon"
 
 gem 'cancancan' 
 
-gem 'metro-ui-rails', '~> 0.15.8.15'
 
 gem 'nested_form'
 
@@ -37,8 +36,7 @@ group :production do
 end
 
 # Use SCSS for stylesheets
-gem 'sass-rails'
-gem 'bootstrap-sass'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier'
 # Use CoffeeScript for .coffee assets and views
