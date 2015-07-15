@@ -10,7 +10,7 @@
 <br>
 
 <p id="notice"><%= notice %></p>
- <%= form_for(@page) do |f| %>
+ <% @clientes.each do |f| %>
 
  <div id="jstree">
     <!-- in this example the tree is populated from inline HTML -->
