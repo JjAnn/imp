@@ -9,7 +9,7 @@ class PagesController < ApplicationController
 
 
  def index
-@pages = Page.new
+@clientes = Cliente.all
 end
 
   def find
