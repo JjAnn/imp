@@ -4,7 +4,5 @@ has_many :projetos
 has_many :clientes
 has_many :tasks
 has_many :users 
-belongs_to :task
-belongs_to :cliente
   # any code here
 end
