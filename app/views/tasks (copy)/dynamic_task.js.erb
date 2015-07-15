@@ -1,0 +1,9 @@
+var projo = new Array(); 
+<% for projo in @projo -%>
+projo.push(new Array(<%= projo.clienteid %>, '<%=h projo.name %>', <%= projo.id %>));
+<% end -%>
+functio clienteSelected() {
+cliente_id = $('projeto_clienteid').getValue();
+options =$('projeto_id
+
+

@@ -1,0 +1,83 @@
+
+
+<%= nested_form_for @cliente do |f| %>
+  <% if @cliente.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
+
+      <ul>
+      <% @cliente.errors.full_messages.each do |message| %>
+
+        <li><%= message %></li>
+
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div id="bodao">
+<body class="bg-darkTeal">
+
+ <div class="cal-form padding20 block-shadow">
+    
+         <span class="m-btn blue-stripe">Cadastro de Cliente</span>
+            <hr class="thin"/>
+            <br />
+            <div class="input-control text full-size" data-role="input">
+                <label for="user_login">Nome Cliente/Fantasia: </label>
+                 <%= f.text_field :name, id: 'user-login', :required => true , placeholder: "Nome do Cliente"%>
+                
+            </div>
+           
+  <br />
+  <br />
+            <div class="input-control text full-size" data-role="input">
+                <label for="user_login">Telefone:</label>  
+                    <%= f.text_field :telefone, id: 'user-login', required: true, placeholder: "Telefone de Contato" %>
+             
+            </div>
+
+  <br />
+  <br />
+
+<div class="input-control text full-size" data-role="input">
+                <label for="user_login">Email:</label>
+                
+ <%= f.text_field :email, id: 'user_login', required: true, placeholder: "Endereço de Email" %>
+             
+            </div>
+  <br />
+
+  <br />
+
+            <br />  
+
+   <%= f.fields_for :locals do |ff| %> 
+
+
+<%= ff.text_field :logra, placeholder: "Logradouro"  %>  
+  <%= ff.text_field :cep, placeholder: "CEP"  %>  
+      <%= ff.text_field :uf, placeholder: "Estado"  %> 
+   <%= ff.text_field :city , placeholder: "Cidade" %> 
+   <%= ff.text_field :km , placeholder: "Distância"%>
+<br />
+<%= ff.link_to_remove "X",class: 'm-btn red icn-only' %>
+
+
+<% end %>
+
+
+ 
+
+ <%= f.link_to_add "Adicionar Local", :locals, class: 'button success' %> <br>
+<br>
+  <div class="actions">
+  <%= f.submit 'Cadastrar', class: 'm-btn blue' %>
+  </div>
+
+  </div>
+
+
+</div>
+
+<% end %>
+

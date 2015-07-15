@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Raiz:</strong>
+  <%= @task.raiz %>
+</p>
+
+<p>
+  <strong>Descr:</strong>
+  <%= @task.descr %>
+</p>
+
+<p>
+  <strong>Hour:</strong>
+  <%= @task.hour %>
+</p>
+
+<p>
+  <strong>Typo:</strong>
+  <%= @task.typo %>
+</p>
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %>

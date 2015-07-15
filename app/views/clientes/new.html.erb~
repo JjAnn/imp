@@ -1,0 +1,8 @@
+
+
+<%= render 'form' %>
+
+<br>
+
+
+<%= link_to 'Back', clientes_path %>

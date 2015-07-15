@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Gerenciamento de Projetos</title>
+  <%= stylesheet_link_tag    'application', media: 'all'%>
+  <%= javascript_include_tag 'application' %>
+  <%= stylesheet_link_tag "style" %>
+  <%= stylesheet_link_tag "button" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<nav>
+  <div>
+    
+    <div id="cssmenu">
+      <ul>
+        <% if current_user %>
+          
+        <% else %>
+        
+          <li><%= link_to 'Entrar', log_in_path %></li>
+        <% end %>
+      </ul>
+      <% if current_user %>
+        <ul>
+<li><span><%= current_user.name %></span></li>
+<% if can? :read, @Application %> 
+<li><%= link_to 'Consultor', sign_up_path %></li>
+<li class='active has-sub'><%= link_to 'Cliente', clienta_path, class: "active has-sub" %>
+<ul>
+<li class="last"><%= link_to 'Local de Atendimento', loca_path %></li>
+</ul>
+</li>
+<li class='active has-sub'><%= link_to 'Projeto', projetopo_path, class: "active has-sub" %>
+<ul>
+<li ><%= link_to 'Atividade', taski_path %></li>
+<li class='last'><%= link_to 'Condicional', condit_path %></li>
+</ul></li>
+<% end %>
+<li class='last'><%= link_to 'Relatorio', relatoss_path %></li><% if can? :read, @Application %>
+
+<% end %>
+<img src="http://jjan.com.br/logonew.png" width="155px" height="70px" align="right">
+          <li><%= link_to 'Sair', log_out_path, method: :delete %></li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>">
+      <%= value %>
+    </div>
+  <% end %>
+
+  <div class="col-sm-9">
+    <%= yield %>
+  </div>
+
+</div>
+
+
+
+</body>
+</html>

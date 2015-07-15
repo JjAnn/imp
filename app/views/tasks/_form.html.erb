@@ -1,0 +1,104 @@
+<%= nested_form_for @task do |f| %>
+  <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% @task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div id="bodao">
+<body class="bg-darkTeal">
+
+ <div class="catask-form padding20 block-shadow">
+<span class="m-btn blue-stripe">Cadastrar Atividades</span>
+            <hr class="thin"/>
+            <br />
+<div class="treeview" data-role="treeview">
+<ul>
+<div class="input-control text full-size" data-role="input">
+<%= f.grouped_collection_select :projeto_id, Cliente.order(:name), :projetos, :name, :id, :name, prompt: "Projeto" %> 
+ </div>
+ <%= f.link_to_add "Adicionar Atividade", :tsk1s, class: 'm-btn blue' %>
+<ul>
+
+  
+
+ <%= f.fields_for :tsk1s do |tsk1| %>
+ 
+<li>
+   <%=  tsk1.number_field :raiz, :placeholder => "Identificador" %> 
+   <%=  tsk1.text_field :descr, :placeholder => "Descrição"  %> 
+   <%=  tsk1.number_field :hour , :placeholder => "Carga Horária" %> 
+   <%= tsk1.select("typo", {"Analitica" => "Analitica", "Sintetica" => "Sintetica"}) %>
+<%= f.link_to_add "Expandir", :tsk2s, class: 'm-btn blue', id: 'taskin2' %>
+<%= tsk1.link_to_remove "X",class: 'm-btn red icn-only' %>
+ 
+</li>
+
+
+
+<% end %>
+
+<ul>
+ <%= f.fields_for :tsk2s do |tsk2| %>
+
+
+
+
+ <li>
+
+ <%=  tsk2.number_field :raiz, :placeholder => "Identificador" %> 
+    <%=  tsk2.text_field :descr, :placeholder => "Descrição" %> 
+   <%=  tsk2.number_field :hour, :placeholder => "Carga Horária" %> 
+ <%= tsk2.select("typo", {"Analitica" => "Analitica", "Sintetica" => "Sintetica"}) %>
+
+ <%= f.link_to_add "Expandir", :tsk3s, class: 'm-btn blue', id: 'taskin1' %>
+<%= tsk2.link_to_remove "X",class: 'm-btn red icn-only' %>
+ </li>
+
+
+ 
+
+<% end %>
+
+<ul>
+  <%= f.fields_for :tsk3s do |tsk3| %>
+
+
+<li>
+   <span class="node-toggle"></span>
+ <%=  tsk3.number_field :raiz, :placeholder => "Identificador" %> 
+    <%=  tsk3.text_field :descr, :placeholder => "Descrição" %> 
+   <%=  tsk3.number_field :hour, :placeholder => "Carga Horária" %> 
+ <%= tsk3.select("typo", {"Analitica" => "Analitica", "Sintetica" => "Sintetica"}) %> 
+ <%= tsk3.link_to_remove "X",class: 'm-btn red icn-only' %>
+</li>
+
+<% end %>
+
+</ul>
+</ul>
+</ul>
+</ul>
+<br>
+</div>
+  <br> <br> <br>
+
+ 
+
+  <div class="actions">
+
+
+
+ 
+  <%= f.submit 'Cadastrar', class: 'm-btn blue' %>
+</div>
+<br>
+</div>
+</div>
+<% end %>

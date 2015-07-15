@@ -1,0 +1,46 @@
+
+  
+<%= form_tag sessions_path, method: :post do %>
+
+<body class="bg-darkTeal">
+    <div class="login-form padding20 block-shadow">
+        <form>
+         
+            <hr class="thin"/>
+            <br />
+            <div class="input-control text full-size" data-role="input">
+                <label for="user_login">Email:</label>
+                
+ <%= email_field_tag :email, nil, id: 'user_login', required: true, placeholder: "Email" %>
+                <button class="button helper-button clear"><span class="mif-cross"></span></button>
+            </div>
+            <br />
+            <br />
+            <div class="input-control password full-size" data-role="input">
+                <label for="user_password">Senha:</label>
+             
+ <%= password_field_tag :password, nil, id: 'user_password', required: true, placeholder: "Senha" %>
+                <button class="button helper-button reveal"><span class="mif-looks"></span></button>
+            </div>
+<div class="form-group">
+    <%= label_tag :remember_me, "Lembrar?" %>
+    <%= check_box_tag :remember_me, class: 'input-control checkbox' %>
+<%= link_to 'Esqueceu sua senha?', new_reset_password_path %>
+  </div>
+            <br />
+            <br />
+            <div class="form-actions">
+                
+ <%= submit_tag 'Entrar', class: 'button primary' %>
+              
+            </div>
+        </form>
+    </div>
+
+
+  
+<% end %>
+
+
+
+</div>

@@ -1,0 +1,90 @@
+
+
+
+<%= form_for(@local) do |f| %>
+  <% if @local.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@local.errors.count, "error") %> prohibited this local from being saved:</h2>
+
+      <ul>
+      <% @local.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+<div id="bodao">
+<body class="bg-darkTeal">
+
+ <div class="cal-form padding20 block-shadow">
+    
+         <span class="m-btn purple-stripe">Cadastrar Local de Atendimento</span>
+            <hr class="thin"/>
+            <br />
+            <div class="input-control text full-size" data-role="input">
+                <label for="user_login">Cliente: </label>
+                 
+  <%= f.collection_select(:cliente_id, Cliente.all, :id, :name, prompt: "Selecionar Cliente", id: 'user-login') %>
+                
+            </div>
+           
+  <br />
+  <br />
+            <div class="input-control text full-size" data-role="input">
+                <label for="user_login">Logradouro:</label>  
+               
+                  <%= f.text_field :logra, id: 'user-login', required: true, placeholder: "Endereço Completo" %>
+            </div>
+
+  <br />
+  <br />
+         <div class="input-control text full-size" data-role="input">
+                <label for="user_login">CEP:</label>      
+                <%= f.text_field :cep, id: 'user-login', required: true, placeholder: "CEP" %>
+            </div>
+
+  <br />
+  <br />
+      <div class="input-control text full-size" data-role="input">
+                <label for="user_login">Estado:</label>      
+                <%= f.text_field :uf, id: 'user-login', required: true, placeholder: "Estado/Região" %>
+            </div>
+
+  <br />
+  <br />
+   <div class="input-control text full-size" data-role="input">
+                <label for="user_login">Cidade:</label>      
+                <%= f.text_field :city, id: 'user-login', required: true, placeholder: "Cidade" %>
+            </div>
+
+  <br />
+  <br />
+   <div class="input-control text full-size" data-role="input">
+                <label for="user_login">Distancia:</label>      
+                <%= f.number_field :km, id: 'user-login', required: true, placeholder: "Distancia em KM" %>
+ <%=  %>
+            </div>
+
+  <br />
+  <br />
+ 
+
+<br>
+  <div class="actions">
+  <%= f.submit 'Cadastrar', class: 'm-btn blue' %>
+  </div>
+
+  </div>
+
+
+</div>
+
+<% end %>
+
+
+
+
+

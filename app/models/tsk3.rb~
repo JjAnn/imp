@@ -1,0 +1,5 @@
+class Tsk3 < ActiveRecord::Base
+belongs_to :tsk2
+belongs_to :task
+accepts_nested_attributes_for :tsk3s, allow_destroy: true
+end

@@ -1,0 +1,65 @@
+<%= stylesheet_link_tag    '/themes/default/style.min.css', media: 'all'%>
+<%= javascript_include_tag '/jstree.min.js' %>
+
+
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cliente:</strong>
+  <%= @projeto.cliente.name %>
+</p>
+
+<p>
+  <strong>Nome do Projeto:</strong>
+  <%= @projeto.name %>
+</p>
+
+<p>
+  <strong>Descrição do Projeto:</strong>
+  <%= @projeto.descr %>
+</p>
+
+<p>
+  <strong>Tipo do Projeto:</strong>
+  <%= @projeto.typo %>
+</p>
+
+<p>
+  <strong>Gerente do Projeto:</strong>
+  <%= @projeto.user.name %>
+</p>
+
+<p>
+  <strong>Data de Inicio:</strong>
+  <%= @projeto.dateini %>
+</p>
+
+<p>
+  <strong>Data de Finalização:</strong>
+  <%= @projeto.datefin %>
+</p>
+<div id="jstree">
+<table id="customers">
+<% @tasks.each do |d| %>
+<tr class="alt">
+<th> Identificador </th>
+<th> Raiz </th>
+<th> Filho </th>
+<th> Tipo da Atividade </th>
+<th> Descrição da Atividade </th>
+</tr>
+<tbody>
+<tr class="alt1">
+<td class="id"><%= d.id %></td>
+<td class="raiz"><%= d.seqpai %></td>
+<td ><%= d.seq %></td>
+<td><%= d.typo %></td>
+<td><%= d.descr %></td>
+</tr>
+<% end %>
+</div>
+
+</p>
+<%= link_to 'Editar', edit_projeto_path(@projeto) %> |
+<%= link_to 'Lista de Projetos', projetos_path %>

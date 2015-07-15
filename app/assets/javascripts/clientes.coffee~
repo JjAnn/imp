@@ -1,0 +1,7 @@
+$(document).ready ->
+  $('#second').hide()
+  $('#third').hide()
+  $('.adicionarc').click ->
+    $('#second').show()
+    return
+  return

@@ -1,0 +1,14 @@
+class SorceryCore < ActiveRecord::Migration
+  def change
+    create_table :pages do |t|
+    t.references :cliente , index: true
+    t.references :projeto , index: true
+    t.references :task , index: true
+    t.references :relato , index: true
+    t.references :user , index: true
+
+      t.timestamps null: false
+    end
+
+  end
+end

@@ -1,0 +1,74 @@
+
+
+<%= nested_form_for @relato do |f| %>
+  <% if @relato.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@relato.errors.count, "error") %> prohibited this relato from being saved:</h2>
+
+      <ul>
+      <% @relato.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div id="bodao">
+<body class="bg-darkTeal">
+
+ <div class="cap-form padding20 block-shadow">
+<span class="m-btn blue-stripe">Elaborar Relatório</span>
+            <hr class="thin"/>
+            <br />
+
+     
+ <div class="input-control text full-size" data-role="input">
+    <label for="user_login">Cliete: </label>
+  <%= f.collection_select :cliente_id, Cliente.order(:name), :id, :name, prompt: "Selecionar", :required => true %>
+  </div>
+<br />
+<br />
+ <div class="input-control text full-size" data-role="input">
+    <label for="user_login">Projeto: </label>
+   <%= f.grouped_collection_select :projeto_id, Cliente.order(:name), :projetos, :name, :id, :name, prompt: "Selecionar" , :required => true%>
+  </div>
+<br />
+<br />
+ <div class="input-control text full-size" data-role="input">
+    <label for="user_login">Local de Atendimento: </label>
+   <%= f.grouped_collection_select :local_id, Cliente.order(:name), :locals, :name, :id, :cep, prompt: "Selecionar", :required => true %>
+  </div>
+<br />
+<br />
+ <div class="input-control text full-size" data-role="input">
+    <label for="user_login">Atividade: </label>
+   <%= f.grouped_collection_select :task_id, Projeto.order(:name), :tasks, :name, :id, :descr, prompt: "Selecionar", :required => true %>
+  </div>
+<br />
+<br />
+ <div class="input-control text full-size" data-role="input">
+    <label for="user_login">Horas Executadas: </label>
+   <%= f.number_field :time, :required => true %>
+  </div>
+<br />
+<br />
+ <div class="input-control text full-size" data-role="input">
+    <label for="user_login">Comentários: </label>
+  <%= f.text_area(:comment, :required => true, :size => 3) %>
+  </div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<div class="actions">
+
+ 
+  <%= f.submit 'Cadastrar', class: 'm-btn blue' %>
+</div>
+<br>
+</div>
+</div>
+<% end %>

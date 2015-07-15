@@ -1,0 +1,25 @@
+var projetos = new Array();
+<% for projeto in @projetos -%>
+  projetos.push(new Array(<%= projeto.cliente_id %>, '<%=h projeto.name %>', <%= projeto.id %>));
+<% end -%>
+
+function clienteSelected() {
+  cliente_id = $('relato_cliente_id').getValue();
+  options = $('relato_projeto_id').options;
+  options.length = 1;
+  projetos.each(function(projeto) {
+    if (projeto[0] == cliente_id) {
+      options[options.length] = new Option(projeto[1], projeto[2]);
+    }
+  });
+  if (options.length == 1) {
+    $('projeto_field').hide();
+  } else {
+    $('projeto_field').show();
+  }
+}
+
+document.observe('dom:loaded', function() {
+  clienteSelected();
+  $('relato_cliente_id').observe('change', clienteSelected);
+});
