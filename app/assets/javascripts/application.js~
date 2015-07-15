@@ -14,7 +14,6 @@
 //= require jquery_nested_form
 //= require jquery_ujs
 //= require jstree
-//= require bootstrap-sprockets
 //= require_tree .
 
 $(document).ready(function() {

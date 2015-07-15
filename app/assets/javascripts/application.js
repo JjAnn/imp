@@ -16,7 +16,10 @@
 //= require jstree
 //= require_tree .
 
+
+
 $(document).ready(function() {
+var j$ = jQuery.noConflict();
 
 $(function(){
             var form = $(".login-form");
