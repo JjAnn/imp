@@ -78,8 +78,6 @@ $(function(){
             });
         });
 
-$("#taskin1")
-    .appendTo("#taskin2");
 
 $(function() {
 
