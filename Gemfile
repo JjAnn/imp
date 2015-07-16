@@ -21,6 +21,7 @@ gem 'validates_email_format_of'
 
 gem 'delayed_job_active_record'
 
+gem 'rails_12factor'
 
 group :development do
   gem 'annotate'
