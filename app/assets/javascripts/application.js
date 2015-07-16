@@ -77,33 +77,5 @@ $(function(){
                 "-webkit-transition": ".5s",
                 "transition": ".5s"
             });
-        });
-
-
-$(function() {
-
-  $(document).on('nested:fieldAdded', function(e) {
-    var link = $(e.currentTarget.activeElement);
-    if (!link.data('limit')) {
-      return;
-    }
-    if (link.siblings('.fields:visible').length >= link.data('limit')) {
-      link.hide();
-    }
-  });
-
-  $(document).on('nested:fieldRemoved', function(e) {
-    var link = $(e.target).siblings('a.add_nested_fields');
-    if (!link.data('limit')) {
-      return;
-    }
-    if (link.siblings('.fields:visible').length < link.data('limit')) {
-      link.show();
-    }
-  });
-
-});
-
-
-   
+        }); 
   });
