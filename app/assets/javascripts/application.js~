@@ -18,7 +18,20 @@
 
 
 
-$(document).ready(function() {
+$(document).ready(function() { 
+
+    $(function(){
+ $(".cal-form").fadeOut()
+});
+
+    $(function(){
+ $(".calo-form").fadeOut()
+});
+
+
+    $(function(){
+ $("#local").fadeOut()
+});
 
 $(function(){
             var form = $(".login-form");
@@ -33,7 +46,7 @@ $(function(){
         });
  
 
-$(function(){
+    $(function(){
             var form = $(".cad-form");
 
             form.css({
@@ -43,12 +56,29 @@ $(function(){
                 "-webkit-transition": ".5s",
                 "transition": ".5s"
             });
-        });
+        }); 
+    $("#fecharcad").click( function() {
+
+$(function()
+{
+    $(".cal-form").fadeOut()
+});
+         });
+
+ $("#fecharcalo").click( function() {
+
+$(function()
+{
+    $(".calo-form").fadeOut()
+});
+         });
+
+$("#add").click( function() {
 
 $(function(){
-            var form = $(".cal-form");
+            var form1 = $(".cal-form");
 
-            form.css({
+            form1.css({
                 opacity: 1,
                 "-webkit-transform": "scale(1)",
                 "transform": "scale(1)",
@@ -56,6 +86,82 @@ $(function(){
                 "transition": ".5s"
             });
         });
+$(function()
+{
+    $(".cal-form").fadeIn()
+});
+
+$(function(){
+$("#add").before($(".cal-form"))});
+
+         });
+
+
+$("#calo").click( function() {  
+
+$(function()
+{
+    $("#cli").fadeOut()
+});
+
+$(function()
+{
+    $("#local").fadeIn()
+});
+      $(function(){
+$("#inserthere").before($("#local"))
+});
+ });
+
+
+
+$("#clientgrid").click( function() {  
+
+$(function()
+{
+    $("#local").fadeOut()
+});
+
+$(function()
+{
+    $("#cli").fadeIn()
+});
+      $(function(){
+$("#inserthere").before($("#cli"))
+});
+
+         
+
+        
+ });
+
+
+
+
+$("#addlocal").click( function() {
+
+$(function(){
+            var form3 = $(".calo-form");
+
+            form3.css({
+                opacity: 1,
+                "-webkit-transform": "scale(1)",
+                "transform": "scale(1)",
+                "-webkit-transition": ".5s",
+                "transition": ".5s"
+            });
+        });
+$(function()
+{
+    $(".calo-form").fadeIn()
+});
+
+$(function(){
+$("#addlocal").before($(".calo-form"))});
+
+         });
+
+
 $(function(){
             var form = $(".cap-form");
 
@@ -77,33 +183,34 @@ $(function(){
                 "-webkit-transition": ".5s",
                 "transition": ".5s"
             });
+        }); 
+
+$(function(){
+            $(window).on('resize', function(){
+                if ($(this).width() <= 800) {
+                    $(".sidebar").addClass('compact');
+                } else {
+                    $(".sidebar").removeClass('compact');
+                }
+            });
         });
 
+        function pushMessage(t){
+            var mes = 'Info|Implement independently';
+            $.Notify({
+                caption: mes.split("|")[0],
+                content: mes.split("|")[1],
+                type: t
+            });
+        }
 
-$(function() {
+        $(function(){
+            $('.sidebar').on('click', 'li', function(){
+                if (!$(this).hasClass('active')) {
+                    $('.sidebar li').removeClass('active');
+                    $(this).addClass('active');
+                }
+            });
+        });
 
-  $(document).on('nested:fieldAdded', function(e) {
-    var link = $(e.currentTarget.activeElement);
-    if (!link.data('limit')) {
-      return;
-    }
-    if (link.siblings('.fields:visible').length >= link.data('limit')) {
-      link.hide();
-    }
-  });
-
-  $(document).on('nested:fieldRemoved', function(e) {
-    var link = $(e.target).siblings('a.add_nested_fields');
-    if (!link.data('limit')) {
-      return;
-    }
-    if (link.siblings('.fields:visible').length < link.data('limit')) {
-      link.show();
-    }
-  });
-
-});
-
-
-   
   });

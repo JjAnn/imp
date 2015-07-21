@@ -19,6 +19,7 @@ class RelatosController < ApplicationController
   # GET /relatos/new
   def new
     @relato = Relato.new
+  @relatos = Relato.all
   end
 
   # GET /relatos/1/edit
@@ -32,7 +33,7 @@ class RelatosController < ApplicationController
 
     respond_to do |format|
       if @relato.save
-        format.html { redirect_to '/atividades', notice: 'Relato was successfully created.' }
+        format.html { redirect_to '/relatorio', notice: 'Relato was successfully created.' }
         format.json { render :new, status: :created, location: @relato }
       else
         format.html { render :new }

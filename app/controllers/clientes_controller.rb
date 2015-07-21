@@ -18,6 +18,10 @@ class ClientesController < ApplicationController
   def new
 
  @cliente = Cliente.new
+ @clientes = Cliente.all
+ @local = Local.new
+ @locals = Local.all
+
 
 end
   # GET /clientes/1/edit
@@ -27,17 +31,33 @@ end
   # POST /clientes
   # POST /clientes.json
   def create
+
+ if params[:commit] == 'Cadastrar' 
     @cliente = Cliente.new(cliente_params)
 
     respond_to do |format|
       if @cliente.save
-        format.html { redirect_to loca_path, notice: 'Cliente cadastrado com sucesso! Por gentileza, Adicioar o Local de Atendimento' }
+        format.html { redirect_to @cliente, notice: 'Cliente cadastrado com sucesso!' }
         format.json { render :show, status: :created, location: @cliente }
       else
         format.html { render :new }
         format.json { render json: @cliente.errors, status: :unprocessable_entity }
       end
     end
+ elsif params[:commit] == 'Adicionar'
+
+  @local = Local.new(local_params)
+
+    respond_to do |format|
+      if @local.save
+        format.html { redirect_to projete_path, notice: 'Local adicionado com sucesso! Agora adicione um novo Projeto!' }
+        format.json { render :show, status: :created, location: @local }
+      else
+        format.html { render :new }
+        format.json { render json: @local.errors, status: :unprocessable_entity }
+      end
+    end
+end
   end
 
   # PATCH/PUT /clientes/1
@@ -73,6 +93,10 @@ end
     # Never trust parameters from the scary internet, only allow the white list through.
     def cliente_params
       params.require(:cliente).permit(:name, :telefone, :celular, :email, :locals_attributes => [:logra, :cep, :uf, :city, :km, :_destroy])
+    end
+
+ def local_params
+      params.require(:local).permit(:cliente_id, :logra, :cep, :uf, :city, :km)
     end
 
 end

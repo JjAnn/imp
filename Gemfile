@@ -21,7 +21,6 @@ gem 'validates_email_format_of'
 
 gem 'delayed_job_active_record'
 
-gem 'rails_12factor'
 
 group :development do
   gem 'annotate'
@@ -57,7 +56,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'sorcery'
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+ gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

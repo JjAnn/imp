@@ -4,6 +4,7 @@ has_many :projetos
 belongs_to :projeto
 has_many :relatos
 has_many :locals
+belongs_to :local
 has_many :tasks, :through => :projetos
 belongs_to :task
 has_many :pages

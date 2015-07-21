@@ -1,3 +1,3 @@
 module ClientesHelper
-
+helper_method :count
 end

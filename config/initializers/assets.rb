@@ -6,6 +6,9 @@ Rails.application.config.assets.precompile += %w( style.css )
 Rails.application.config.assets.precompile += %w( button.css )
 Rails.application.config.assets.precompile += %w( form.css )
 Rails.application.config.assets.precompile += %w( metro.css )
+Rails.application.config.assets.precompile += %w( metro.js )
+Rails.application.config.assets.precompile += %w( jquery.dataTables.js )
+Rails.application.config.assets.precompile += %w( metro-icons.css )
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
 

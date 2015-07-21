@@ -1,6 +1,7 @@
+<%= javascript_include_tag 'jquery.dataTables.min' %>
 
 
-<%= nested_form_for @relato do |f| %>
+<!-- Inicio do relatorio de erros --> 
   <% if @relato.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@relato.errors.count, "error") %> prohibited this relato from being saved:</h2>
@@ -13,17 +14,105 @@
     </div>
   <% end %>
 
-<div id="bodao">
-<body class="bg-darkTeal">
+  <!-- Fim do relatorio de erros --> 
 
- <div class="cap-form padding20 block-shadow">
-<span class="m-btn blue-stripe">Elaborar Relatório</span>
+
+  <!-- Inicio barra lateral -->
+<div class="page-content">
+        <div class="flex-grid no-responsive-future" style="height: 100%;">
+            <div class="row" style="height: 100%">
+                <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
+                    <ul class="sidebar">
+                        <li id="relatogrid" class="active" ><a>
+                            <span class="mif-apps icon"></span>
+                            <span class="title">Listar Relatórios</span>
+                            
+                        </a></li>
+                       
+                 
+                    </ul>
+                </div>
+
+ <!-- Fim de Barra Lateral -->
+
+
+ <!-- Conteudo da Página -->
+<div id="relatoinsert"> </div>
+  <div class="cell auto-size padding20 bg-white" id="relatogeral">
+                    <h1 class="text-light"> Painel de Relatórios </h1>
+                    <hr class="thin bg-grayLighter">
+                    <br />
+                    <br />
+                    <br /> 
+                    <button class="button primary" id="addrel" ><span class="mif-plus"></span> Novo Relatório</button>
+         
+                    <hr class="thin bg-grayLighter" > 
+
+                   
+                    <table class="dataTable border bordered" data-role="datatable" data-auto-width="false">
+
+                        <thead>
+                        <tr>
+                            
+                            <td class="sortable-column sort-asc" style="width: 100px">ID</td>
+                       <td class="sortable-column" style="width: 45px">Cliente:</td>
+                           
+                            <td class="sortable-column" style="width: 45px">Projeto:</td>
+                            <td style="width: 45px">Local:</td>
+                                 <td style="width: 45px">Atividade:</td>
+                                  <td style="width: 45px">Tempo:</td>
+                                   <td style="width: 45px">Observação:</td>
+                                    <td style="width: 45px">Conclusão:</td>
+                                        <td style="width: 45px">Usúario:</td>
+                                        <td style="width: 5px">Ações:</td>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                           <% @relatos.each do |relato| %>
+                           
+                        <tr>
+                           
+                            <td><%= relato.id %></td>
+                            <td><%= relato.cliente.name %></td>
+ <td><%= relato.projeto.name %></td>
+ <td><%= relato.local.logra %></td>
+  <td><%= relato.task_id %></td>
+    <td><%= relato.time %></td>
+      <td><%= relato.comment %></td>
+        <td><%= relato.isdoe %></td>
+        <td><%= relato.user %></td>
+           <td> <%= link_to 'Alterar', edit_relato_path(relato) , class: 'm-btn green icn-only' %> <%= link_to 'Excluir', relato, method: :delete, data: { confirm: 'Are you sure?' }, class: 'm-btn red icn-only'  %>  </td>
+                            
+                          
+                           
+                        </tr>
+                        
+                        <% end %>
+                        </tbody>
+                    </table>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+ <!-- FIm Conteudo da Página -->
+
+
+
+<!-- Inicio do cadastro de relatórios --> 
+ <div class="carl-form padding20 block-shadow" id="cadrelato">
+<span class="m-btn blue-stripe">Elaborar Relatório</span> <button style="float: right;" id="fecharrel" class="button alert" onclick="pushMessage('alert')">Cancelar</button>
+            <hr class="thin"/>
             <hr class="thin"/>
             <br />
 
+<%= nested_form_for @relato do |f| %>
      
  <div class="input-control text full-size" data-role="input">
-    <label for="user_login">Cliete: </label>
+    <label for="user_login">Cliente: </label>
   <%= f.collection_select :cliente_id, Cliente.order(:name), :id, :name, prompt: "Selecionar", :required => true %>
   </div>
 <br />
@@ -56,6 +145,7 @@
     <label for="user_login">Comentários: </label>
   <%= f.text_area(:comment, :required => true, :size => 3) %>
   </div>
+   <%= f.hidden_field(:user, :value => params[:user]) %>
 <br />
 <br />
 <br />
@@ -69,6 +159,7 @@
   <%= f.submit 'Cadastrar', class: 'm-btn blue' %>
 </div>
 <br>
-</div>
-</div>
 <% end %>
+</div>
+</div>
+

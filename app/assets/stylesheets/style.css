@@ -1,181 +1,4 @@
 @import url(http://fonts.googleapis.com/css?family=Oxygen+Mono);
-/* Starter CSS for Menu */
-#cssmenu {
-  padding: 0;
-  margin: 0;
-  border: 0;
-  width: auto;
-}
-#cssmenu ul,
-#cssmenu li {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-#cssmenu ul {
-  position: relative;
-  z-index: 597;
-}
-#cssmenu ul li {
-  float: left;
-  min-height: 1px;
-  vertical-align: middle;
-}
-#cssmenu ul li.hover,
-#cssmenu ul li:hover {
-  position: relative;
-  z-index: 599;
-  cursor: default;
-}
-#cssmenu ul ul {
-  visibility: hidden;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 598;
-  width: 100%;
-}
-#cssmenu ul ul li {
-  float: none;
-}
-#cssmenu ul ul ul {
-  top: 0;
-  left: 190px;
-  width: 190px;
-}
-#cssmenu ul li:hover > ul {
-  visibility: visible;
-}
-#cssmenu ul ul {
-  bottom: 0;
-  left: 0;
-}
-#cssmenu ul ul {
-  margin-top: 0;
-}
-#cssmenu ul ul li {
-  font-weight: normal;
-}
-#cssmenu a {
-  display: block;
-  line-height: 1em;
-  text-decoration: none;
-}
-/* Custom CSS Styles */
-#cssmenu {
-  background: #333333;
-  border-bottom: 4px solid #1b9bff;
-  font-family: 'Oxygen Mono', Tahoma, Arial, sans-serif;
-  font-size: 12px;
-}
-#cssmenu > ul {
-  *display: inline-block;
-}
-#cssmenu:after,
-#cssmenu ul:after {
-  content: '';
-  display: block;
-  clear: both;
-}
-#cssmenu ul {
-  text-transform: uppercase;
-}
-#cssmenu ul ul {
-  border-top: 4px solid #1b9bff;
-  text-transform: none;
-  min-width: 190px;
-}
-#cssmenu ul ul a {
-  background: #1b9bff;
-  color: #ffffff;
-  border: 1px solid #0082e7;
-  border-top: 0 none;
-  line-height: 150%;
-  padding: 16px 20px;
-  font-size: 12px;
-}
-#cssmenu ul ul ul {
-  border-top: 0 none;
-}
-#cssmenu ul ul li {
-  position: relative;
-}
-#cssmenu ul ul li:first-child > a {
-  border-top: 1px solid #0082e7;
-}
-#cssmenu ul ul li:hover > a {
-  background: #4eb1ff;
-  color: #ffffff;
-}
-#cssmenu ul ul li:last-child > a {
-  -moz-border-radius: 0 0 3px 3px;
-  -webkit-border-radius: 0 0 3px 3px;
-  border-radius: 0 0 3px 3px;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  -moz-box-shadow: 0 1px 0 #1b9bff;
-  -webkit-box-shadow: 0 1px 0 #1b9bff;
-  box-shadow: 0 1px 0 #1b9bff;
-}
-#cssmenu ul ul li:last-child:hover > a {
-  -moz-border-radius: 0 0 0 3px;
-  -webkit-border-radius: 0 0 0 3px;
-  border-radius: 0 0 0 3px;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-}
-#cssmenu ul ul li.has-sub > a:after {
-  content: '+';
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  margin-top: -8px;
-}
-#cssmenu ul li:hover > a,
-#cssmenu ul li.active > a {
-  background: #1b9bff;
-  color: #ffffff;
-}
-#cssmenu ul li.has-sub > a:after {
-  content: '+';
-  margin-left: 5px;
-}
-#cssmenu ul li.last ul {
-  left: auto;
-  right: 0;
-}
-#cssmenu ul li.last ul ul {
-  left: auto;
-  right: 99.5%;
-}
-#cssmenu a {
-  background: #333333;
-  color: #CBCBCB;
-  padding: 0 20px;
-}
-#cssmenu > ul > li > a {
-  line-height: 48px;
-  font-size: 12px;
-}
-
-#usuario { width: 100%;
- position: absolute;
-top: 100px;
-left: 100px;
-border: 1px solid #0082e7;}
-
-#usuario1 { width: 100%;
- position: absolute;
-top: 30%;
-left: 30%;
-}
-
-.campo { border: 1px solid #0082e7;}
-
-h1 { position: absolute; left: 300px; }
-.in { position: absolute; left: 40%; top: 70px;}
 
 .login-form {
             width: 25rem;
@@ -208,11 +31,11 @@ h1 { position: absolute; left: 300px; }
 
 .cal-form {
             width: 40rem;
-            height: 33.75rem;
+            height: 29.75rem;
             position: relative;
-            top:  50%;
-            margin-top: 3.375rem;
-            left: 40%;
+            top:  -1%;
+            margin-top: 0.375rem;
+            left: 30%;
             margin-left: -12.5rem;
             background-color: #ffffff;
             opacity: 0;
@@ -222,11 +45,26 @@ h1 { position: absolute; left: 300px; }
         }
 .cap-form {
             width: 40rem;
-            height: 37.75rem;
+            height: 39.75rem;
             position: relative;
-            top:  50%;
-            margin-top: 3.375rem;
-            left: 40%;
+            top:  -1%;
+            margin-top: 0.375rem;
+            left: 30%;
+            margin-left: -12.5rem;
+            background-color: #ffffff;
+            opacity: 0;
+            -webkit-transform: scale(.8);
+            transform: scale(.8);
+            overflow: visible;
+        }
+
+        .carl-form {
+            width: 40rem;
+            height: 35.75rem;
+            position: relative;
+            top:  -1%;
+            margin-top: 0.375rem;
+            left: 30%;
             margin-left: -12.5rem;
             background-color: #ffffff;
             opacity: 0;
@@ -235,12 +73,11 @@ h1 { position: absolute; left: 300px; }
             overflow: visible;
         }
 .catask-form {
-            width: 62rem;
-            height: 60.75rem;
+            width: 60rem;
+            height: 45.75rem;
             position: relative;
-            top:  50%;
-          
-            margin-top: 3.375rem;
+            top:  -1%;
+            margin-top: 0.375rem;
             left: 20%;
             margin-left: -12.5rem;
             background-color: #ffffff;
@@ -250,11 +87,58 @@ h1 { position: absolute; left: 300px; }
             overflow: visible;
         }
 
-#bodao {width: 100%;
-height:100%;
-overflow: visible;}
+.calo-form {
+           width: 40rem;
+            height: 32.75rem;
+            position: relative;
+            top:  -1%;
+            margin-top: 0.375rem;
+            left: 30%;
+            margin-left: -12.5rem;
+            background-color: #ffffff;
+            opacity: 0;
+            -webkit-transform: scale(.8);
+            transform: scale(.8);
+            overflow: visible;
+        }
 
-.col-sm-9 { overflow: visible;}
+.cac-form {
+           width: 40rem;
+            height: 35.75rem;
+            position: relative;
+            top:  -1%;
+            margin-top: 0.375rem;
+            left: 30%;
+            margin-left: -12.5rem;
+            background-color: #ffffff;
+            opacity: 0;
+            -webkit-transform: scale(.8);
+            transform: scale(.8);
+            overflow: visible;
+        }
 
-#body {overflow: visible;}
 
+html, body {
+            height: 100%;
+        }
+        .page-content {
+            padding-top: 3.125rem;
+position: left;
+            min-height: 100%;
+            height: 100%;
+        }
+        .table .input-control.checkbox {
+            line-height: 1;
+            min-height: 0;
+            height: auto;
+        }
+
+        @media screen and (max-width: 800px){
+            #cell-sidebar {
+                flex-basis: 52px;
+            }
+        }
+
+#butao { float: right;}
+
+#butao1 { float: right;}

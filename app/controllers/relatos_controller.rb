@@ -19,6 +19,7 @@ class RelatosController < ApplicationController
   # GET /relatos/new
   def new
     @relato = Relato.new
+  @relatos = Relato.all
   end
 
   # GET /relatos/1/edit
@@ -73,6 +74,6 @@ class RelatosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def relato_params
-      params.require(:relato).permit(:cliente_id, :projeto_id, :local_id, :task_id, :time, :comment, :isdoe)
+      params.require(:relato).permit(:cliente_id, :projeto_id, :local_id, :task_id, :time, :comment, :isdoe, :user)
     end
 end

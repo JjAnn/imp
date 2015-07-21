@@ -1,4 +1,4 @@
-<%= nested_form_for @task do |f| %>
+
   <% if @task.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
@@ -18,6 +18,7 @@
 <span class="m-btn blue-stripe">Cadastrar Atividades</span>
             <hr class="thin"/>
             <br />
+            <%= nested_form_for @task do |f| %>
 <div class="treeview" data-role="treeview">
 <ul>
 <div class="input-control text full-size" data-role="input">
@@ -37,6 +38,7 @@
    <%= tsk1.select("typo", {"Analitica" => "Analitica", "Sintetica" => "Sintetica"}) %>
 <%= f.link_to_add "Expandir", :tsk2s, class: 'm-btn blue', id: 'taskin2' %>
 <%= tsk1.link_to_remove "X",class: 'm-btn red icn-only' %>
+    <%= tsk1.hidden_field(:task_id , :value => params[:task_id]) %>
  
 </li>
 
@@ -59,6 +61,7 @@
 
  <%= f.link_to_add "Expandir", :tsk3s, class: 'm-btn blue', id: 'taskin1' %>
 <%= tsk2.link_to_remove "X",class: 'm-btn red icn-only' %>
+    <%= tsk2.hidden_field(:task_id, :value => params[:task_id]) %>
  </li>
 
 
@@ -77,6 +80,7 @@
    <%=  tsk3.number_field :hour, :placeholder => "Carga Horária" %> 
  <%= tsk3.select("typo", {"Analitica" => "Analitica", "Sintetica" => "Sintetica"}) %> 
  <%= tsk3.link_to_remove "X",class: 'm-btn red icn-only' %>
+     <%= tsk3.hidden_field(:task_id, :value => params[:task_id]) %>
 </li>
 
 <% end %>
@@ -98,7 +102,7 @@
  
   <%= f.submit 'Cadastrar', class: 'm-btn blue' %>
 </div>
-<br>
+<br><% end %>
 </div>
 </div>
-<% end %>
+

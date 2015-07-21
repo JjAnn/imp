@@ -6,10 +6,10 @@ class SessionsController < ApplicationController
 
   def create
     if login(params[:email], params[:password], params[:remember_me])
-      flash[:success] = 'Welcome back!'
+      flash[:success] = 'Bem-Vindo!'
       redirect_back_or_to sign_up_path
     else
-      flash.now[:warning] = 'E-mail and/or password is incorrect.'
+      flash.now[:warning] = 'E-mail/Senha Incorretos!'
       render 'new'
     end
   end

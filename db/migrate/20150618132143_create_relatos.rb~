@@ -8,7 +8,7 @@ class CreateRelatos < ActiveRecord::Migration
       t.integer :time
       t.string :comment
       t.boolean :isdoe
-      t.references :user, index: true
+      t.references :user 
 
       t.timestamps null: false
     end

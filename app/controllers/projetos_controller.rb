@@ -16,6 +16,11 @@ class ProjetosController < ApplicationController
   # GET /projetos/new
   def new
     @projeto = Projeto.new
+     @projetos = Projeto.all
+      @conditional = Conditional.new
+ @conditionals = Conditional.all
+@tasks = Task.all
+@task = Task.new
   end
 
   # GET /projetos/1/edit
@@ -36,6 +41,7 @@ class ProjetosController < ApplicationController
         format.json { render json: @projeto.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # PATCH/PUT /projetos/1
@@ -72,4 +78,5 @@ class ProjetosController < ApplicationController
     def projeto_params
       params.require(:projeto).permit(:cliente_id, :name, :descr, :typo, :user_id, :dateini, :datefin, :status)
     end
+
 end
