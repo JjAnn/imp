@@ -19,8 +19,7 @@ class ProjetosController < ApplicationController
      @projetos = Projeto.all
       @conditional = Conditional.new
  @conditionals = Conditional.all
-@tasks = Task.all
-@task = Task.new
+
 
   end
 

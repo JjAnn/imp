@@ -21,7 +21,7 @@ class ProjetosController < ApplicationController
  @conditionals = Conditional.all
 @tasks = Task.all
 @task = Task.new
-  @projeto1 = Projeto.find(params[:id])
+
   end
 
   # GET /projetos/1/edit

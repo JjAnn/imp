@@ -25,11 +25,7 @@
                             <span class="title">Projetos</span>
                             
                         </a></li>
-                        <li id="showtask"><a>
-                            <span class="mif-vpn-publ icon"></span>
-                            <span class="title">Atividades</span>
-                            
-                        </a></li>
+                      
                         <li id="showcoc"><a>
                             <span class="mif-database icon"></span>
                             <span class="title">Condicionais</span>
@@ -302,52 +298,6 @@
 
 <!-- Inicio do Task Geral --> 
 
-<div class="cell auto-size padding20 bg-white"  id="taskgeral" >
-                    <h1 class="text-light"> Painel de Atividades</h1>
-                    <hr class="thin bg-grayLighter">
-                    <br />
-                    <br />
-                    <br /> 
-                    <button class="button primary" id="addtask" ><span class="mif-plus"></span> Nova Atividade </button>
-         
-                    <hr class="thin bg-grayLighter" > 
-
-                   
-                   <div id="taskgeral1" >
-                    <table class="dataTable border bordered" data-role="datatable" data-auto-width="false">
-
-                        <thead>
-                        <tr>
-                           
-                            <td class="sortable-column sort-asc" style="width: 100px">ID</td>
-                             <td class="sortable-column" style="width: 45px">Cliente:</td>
-                              <td class="sortable-column" style="width: 70px">Atividade Pai:</td>
-                            
-
-                        </tr>
-                        </thead>
-
-                        <tbody>
-                           <% @tasks.each do |task| %>
-                           
-                        <tr>
-                        
-                                            <td><%= task.id %></td>
-                                              <td><%= task.projeto_id %></td>
-                           <td><%= task.parent_id %></td>
-                      
-      
-                          
-                       </tr>
-                        
-                        <% end %>
-                        </tbody>
-                    </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
 <!--  Fim do Conteudo MAIN -->
