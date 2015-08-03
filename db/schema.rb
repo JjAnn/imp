@@ -65,18 +65,6 @@ ActiveRecord::Schema.define(version: 20150729162741) do
 
   add_index "locals", ["cliente_id"], name: "index_locals_on_cliente_id"
 
-  create_table "pages", force: :cascade do |t|
-    t.integer "cliente_id"
-    t.integer "task_id"
-    t.integer "user_id"
-    t.integer "projeto_id"
-  end
-
-  add_index "pages", ["cliente_id"], name: "index_pages_on_cliente_id"
-  add_index "pages", ["projeto_id"], name: "index_pages_on_projeto_id"
-  add_index "pages", ["task_id"], name: "index_pages_on_task_id"
-  add_index "pages", ["user_id"], name: "index_pages_on_user_id"
-
   create_table "projetos", force: :cascade do |t|
     t.integer  "cliente_id"
     t.string   "name"
