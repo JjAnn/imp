@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+<<<<<<< HEAD
    @users = User.all
  @user1 = Relato.where(user_id: User.all)
 
@@ -14,6 +15,11 @@ def edit
     @user = User.new
 end
 
+=======
+
+  end
+
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
   def create
     @user = User.new(user_params)
     if @user.save
@@ -36,6 +42,7 @@ end
     end
   end
 
+<<<<<<< HEAD
  def update
 @user = User.new
 
@@ -66,6 +73,9 @@ end
       @user = User.find(params[:id])
     end
 
+=======
+  private
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
 
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation, :name, :celular, :role)

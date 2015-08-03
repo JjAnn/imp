@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 <%= javascript_include_tag 'jquery.dataTables.min' %>
 
 
 <!-- Inicio do relatorio de erros --> 
+=======
+
+
+<%= form_for(@relato) do |f| %>
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
   <% if @relato.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@relato.errors.count, "error") %> prohibited this relato from being saved:</h2>
@@ -14,6 +20,7 @@
     </div>
   <% end %>
 
+<<<<<<< HEAD
   <!-- Fim do relatorio de erros --> 
 
 
@@ -227,3 +234,43 @@
 </div>
 </div>
 
+=======
+<table>
+  <thead>
+    <tr>
+      <th><%= f.label :cliente_id,"Cliente" %></th>
+      <th>  <%= f.label :projeto_id, "Projeto do Cliente" %></th>
+      <th>  <%= f.label :local_id, "Local de Atendimento" %></th>
+      <th>  <%= f.label :task_id, "Atividade Exercida" %></th>
+      <th> <%= f.label :time, "Horas Executadas" %></th>
+      <th>  <%= f.label :comment, "Comentários sobre Atividade" %></th>
+  <th>   <%= f.label :isdoe, "Atividade Finalizada?" %></th>
+     
+    </tr>
+  </thead>
+
+<tbody class="tabela">
+      <tr class="linha">
+        <td><%= f.collection_select :cliente_id, Cliente.order(:name), :id, :name, prompt: "Selecionar", :required => true %></td>
+        <td> <%= f.grouped_collection_select :projeto_id, Cliente.order(:name), :projetos, :name, :id, :name, prompt: "Selecionar" , :required => true%></td>
+        <td> <%= f.grouped_collection_select :local_id, Cliente.order(:name), :locals, :name, :id, :cep, prompt: "Selecionar", :required => true %></td>
+        <td>    <%= f.grouped_collection_select :task_id, Projeto.order(:name), :tasks, :name, :id, :descr, prompt: "Selecionar", :required => true %></td>
+        <td> <%= f.number_field :time, :required => true %></td>
+<td>    <%= f.text_field :comment, :required => true %></td>
+        <td>    <%= f.check_box :isdoe %></td>
+     
+<td><%= f.button 'Remover', type: 'button', class: 'remover' %></td>
+  
+      </tr>
+ 
+  </tbody>
+</table>
+
+<div class="actions">
+
+   <%= f.button 'Adicionar', type: 'button', class: 'adicionar' %>
+  <%= f.submit 'Enviar', class: 'btn btn-primary btn-lg' %>
+</div>
+<br>
+<% end %>
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289

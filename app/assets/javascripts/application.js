@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_nested_form
 //= require jquery_ujs
+<<<<<<< HEAD
 //= require jquery.purr
 //= require best_in_place
 //= require jstree
@@ -626,3 +627,8 @@ $(function(){
         });
 
   });
+=======
+//= require jstree
+//= require_tree .
+
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289

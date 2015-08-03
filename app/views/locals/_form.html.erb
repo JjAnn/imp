@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
 <%= form_for(@local) do |f| %>
   <% if @local.errors.any? %>
     <div id="error_explanation">
@@ -14,6 +17,7 @@
     </div>
   <% end %>
 
+<<<<<<< HEAD
 
 
 <div id="bodao">
@@ -87,3 +91,33 @@
 
 
 
+=======
+  <div class="field">
+    <%= f.label :cliente_id, "Cliente" %><br>
+    <%= f.collection_select(:cliente_id, Cliente.all, :id, :name, prompt: "Selecionar") %>
+  </div>
+  <div class="field">
+    <%= f.label :logra, "Logradouro/Endereço" %><br>
+    <%= f.text_field :logra %>
+  </div>
+  <div class="field">
+    <%= f.label :cep, "CEP" %><br>
+    <%= f.text_field :cep %>
+  </div>
+  <div class="field">
+    <%= f.label :uf, "Estado" %><br>
+    <%= f.text_field :uf %>
+  </div>
+  <div class="field">
+    <%= f.label :city, "Cidade" %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :km, "Distância em KM" %><br>
+    <%= f.number_field :km %>
+  </div>
+  <div class="actions">
+<%= f.submit 'Enviar', class: 'btn btn-primary btn-lg' %>
+  </div>
+<% end %>
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289

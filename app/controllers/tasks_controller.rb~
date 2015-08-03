@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+<<<<<<< HEAD
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   # GET /tasks
@@ -11,15 +12,40 @@ class TasksController < ApplicationController
   # GET /tasks/1.json
   def show
    @tasks = Tasks.find_by_id(params[:id]).self_and_descendants
+=======
+
+  before_action :set_task, only: [:show, :edit, :update, :destroy]
+
+  
+
+  def manage
+    @tasks = Task.nested_set.select('id, title, content, parent_id').all
+  end
+  # GET /tasks
+  # GET /tasks.json
+  def index
+    @tasks = Task.all
+
+  end
+
+
+  # GET /tasks/1
+  # GET /tasks/1.json
+  def show
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
   end
 
   # GET /tasks/new
   def new
+<<<<<<< HEAD
    
 @tasks = Task.all
 @task = Task.new
 @projeto = Task.where(project_id: @project.id).self_and_descendants
 
+=======
+    @task = Task.new
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
 
 
   end
@@ -31,11 +57,20 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
+<<<<<<< HEAD
 @task = Task.new(task_params)
 
   respond_to do |format|
       if @task.save
         format.html { redirect_to projetopo_path, notice: 'Task was successfully created.' }
+=======
+    @task = Task.new(task_params)
+
+    respond_to do |format|
+      if @task.save
+        format.html { redirect_to @tasks, notice: 'Task was successfully created.' }
+        format.js {}
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
         format.json { render :show, status: :created, location: @task }
       else
         format.html { render :new }
@@ -49,7 +84,11 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
+<<<<<<< HEAD
         format.html { redirect_to @task, notice: 'Task was successfully updated.' }
+=======
+        format.html { redirect_to tasks_url, notice: 'Task was successfully updated.' }
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
         format.json { render :show, status: :ok, location: @task }
       else
         format.html { render :edit }
@@ -75,8 +114,14 @@ class TasksController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
+<<<<<<< HEAD
 def task_params
   params.require(:task).permit( :projeto_id, :raiz, :descr, :tempo, :typo,
   :parent_id)
 end
+=======
+    def task_params
+      params.require(:task).permit(:seq, :seqpai, :descr, :typo, :hour, :projeto_id)
+    end
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
 end

@@ -5,6 +5,7 @@
   <title>Gerenciamento de Projetos</title>
   <%= stylesheet_link_tag    'application', media: 'all'%>
   <%= javascript_include_tag 'application' %>
+<<<<<<< HEAD
   <%= javascript_include_tag 'metro' %>
   <%= stylesheet_link_tag "style" %>
   <%= stylesheet_link_tag "button" %>
@@ -41,19 +42,71 @@
     <!-- Fim do Header -->
 
 <div>
+=======
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to 'Entrar', root_path, class: 'navbar-brand' %>
+    </div>
+    <div id="navbar">
+      <ul class="nav navbar-nav">
+        <% if current_user %>
+          
+        <% else %>
+        
+          <li><%= link_to 'Entrar', log_in_path %></li>
+        <% end %>
+      </ul>
+      <% if current_user %>
+        <ul class="nav navbar-nav pull-right">
+          <li><span><%= current_user.name %></span></li>
+<% if can? :read, @Application %> 
+     <li><%= link_to 'Consultor', sign_up_path %></li>
+<li><%= link_to 'Cliente', clienta_path %></li>
+<li><%= link_to 'Projeto', projete_path %></li>
+<li><%= link_to 'Atividade', taski_path %></li>
+<% end %>
+<li><%= link_to 'Relatorio', relatoss_path %></li><% if can? :read, @Application %>
+<li><%= link_to 'Local de Atendimento', loca_path %></li>
+<li><%= link_to 'Condicional', condit_path %></li><% end %>
+          <li><%= link_to 'Sair', log_out_path, method: :delete %></li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
   <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>">
       <%= value %>
     </div>
   <% end %>
 
+<<<<<<< HEAD
   <div >
+=======
+  <div class="col-sm-9">
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
     <%= yield %>
   </div>
 
 </div>
 
+<<<<<<< HEAD
 
+=======
+<div id="footer">
+  <div class="container">
+    <p class="text-muted">Sistema desenvolvido por InfinIT</p>
+  </div>
+</div>
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
 
 </body>
 </html>

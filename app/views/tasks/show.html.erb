@@ -1,8 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+<<<<<<< HEAD
   <strong>Raiz:</strong>
   <%= @task.raiz %>
+=======
+
+
+<p>
+  <strong>Seq:</strong>
+  <%= @task.seq %>
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
 </p>
 
 <p>
@@ -11,6 +19,7 @@
 </p>
 
 <p>
+<<<<<<< HEAD
   <strong>Hour:</strong>
   <%= @task.hour %>
 </p>
@@ -22,3 +31,26 @@
 
 <%= link_to 'Edit', edit_task_path(@task) %> |
 <%= link_to 'Back', tasks_path %>
+=======
+  <strong>Seqpai:</strong>
+  <%= @task.seqpai %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @task.typo %>
+</p>
+
+<p>
+  <strong>Hour:</strong>
+  <%= @task.hour %>
+</p>
+
+<p>
+  <strong>Projeto:</strong>
+  <%= @task.projeto.name %>
+</p>
+<%= link_to 'Nova Atividade', new_task_path %> | 
+<%= link_to 'Editar', edit_task_path(@task) %> |
+<%= link_to 'Lista de Atividades', tasks_path %>
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289

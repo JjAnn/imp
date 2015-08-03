@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 <%= stylesheet_link_tag    '/themes/default/style.min.css', media: 'all'%>
 <%= javascript_include_tag '/jstree.min.js' %>
 
 
 
+=======
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -39,6 +42,7 @@
   <strong>Data de Finalização:</strong>
   <%= @projeto.datefin %>
 </p>
+<<<<<<< HEAD
 <div id="jstree">
 <table id="customers">
 <% @tasks.each do |d| %>
@@ -61,5 +65,20 @@
 </div>
 
 </p>
+=======
+
+<p>
+  <strong>Andamento:</strong>
+  <%= @projeto.status %>
+</p>
+
+<p>
+  <strong>Andamento:</strong>
+  <%= @task.id %>
+</p>
+
+
+
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
 <%= link_to 'Editar', edit_projeto_path(@projeto) %> |
 <%= link_to 'Lista de Projetos', projetos_path %>

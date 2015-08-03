@@ -58,7 +58,7 @@
                         <thead>
                         <tr>
                             <td>Atividades do Projeto</td>
-<td>ID - Descrição - Identificador</td>
+<td></td>
  
                          	
 			      
@@ -67,7 +67,7 @@
                         </thead>
                         <tbody>
                                    
-                          <% nested_set_options(Task.where(projeto_id: @projeto1.id)) { |i| "#{'–' * i.level} #{i.id} #{i.descr} #{i.raiz}" }.each do |raiz, id| %>
+                          <% nested_set_options(Task.where(projeto_id: @projeto1.id)) { |i|  #{i.id} "#{'–' * i.level}  #{i.raiz} #{i.descr}" }.each do |raiz, id| %>
                         <tr>
                          
                            	<td><%= raiz %> </td>
@@ -85,12 +85,12 @@
 
                         <thead>
                         <tr>
-                            <td>Descrição</td>
+                            <td>Identificador</td>
                          	     <td>Descrição</td>
-     <td>Descrição</td>
+     <td>Carga Horária</td>
 
-     <td>Descrição</td>
-     <td>Descrição</td>
+     <td>Tipo</td>
+     <td>ID Pai</td>
 			      
                              
                         </tr>
@@ -103,14 +103,14 @@
    
 
 <td>
-<%= hidden_field "projeto[task_attributes][id]", @task.id %>
- <%=  ff.number_field :raiz, :placeholder => "Identificador" %></div></td> <td> 
- <%=  ff.text_field :descr, :placeholder => "Descrição" %> </div> </td><td> 
-   <%=  ff.number_field :tempo, :placeholder => "Carga Horária Estimada" %> </div> </td><td>
+
+ <%=  ff.number_field :raiz, :placeholder => "Identificador" %></td> <td> 
+ <%=  ff.text_field :descr, :placeholder => "Descrição" %>  </td><td> 
+   <%=  ff.number_field :tempo, :placeholder => "Carga Horária Estimada" %> </td><td>
    <label for="user_login">Tipo de Atividade:</label>
- <%= ff.select("typo", {"Analitica" => "Analitica", "Sintetica" => "Sintetica"}) %></div></td><td> 
-<%= ff.number_field :parent_id , :placeholder => "ID Pertecente"  %>
-</div></td><%= ff.hidden_field(:projeto_id, :value => @projeto.id) %>
+ <%= ff.select("typo", {"Analitica" => "Analitica", "Sintetica" => "Sintetica"}) %></td><td> 
+<%= ff.number_field :parent_id , :placeholder => "ID Pai"  %>
+</td><%= ff.hidden_field(:projeto_id, :value => @projeto.id) %>
 			            
  			</tr>
                         <% end %>

@@ -30,8 +30,12 @@ module Magical
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+<<<<<<< HEAD
 config.assets.enabled = true 
 config.assets.paths << "#{Rails.root}/app/assets/fonts" 
+=======
+
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
     config.active_job.queue_adapter = :delayed_job
   end
 end

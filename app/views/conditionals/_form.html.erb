@@ -10,6 +10,7 @@
       </ul>
     </div>
   <% end %>
+<<<<<<< HEAD
 
 
 <div id="bodao">
@@ -75,5 +76,40 @@
 
   <div class="actions">
   <%= f.submit 'Cadastrar', class: 'm-btn blue' %>
+=======
+<div class="form-group">
+    <%= f.label :projeto_id, "Projeto da Condicional" %><br>
+    <%= f.grouped_collection_select :projeto_id, Cliente.order(:name), :projetos, :name, :id, :name, include_blank: true, class: 'form-control' %>
+  </div>
+<div class="form-group">
+    <%= f.label :transla, "Translado?" %><br>
+    <%= f.check_box :transla %>
+  </div>
+<div class="form-group">
+    <%= f.label :interval, "Intervalo?" %><br>
+    <%= f.check_box :interval %>
+  </div>
+  <div class="form-group">
+    <%= f.label :km, "Distancia em KM" %><br>
+    <%= f.number_field :km %>
+  </div>
+  <div class="form-group">
+    <%= f.label :data, "Data da Condicional" %><br>
+    <%= f.date_select :data %>
+  </div>
+ <div class="form-group">
+    <%= f.label :why, "Comentário sobre Condicional" %><br>
+    <%= f.text_field :why , class: 'form-control'%>
+  </div>
+  <div class="form-group">
+    <%= f.label :time, "Horas da Condicional" %><br>
+    <%= f.text_field :time %>
+  </div>
+
+  
+
+  <div class="actions">
+   <%= f.submit 'Enviar', class: 'btn btn-primary btn-lg' %>
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
   </div>
 <% end %>

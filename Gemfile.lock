@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+=======
+GIT
+  remote: git://github.com/tristanm/jstree-rails.git
+  revision: e2ad211ea7835a1811e66c3d4ef1e21bfbe6e27d
+  specs:
+    jstree-rails (0.0.1)
+      rails (>= 3.1)
+
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
 GEM
   remote: https://rubygems.org/
   specs:
@@ -39,23 +49,32 @@ GEM
     annotate (2.6.10)
       activerecord (>= 3.2, <= 4.3)
       rake (~> 10.4)
+<<<<<<< HEAD
     arel (6.0.2)
     autoprefixer-rails (5.2.1.1)
+=======
+    arel (6.0.0)
+    autoprefixer-rails (5.2.1)
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
       execjs
       json
     awesome_nested_set (3.0.2)
       activerecord (>= 4.0.0, < 5)
     bcrypt (3.1.10)
     bcrypt (3.1.10-x86-mingw32)
+<<<<<<< HEAD
     best_in_place (3.0.3)
       actionpack (>= 3.2)
       railties (>= 3.2)
+=======
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
     better_errors (2.1.1)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+<<<<<<< HEAD
     bootstrap-sass (3.3.5.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.3.0)
@@ -64,6 +83,15 @@ GEM
       columnize (= 0.9.0)
     cancancan (1.12.0)
     cocoon (1.2.6)
+=======
+    bootstrap-sass (3.3.5)
+      autoprefixer-rails (>= 5.0.0.1)
+      sass (>= 3.2.19)
+    builder (3.2.2)
+    byebug (5.0.0)
+      columnize (= 0.9.0)
+    cancancan (1.11.0)
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -73,7 +101,11 @@ GEM
       execjs
     coffee-script-source (1.9.1.1)
     columnize (0.9.0)
+<<<<<<< HEAD
     daemons (1.2.3)
+=======
+    daemons (1.2.2)
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
     debug_inspector (0.0.2)
     delayed_job (4.0.6)
       activesupport (>= 3.0, < 5.0)
@@ -85,6 +117,7 @@ GEM
     execjs (2.5.2)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
+<<<<<<< HEAD
     geocoder (1.2.9)
     geokit (1.9.0)
       multi_json (>= 1.3.2)
@@ -95,6 +128,12 @@ GEM
       activesupport (>= 4.1.0)
     i18n (0.7.0)
     jbuilder (2.3.1)
+=======
+    globalid (0.3.5)
+      activesupport (>= 4.1.0)
+    i18n (0.7.0)
+    jbuilder (2.3.0)
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
     jquery-rails (4.0.4)
@@ -104,7 +143,10 @@ GEM
     json (1.8.3)
     jstree-rails-4 (3.1.1)
     jwt (1.5.1)
+<<<<<<< HEAD
     libv8 (3.16.14.11)
+=======
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
     loofah (2.0.2)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -112,7 +154,11 @@ GEM
     mime-types (2.6.1)
     mini_portile (0.6.2)
     minitest (5.7.0)
+<<<<<<< HEAD
     multi_json (1.11.2)
+=======
+    multi_json (1.11.1)
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
     multi_xml (0.5.5)
     multipart-post (2.0.0)
     nested_form (0.3.2)
@@ -163,8 +209,12 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     rdoc (4.2.0)
+<<<<<<< HEAD
     ref (2.0.0)
     sass (3.4.16)
+=======
+    sass (3.4.15)
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
     sass-rails (5.0.3)
       railties (>= 4.0.0, < 5.0)
       sass (~> 3.1)
@@ -186,9 +236,14 @@ GEM
       sprockets (>= 2.8, < 4.0)
     sqlite3 (1.3.10)
     sqlite3 (1.3.10-x86-mingw32)
+<<<<<<< HEAD
     therubyracer (0.12.2)
       libv8 (~> 3.16.14.0)
       ref
+=======
+    the_sortable_tree (2.5.0)
+      rails (>= 3.1)
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
     thin (1.6.3)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0)
@@ -205,7 +260,11 @@ GEM
       json (>= 1.8.0)
     validates_email_format_of (1.6.2)
       i18n
+<<<<<<< HEAD
     web-console (2.2.1)
+=======
+    web-console (2.1.3)
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
@@ -217,6 +276,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+<<<<<<< HEAD
   awesome_nested_set (~> 3.0.2)
   bcrypt (~> 3.1.7)
   best_in_place (~> 3.0.1)
@@ -233,10 +293,25 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   jstree-rails-4
+=======
+  awesome_nested_set
+  better_errors
+  binding_of_caller
+  bootstrap-sass (~> 3.3.3)
+  byebug
+  cancancan
+  coffee-rails (~> 4.1.0)
+  delayed_job_active_record
+  jbuilder (~> 2.0)
+  jquery-rails
+  jstree-rails!
+  jstree-rails-4 (~> 3.1.1)
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
   nested_form
   pg
   rails (= 4.2.2)
   rails_12factor
+<<<<<<< HEAD
   sass-rails
   sdoc (~> 0.4.0)
   sorcery
@@ -247,6 +322,18 @@ DEPENDENCIES
   uglifier
   validates_email_format_of
   web-console
+=======
+  sass-rails (~> 5.0)
+  sdoc (~> 0.4.0)
+  sorcery
+  sqlite3
+  the_sortable_tree (~> 2.5.0)
+  thin
+  tzinfo-data
+  uglifier (>= 1.3.0)
+  validates_email_format_of
+  web-console (~> 2.0)
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
 
 BUNDLED WITH
    1.10.5

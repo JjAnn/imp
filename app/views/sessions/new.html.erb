@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
   
 <%= form_tag sessions_path, method: :post do %>
@@ -44,3 +45,27 @@
 
 
 </div>
+=======
+<h1>Entrar</h1>
+
+<%= form_tag sessions_path, method: :post do %>
+  <div class="form-group">
+    <%= label_tag :email, "Email" %>
+    <%= email_field_tag :email, nil, class: 'form-control', required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :password, "Senha" %>
+    <%= password_field_tag :password, nil, class: 'form-control', required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :remember_me, "Lembrar?" %>
+    <%= check_box_tag :remember_me %>
+  </div>
+
+  <%= submit_tag 'Entrar', class: 'btn btn-primary btn-lg' %>
+<% end %>
+
+<%= link_to 'Esqueceu sua senha?', new_reset_password_path %>
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289

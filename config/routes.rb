@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+<<<<<<< HEAD
   resources :tasks
   resources :relatos
   resources :conditionals
@@ -8,6 +9,15 @@ Rails.application.routes.draw do
   resources :clientes
   resources :reltasks
   resources :users, only: [:new, :create, :update, :destroy] do
+=======
+  resources :relatos
+  resources :conditionals
+  resources :tasks
+  resources :projetos
+  resources :locals
+  resources :clientes
+  resources :users, only: [:new, :create] do
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
     member do
       get :activate
     end
@@ -20,7 +30,11 @@ Rails.application.routes.draw do
 
   get '/consultor', to: 'users#new', as: :sign_up
 get '/cliente', to: 'clientes#new', as: :clienta
+<<<<<<< HEAD
 get '/projetos/new', to: 'projetos#new', as: :projetopo
+=======
+get '/projetos', to: 'projetos#index', as: :projete
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
 get '/atividades', to: 'tasks#new', as: :taski
 get '/relatorio', to: 'relatos#new', as: :relatoss
 get '/condicional', to: 'conditionals#new', as: :condit
@@ -29,6 +43,10 @@ get '/local', to: 'locals#new', as: :loca
   get '/log_in', to: 'sessions#new', as: :log_in
   delete '/log_out', to: 'sessions#destroy', as: :log_out
 
+<<<<<<< HEAD
+=======
+  get '/secret', to: 'pages#index', as: :secret
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
 
   root to: 'sessions#new'
 

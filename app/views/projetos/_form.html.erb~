@@ -1,18 +1,28 @@
+<<<<<<< HEAD
 <%= javascript_include_tag 'jquery.dataTables.min' %>
 <!-- Inicio do report de erros -->
 <% if @projeto.errors.any? %>
+=======
+<%= form_for(@projeto) do |f| %>
+  <% if @projeto.errors.any? %>
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
     <div id="error_explanation">
       <h2><%= pluralize(@projeto.errors.count, "error") %> prohibited this projeto from being saved:</h2>
 
       <ul>
       <% @projeto.errors.full_messages.each do |message| %>
+<<<<<<< HEAD
 
         <li><%= message %></li>
 
+=======
+        <li><%= message %></li>
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
       <% end %>
       </ul>
     </div>
   <% end %>
+<<<<<<< HEAD
   <!-- fim do report de erros -->
 <!-- Inicio barra lateral -->
 <div class="page-content">
@@ -304,3 +314,39 @@
 
 
 </div>
+=======
+
+  <div class="field">
+    <%= f.label :cliente_id %><br>
+     <%= f.collection_select(:cliente_id, Cliente.all, :id, :name, prompt: "Selecionar", :required => true) %>
+  </div>
+  <div class="field">
+    <%= f.label :name, "Nome do Projeto" %><br>
+    <%= f.text_field :name, :required => true %>
+  </div>
+  <div class="field">
+    <%= f.label :descr, "Descrição do Projeto" %><br>
+    <%= f.text_field :descr, :required => true %>
+  </div>
+  <div class="field">
+    <%= f.label :typo, "Tipo do Projeto" %><br>
+    <%= f.select("typo", {"Avulso" => "Avulso", "Padrão" => "Padrao"}, :required => true) %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id, "Gerente do Projeto" %><br>
+     <%= f.collection_select(:user_id, User.all, :id, :name, prompt: "Selecionar"), :required => true %>
+  </div>
+  <div class="field">
+    <%= f.label :dateini, "Data de Inicio" %><br>
+    <%= f.date_select :dateini, :required => true %>
+  </div>
+  <div class="field">
+    <%= f.label :datefin, "Data de Finalização" %><br>
+    <%= f.date_select :datefin, :required => true %>
+  </div>
+ 
+  <div class="actions">
+   <%= f.submit 'Enviar', class: 'btn btn-primary btn-lg' %>
+  </div>
+<% end %>
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289

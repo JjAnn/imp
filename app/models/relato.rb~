@@ -1,4 +1,5 @@
 class Relato < ActiveRecord::Base
+<<<<<<< HEAD
 geocoded_by :ip_address
 belongs_to :cliente
 belongs_to :projeto
@@ -10,5 +11,11 @@ has_many :reltasks
 has_many :users
 
 accepts_nested_attributes_for :reltasks, allow_destroy: true
+=======
+belongs_to :cliente
+belongs_to :projeto
+belongs_to :local
+  
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
 
 end

@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+<%= stylesheet_link_tag    '/themes/default/style.min.css', media: 'all'%>
+<%= javascript_include_tag '/jstree.min.js' %>
+
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Tasks</h1>
@@ -5,10 +11,19 @@
 <table>
   <thead>
     <tr>
+<<<<<<< HEAD
       <th>Raiz</th>
       <th>Descr</th>
       <th>Hour</th>
       <th>Typo</th>
+=======
+      <th>Seq</th>
+      <th>Descr</th>
+      <th>Seqpai</th>
+      <th>Type</th>
+      <th>Hour</th>
+      <th>Pid</th>
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,10 +31,19 @@
   <tbody>
     <% @tasks.each do |task| %>
       <tr>
+<<<<<<< HEAD
         <td><%= task.raiz %></td>
         <td><%= task.descr %></td>
         <td><%= task.hour %></td>
         <td><%= task.typo %></td>
+=======
+        <td><%= task.seq %></td>
+        <td><%= task.descr %></td>
+        <td><%= task.seqpai %></td>
+        <td><%= task.typo %></td>
+        <td><%= task.hour %></td>
+        <td><%= task.projeto.name %></td>
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
         <td><%= link_to 'Show', task %></td>
         <td><%= link_to 'Edit', edit_task_path(task) %></td>
         <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>

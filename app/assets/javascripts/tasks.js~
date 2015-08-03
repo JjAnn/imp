@@ -5,6 +5,7 @@ $( document ).ready(function() {
     remover();
   });
 
+<<<<<<< HEAD
 $(".adicionar").click(function(){
     linha = $(".linha:first").clone();
     $(".tabela").append("<tr class='linha'>"+$(linha).html()+"</tr>");
@@ -13,6 +14,8 @@ $(".adicionar").click(function(){
 
 $("#taskin1")
     .appendTo("#destination");
+=======
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
 
   $(".adicionarf").click(function(){
     linha = $(".filho:first").clone();
@@ -20,6 +23,7 @@ $("#taskin1")
     remover();
   });
 
+<<<<<<< HEAD
   $(".adicionarn").click(function(){
     linha = $(".neto:first").clone();
     $(".tabelan").append("<li class='neto'>"+$(linha).html()+"</li>");
@@ -30,6 +34,12 @@ $("#taskin1")
 function remover() {
   $(".remover").click(function(){
     $(this).parent().parent().remove();
+=======
+
+function remover() {
+  $(".remover").click(function(){
+    $(this).parent().remove();
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
   });
 }});
 

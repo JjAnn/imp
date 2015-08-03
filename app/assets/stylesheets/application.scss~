@@ -1,9 +1,19 @@
+<<<<<<< HEAD
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "bootstrap/theme";
 @import 'metro-ui/modern.less';
 @import 'metro-ui/modern-responsive.less'; // for responsive design
 
+=======
+//*= require jstree-default-dark 
+//*= require tree
+//*= require sortable_tree
+//*= require nested_options
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "bootstrap/theme";
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
 
 .nav > li > span {
   display: block;

@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150729162741) do
+=======
+ActiveRecord::Schema.define(version: 20150702123834) do
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
 
   create_table "clientes", force: :cascade do |t|
     t.string   "name"
@@ -65,6 +69,21 @@ ActiveRecord::Schema.define(version: 20150729162741) do
 
   add_index "locals", ["cliente_id"], name: "index_locals_on_cliente_id"
 
+<<<<<<< HEAD
+=======
+  create_table "pages", force: :cascade do |t|
+    t.integer "cliente_id"
+    t.integer "task_id"
+    t.integer "user_id"
+    t.integer "projeto_id"
+  end
+
+  add_index "pages", ["cliente_id"], name: "index_pages_on_cliente_id"
+  add_index "pages", ["projeto_id"], name: "index_pages_on_projeto_id"
+  add_index "pages", ["task_id"], name: "index_pages_on_task_id"
+  add_index "pages", ["user_id"], name: "index_pages_on_user_id"
+
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
   create_table "projetos", force: :cascade do |t|
     t.integer  "cliente_id"
     t.string   "name"
@@ -86,6 +105,7 @@ ActiveRecord::Schema.define(version: 20150729162741) do
     t.integer  "time"
     t.string   "comment"
     t.boolean  "isdoe"
+<<<<<<< HEAD
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -93,12 +113,17 @@ ActiveRecord::Schema.define(version: 20150729162741) do
     t.float    "longtitude"
     t.string   "ip_address"
     t.string   "getlocal"
+=======
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
   end
 
   add_index "relatos", ["cliente_id"], name: "index_relatos_on_cliente_id"
   add_index "relatos", ["local_id"], name: "index_relatos_on_local_id"
   add_index "relatos", ["projeto_id"], name: "index_relatos_on_projeto_id"
   add_index "relatos", ["task_id"], name: "index_relatos_on_task_id"
+<<<<<<< HEAD
   add_index "relatos", ["user_id"], name: "index_relatos_on_user_id"
 
   create_table "reltasks", force: :cascade do |t|
@@ -123,6 +148,21 @@ ActiveRecord::Schema.define(version: 20150729162741) do
 
 # Could not dump table "tasks" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass
+=======
+
+  create_table "tasks", force: :cascade do |t|
+    t.integer  "seq"
+    t.string   "descr"
+    t.integer  "seqpai"
+    t.string   "typo"
+    t.integer  "hour"
+    t.integer  "projeto_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "tasks", ["projeto_id"], name: "index_tasks_on_projeto_id"
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                                       null: false

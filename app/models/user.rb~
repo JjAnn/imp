@@ -22,10 +22,17 @@ class User < ActiveRecord::Base
 
 has_many :projetos
 has_many :clientes
+<<<<<<< HEAD
 has_many :tasks
 has_many :conditionals
 belongs_to :relato
 authenticates_with_sorcery!
+=======
+has_many :relatos
+has_many :tasks
+has_many :conditionals
+  authenticates_with_sorcery!
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
 
   validates :password, length: { minimum: 3 }
   validates :password, confirmation: true

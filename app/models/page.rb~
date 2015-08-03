@@ -4,5 +4,10 @@ has_many :projetos
 has_many :clientes
 has_many :tasks
 has_many :users 
+<<<<<<< HEAD
+=======
+belongs_to :task
+belongs_to :cliente
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
   # any code here
 end

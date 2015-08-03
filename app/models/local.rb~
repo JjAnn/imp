@@ -1,3 +1,9 @@
 class Local < ActiveRecord::Base
+<<<<<<< HEAD
 has_many_and_belongs_to :clientes
+=======
+belongs_to :cliente
+
+
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
 end

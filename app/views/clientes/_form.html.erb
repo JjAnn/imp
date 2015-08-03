@@ -1,20 +1,30 @@
+<<<<<<< HEAD
 <%= javascript_include_tag 'jquery.dataTables.min' %>
 
 <!-- Inicio do report de erros -->
 
 <% if @cliente.errors.any? %>
+=======
+<%= form_for(@cliente) do |f| %>
+  <% if @cliente.errors.any? %>
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
     <div id="error_explanation">
       <h2><%= pluralize(@cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
 
       <ul>
       <% @cliente.errors.full_messages.each do |message| %>
+<<<<<<< HEAD
 
         <li><%= message %></li>
 
+=======
+        <li><%= message %></li>
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
       <% end %>
       </ul>
     </div>
   <% end %>
+<<<<<<< HEAD
   <!-- Fim do Report de erros -->
 
   <!-- Inicio barra lateral -->
@@ -285,3 +295,57 @@
 
 
  
+=======
+
+ <div class="form-group">
+    <%= f.label :name, "Nome do Cliente" %><br>
+    <%= f.text_field :name, class: 'namecli', :required => true %>
+  </div>
+ <div class="form-group">
+    <%= f.label :telefone %><br>
+    <%= f.text_field :telefone, :required => true %>
+  </div>
+  <div class="form-group">
+    <%= f.label :celular %><br>
+    <%= f.text_field :celular, :required => true %>
+  </div>
+ <div class="form-group">
+    <%= f.label :email %><br>
+    <%= f.text_field :email, class: 'namecli', :required => true %>
+  </div>
+
+   <%= f.fields_for :local do |ff| %>
+<table> 
+<tr>
+<th>
+    <%= ff.label :logra, "Logradouro" %><br></th>
+<th>
+     <%= ff.label :cep, "CEP" %></th>
+<th>
+     <%= ff.label :uf, "Estado" %></th>
+<th>
+    <%= ff.label :city, "Cidade" %></th>
+<th>  <%= ff.label :km, "Distancia em KM" %> </th>
+</tr>
+<tbody class="tabela">
+<tr class="linha" >
+<td>  <%= ff.text_field :logra,  :required => true %>  </td>
+    <td>  <%= ff.text_field :cep , :required => true %>  </td>
+<td>      <%= ff.text_field :uf , :required => true %>  </td>
+<td>   <%= ff.text_field :city , :required => true %>  </td>
+<td>   <%= ff.text_field :km, :required => true %> </td>
+<td><%= f.button 'Remover Local', type: 'button', class: 'remover' %></td>
+
+</tr>
+</tbody>
+</table>
+
+<% end %> 
+  <div class="actions">
+ <%= f.button 'Adicionar Local', type: 'button', class: 'adicionar' %> <br>
+<br>
+  <%= f.submit 'Enviar', class: 'btn btn-primary btn-lg' %>
+  </div>
+<% end %>
+
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289

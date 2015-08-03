@@ -25,7 +25,10 @@ has_many :clientes
 has_many :relatos
 has_many :tasks
 has_many :conditionals
+<<<<<<< HEAD
 belongs_to :relato
+=======
+>>>>>>> ad10758ddfdbf1227205791189757be3232ce289
 authenticates_with_sorcery!
 
   validates :password, length: { minimum: 3 }
