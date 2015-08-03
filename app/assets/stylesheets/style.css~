@@ -57,7 +57,81 @@
             transform: scale(.8);
             overflow: visible;
         }
+
+        .carl-form {
+            width: 40rem;
+            height: 35.75rem;
+            position: relative;
+            top:  -1%;
+            margin-top: 0.375rem;
+            left: 30%;
+            margin-left: -12.5rem;
+            background-color: #ffffff;
+            opacity: 0;
+            -webkit-transform: scale(.8);
+            transform: scale(.8);
+            overflow: visible;
+        }
 .catask-form {
+            width: 60rem;
+            height: 45.75rem;
+            position: relative;
+            top:  -1%;
+            margin-top: 0.375rem;
+            left: 20%;
+            margin-left: -12.5rem;
+            background-color: #ffffff;
+            opacity: 0;
+            -webkit-transform: scale(.8);
+            transform: scale(.8);
+            overflow: visible;
+        }
+
+.carledit-form {
+            width: 60rem;
+            height: 45.75rem;
+            position: relative;
+            top:  -1%;
+            margin-top: 0.375rem;
+            left: 20%;
+            margin-left: -12.5rem;
+            background-color: #ffffff;
+            opacity: 0;
+            -webkit-transform: scale(.8);
+            transform: scale(.8);
+            overflow: visible;
+        }
+.caledit-form {
+            width: 60rem;
+            height: 45.75rem;
+            position: relative;
+            top:  -1%;
+            margin-top: 0.375rem;
+            left: 20%;
+            margin-left: -12.5rem;
+            background-color: #ffffff;
+            opacity: 0;
+            -webkit-transform: scale(.8);
+            transform: scale(.8);
+            overflow: visible;
+        }
+
+.cadedit-form {
+            width: 60rem;
+            height: 45.75rem;
+            position: relative;
+            top:  -1%;
+            margin-top: 0.375rem;
+            left: 20%;
+            margin-left: -12.5rem;
+            background-color: #ffffff;
+            opacity: 0;
+            -webkit-transform: scale(.8);
+            transform: scale(.8);
+            overflow: visible;
+        }
+
+.careltask-form {
             width: 60rem;
             height: 45.75rem;
             position: relative;
@@ -124,6 +198,6 @@ position: left;
             }
         }
 
-#butao { float: left;}
+#butao { float: right;}
 
 #butao1 { float: right;}

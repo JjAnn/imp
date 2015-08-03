@@ -1,0 +1,182 @@
+<%= javascript_include_tag 'jquery.dataTables.min' %>
+
+
+<!-- Inicio do projetorio de erros --> 
+  <% if @projeto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@projeto.errors.count, "error") %> prohibited this projeto from being saved:</h2>
+
+      <ul>
+      <% @projeto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- Fim do projetorio de erros --> 
+
+
+  <!-- Inicio barra lateral -->
+<div class="page-content">
+        <div class="flex-grid no-responsive-future" style="height: 100%;">
+            <div class="row" style="height: 100%">
+                <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%;">
+                    <ul class="sidebar">
+                        <li id="projetogrid" class="active" ><a href="/projeto/new">
+                            <span class="mif-apps icon"></span>
+                            <span class="title">Listar projetos</span>
+                            
+                        </a></li>
+
+                       
+                 
+                    </ul>
+                </div>
+
+ <!-- Fim de Barra Lateral -->
+
+
+ <!-- Conteudo da Página -->
+
+
+<!-- Inicio do cadastro de projeto edit --> 
+
+
+  <!--  Inicio Cad Projeto-->
+ <div class="cell auto-size padding20 bg-white" id="cli">
+    
+
+
+ <div id="cadprojedit" class="cadprojedit-form padding20 block-shadow">
+<span class="m-btn green-stripe">Gerenciar Projeto</span><a href="/projeto/new"><button style="float: right;" id="fecharcap" class="button alert" onclick="pushMessage('alert')">Cancelar</button></a>
+            <hr class="thin"/>
+            <br />
+
+<table >
+
+                        <thead>
+                        <tr>
+                            <td>Atividades do Projeto</td>
+<td>ID - Descrição - Identificador</td>
+ 
+                         	
+			      
+                             
+                        </tr>
+                        </thead>
+                        <tbody>
+                                   
+                          <% nested_set_options(Task.where(projeto_id: @projeto1.id)) { |i| "#{'–' * i.level} #{i.id} #{i.descr} #{i.raiz}" }.each do |raiz, id| %>
+                        <tr>
+                         
+                           	<td><%= raiz %> </td>
+				<td>
+</td>
+			            
+ 			</tr>
+                        <% end %>
+                        </tbody>
+                    </table>
+
+<%= nested_form_for @projeto do |f| %>
+<div id="tabelinha" style="float: right;" width="20%" >
+<table >
+
+                        <thead>
+                        <tr>
+                            <td>Descrição</td>
+                         	     <td>Descrição</td>
+     <td>Descrição</td>
+
+     <td>Descrição</td>
+     <td>Descrição</td>
+			      
+                             
+                        </tr>
+                        </thead>
+<br>
+                        <tbody>  
+
+
+<%= f.fields_for :tasks do |ff| %>
+   <%= ff.hidden_field(:projeto_id, :value => @projeto.id) %>
+
+<td>
+ <%=  ff.number_field :raiz, :placeholder => "Identificador" %></div></td> <td> 
+ <%=  ff.text_field :descr, :placeholder => "Descrição" %> </div> </td><td> 
+   <%=  ff.number_field :tempo, :placeholder => "Carga Horária Estimada" %> </div> </td><td>
+   <label for="user_login">Tipo de Atividade:</label>
+ <%= ff.select("typo", {"Analitica" => "Analitica", "Sintetica" => "Sintetica"}) %></div></td><td> 
+<%= ff.number_field :parent_id , :placeholder => "ID Pertecente"  %>
+</div></td>
+
+
+	<td></td>
+			            
+ 			</tr>
+                        <% end %>
+                        </tbody>
+                    </table>
+</div> 
+
+ <%= f.link_to_add "Adicionar Atividade", :tasks, class: 'button success' %> <br>
+
+<div id="editproj1">
+    		<div class="input-control text full-size" data-role="input">
+               	   <label for="user_login">Cliente: </label>
+     			<%= f.collection_select(:cliente_id, Cliente.all, :id, :name, prompt: "Selecionar", :required => true) %>
+  		</div>
+ <br />
+  <br />
+<div class="input-control text full-size" data-role="input">
+    <label for="user_login">Apelido do Projeto:</label>  
+    <%= f.text_field :name, :required => true, id: 'user-login' %>
+  </div>
+ <br />
+  <br />
+ <div class="input-control text full-size" data-role="input">
+    <label for="user_login">Descrição do Projeto:</label>  
+    <%= f.text_area(:descr, :required => true, :size => 5) %>
+  </div>
+ <br />
+  <br />
+ <br />
+  <br />
+ <br />
+  <br />
+  <div class="input-control text full-size" data-role="input">
+     <label for="user_login">Tipo:</label>  
+    <%= f.select("typo", {"Avulso" => "Avulso", "Padrão" => "Padrao"}, :required => true, id: 'user-login') %>
+  </div>
+ <br />
+  <br />
+ <div class="input-control text full-size" data-role="input">
+   <label for="user_login">Gerente:</label>  
+     <%= f.collection_select(:user_id, User.all, :id, :name, prompt: "Selecionar", :required => true, id: 'user-login') %>
+  </div>
+ <br />
+  <br />
+ <div class="calendar-cell year-cell align-center year" data-role="input">
+     <label for="user_login">Data Inicio:</label>  
+    <%= f.date_select :dateini, :required => true , id: 'user-login'%>
+  </div>
+ <br />
+  <br />
+ <div class="calendar-cell year-cell align-center year" data-role="input">
+    <label for="user_login">Data Fim:</label>  
+    <%= f.date_select :datefin, :required => true, id: 'user-login' %>
+  </div>
+ <br />
+  <br />
+ 
+</div>
+  <div class="actions">
+  <%= f.submit 'Cadastrar', class: 'm-btn blue' %>
+  </div>
+<% end %>
+
+</div></div>
+
+</div></div>
+

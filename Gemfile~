@@ -15,7 +15,7 @@ gem 'therubyracer'
 
 gem 'jstree-rails-4'
 
-gem 'awesome_nested_set' # or any similar gem (gem 'nested_set')
+gem 'awesome_nested_set', '~> 3.0.2'
 
 gem 'validates_email_format_of'
 
@@ -55,8 +55,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'sorcery'
 
+gem 'geokit-rails'
+gem 'geocoder'
+
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+ gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

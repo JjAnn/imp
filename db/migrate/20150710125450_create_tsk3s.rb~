@@ -5,8 +5,8 @@ class CreateTsk3s < ActiveRecord::Migration
       t.string :descr
       t.integer :hour
       t.string :typo
- t.belongs_to :task, index: true, foreign_key: true
-      t.belongs_to :tsk2, index: true, foreign_key: true
+      t.belongs_to :task, index: true, foreign_key: true
+      t.references :tsk2, index: true, foreign_key: true
 
       t.timestamps null: false
     end

@@ -1,0 +1,6 @@
+class What < ActiveRecord::Migration
+  def change
+    add_column :relatos, :ip_address, :string
+    add_column :relatos, :geolocal, :string
+  end
+end

@@ -5,6 +5,16 @@ class RelatosController < ApplicationController
 
   # GET /relatos
   # GET /relatos.json
+
+
+  def getlocal
+    location = request.location
+  end
+
+  def ip_address
+    ip_address = request.remote_ip
+  end
+
   def index
     @relatos = Relato.all
     authorize! :read, Relato
@@ -19,18 +29,25 @@ class RelatosController < ApplicationController
   # GET /relatos/new
   def new
     @relato = Relato.new
-  @relatos = Relato.all
+    @relatos = Relato.all
+  @relatos1 = Relato.where(isdoe: false)
+@relatos2 = Relato.where(isdoe: true)
+@reltask = Reltask.new
+@projeto = Projeto.where(projeto_id: :id)
   end
 
   # GET /relatos/1/edit
   def edit
+@reltask = Reltask.new
+ @relatos1 = Relato.where(isdoe: false)
+@relatos2 = Relato.where(isdoe: true)
+@projeto1 = Relato.find(params[:id])
   end
 
   # POST /relatos
   # POST /relatos.json
   def create
     @relato = Relato.new(relato_params)
-
     respond_to do |format|
       if @relato.save
         format.html { redirect_to '/relatorio', notice: 'Relato was successfully created.' }
@@ -45,10 +62,12 @@ class RelatosController < ApplicationController
   # PATCH/PUT /relatos/1
   # PATCH/PUT /relatos/1.json
   def update
+@reltask = Reltask.new
+
     respond_to do |format|
       if @relato.update(relato_params)
-        format.html { redirect_to @relato, notice: 'Relato was successfully updated.' }
-        format.json { render :show, status: :ok, location: @relato }
+        format.html { redirect_to '/relatorio', notice: 'Relatório finalizado com sucesso!' }
+        format.json { respond_with @relato }
       else
         format.html { render :edit }
         format.json { render json: @relato.errors, status: :unprocessable_entity }
@@ -74,6 +93,6 @@ class RelatosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def relato_params
-      params.require(:relato).permit(:cliente_id, :projeto_id, :local_id, :task_id, :time, :comment, :isdoe, :user)
+      params.require(:relato).permit(:cliente_id, :projeto_id, :local_id, :task_id, :time, :comment, :isdoe, :user_id, :latitude, :longitude, :ip_address, :getlocal, :reltasks_attributes => [:projeto_id, :reltask_id, :task_id, :tempo, :isdoe, :user_id, :latitude, :longitude, :ip_address, :getlocal])
     end
 end

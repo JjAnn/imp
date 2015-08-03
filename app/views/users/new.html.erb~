@@ -1,12 +1,106 @@
-<%= form_for @user do |f| %>
-  <%= render 'shared/errors', object: @user %>
-<div id="bodao">
+
+<%= javascript_include_tag 'jquery.dataTables.min' %>
+
+<!-- Inicio do report de erros -->
+
+  <!-- Fim do Report de erros -->
+
+  <!-- Inicio barra lateral -->
+<div class="page-content">
+        <div class="flex-grid no-responsive-future" style="height: 100%;">
+            <div class="row" style="height: 100%">
+                <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
+                    <ul class="sidebar">
+                        <li id="consultgrid" class="active" ><a>
+                            <span class="mif-apps icon"></span>
+                            <span class="title">Listar Consultores</span>
+                            
+                        </a></li>
+                        <li id="calo" ><a >
+                            <span class="mif-vpn-publ icon"></span>
+                            <span class="title">Locais de Atendimento</span>
+                            
+                        </a></li>
+                 
+                    </ul>
+                </div>
+
+ <!-- Fim de Barra Lateral -->
+
+ <!-- Inicio Main BG  Plus Cad user -->
+
+<div id="inserthereconsul"> </div>
+  <div class="cell auto-size padding20 bg-white" id="cli">
+                    <h1 class="text-light"> Painel de Consultores </h1>
+                    <hr class="thin bg-grayLighter">
+                    <br />
+                    <br />
+                    <br /> 
+                    <button class="button primary" id="addconsultor" ><span class="mif-plus"></span> Cadastrar Consultor</button>
+         
+                    <hr class="thin bg-grayLighter" > 
+
+                    <table class="dataTable border bordered" data-role="datatable" data-auto-width="false">
+
+                        <thead>
+                        <tr>
+                            
+                            <td class="sortable-column sort-asc" style="width: 10px">ID</td>
+                          <td class="sortable-column" style="width: 60px">Nome:</td>
+                           
+                            <td class="sortable-column" style="width: 45px">Email:</td>
+                            <td style="width: 45px">Celular:</td>
+<td style="width: 45px"> Qtd Projetos:</td>
+<td style="width: 45px">Qtd Relatórios:</td>
+<td style="width: 45px">Acesso:</td>
+                            <td style="width: 5px">Ações:</td>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                           <% @users.each do |user| %>
+                           
+                        <tr>
+                            <td><%= user.id %></td>
+                            <td><%= user.name %></td>
+ <td><%= user.email %></td>
+ <td><%= user.celular %></td>
+ <td><%= user.id.count %></td>
+ <td><%= user_report %></td>
+ <td><%= user.role %></td>
+  <td> <%= link_to 'Excluir', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'm-btn red icn-only'  %>  </td>
+                            
+                          
+                           
+                        </tr>
+                        
+                        <% end %>
+                        </tbody>
+                    </table>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+ <!-- Fim Main BG  -->
+
+
+
+
+
+
+
+<!-- Inicio main cad consultor -->
+
 <body class="bg-darkTeal">
 
-    <div class="cad-form padding20 block-shadow">
+    <div class="cad-form padding20 block-shadow" id="cadconsultor">
     
          <span class="m-btn red-stripe">Cadastro de Consultor</span>
             <hr class="thin"/>
+<%= form_for @user do |f| %>
             <br />
             <div class="input-control text full-size" data-role="input">
                 <label for="user_login">Nome Completo:</label>
@@ -16,11 +110,12 @@
             </div>
             <br />
             <br />
+   <div class="input-control text full-size" data-role="input">
               <label for="user_login">Acesso:</label>
 
  <%= f.collection_select(:role, User::ROLES, :to_s, lambda{|i| i.to_s.humanize} , class: 'm-wrap') %>
                 
-            
+            </div>
   <br />
   <br />
   <br />

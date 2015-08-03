@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150710125450) do
+ActiveRecord::Schema.define(version: 20150729162741) do
 
   create_table "clientes", force: :cascade do |t|
     t.string   "name"
@@ -98,24 +98,43 @@ ActiveRecord::Schema.define(version: 20150710125450) do
     t.integer  "time"
     t.string   "comment"
     t.boolean  "isdoe"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float    "latitude"
+    t.float    "longtitude"
+    t.string   "ip_address"
+    t.string   "getlocal"
   end
 
   add_index "relatos", ["cliente_id"], name: "index_relatos_on_cliente_id"
   add_index "relatos", ["local_id"], name: "index_relatos_on_local_id"
   add_index "relatos", ["projeto_id"], name: "index_relatos_on_projeto_id"
   add_index "relatos", ["task_id"], name: "index_relatos_on_task_id"
+  add_index "relatos", ["user_id"], name: "index_relatos_on_user_id"
 
-  create_table "tasks", force: :cascade do |t|
-    t.integer  "raiz"
-    t.string   "descr"
-    t.integer  "hour"
-    t.string   "typo"
+  create_table "reltasks", force: :cascade do |t|
+    t.integer  "task_id"
+    t.integer  "relato_id"
+    t.time     "tempo"
+    t.boolean  "isdoe"
+    t.integer  "user_id"
     t.integer  "projeto_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float    "ip_address"
+    t.string   "getlocal"
+    t.float    "longtitude"
+    t.float    "latitude"
   end
+
+  add_index "reltasks", ["projeto_id"], name: "index_reltasks_on_projeto_id"
+  add_index "reltasks", ["relato_id"], name: "index_reltasks_on_relato_id"
+  add_index "reltasks", ["task_id"], name: "index_reltasks_on_task_id"
+  add_index "reltasks", ["user_id"], name: "index_reltasks_on_user_id"
+
+# Could not dump table "tasks" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "tsk1s", force: :cascade do |t|
     t.integer  "raiz"

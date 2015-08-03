@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_nested_form
 //= require jquery_ujs
+//= require jquery.purr
+//= require best_in_place
 //= require jstree
 //= require_tree .
 
@@ -21,45 +23,90 @@
 $(document).ready(function() { 
 
     $(function(){
- $(".cal-form").fadeOut()
-});
-
-
-        $(function(){
- $("#cadrelato").fadeOut()
-});
-
-        $(function(){
- $(".catask-form").fadeOut()
-});
-
-        $(function(){
- $(".cac-form").fadeOut()
+ $(".cal-form").hide()
 });
 
     $(function(){
- $(".calo-form").fadeOut()
+ $("#editproj1").hide()
+});
+
+    $(function(){
+ $(".cad-form").hide()
+});
+
+ $(function(){
+ $("#relatogeralfi").hide()
+});
+
+
+  $(function(){
+ $("#tabelinha").hide()
+});
+
+  $(function(){
+ $("#cadreltask").hide()
+});
+
+
+        $(function(){
+ $("#cadrelato").hide()
+});
+
+        $(function(){
+ $(".catask-form").hide()
+});
+
+        $(function(){
+ $(".cac-form").hide()
+});
+
+    $(function(){
+ $(".calo-form").hide()
 });
 
 
     $(function(){
- $("#local").fadeOut()
+ $("#local").hide()
 });
 
         $(function(){
- $("#cadproj").fadeOut()
+ $("#cadproj").hide()
 });
 
                 $(function(){
- $("#cacgeral").fadeOut()
+ $("#cacgeral").hide()
 });
 
                                 $(function(){
- $("#taskgeral").fadeOut()
+ $("#taskgeral").hide()
 });
 
 $(function(){
             var form = $(".login-form");
+
+            form.css({
+                opacity: 1,
+                "-webkit-transform": "scale(1)",
+                "transform": "scale(1)",
+                "-webkit-transition": ".5s",
+                "transition": ".5s"
+            });
+        });
+
+$(function(){
+            var form = $(".carledit-form");
+
+            form.css({
+                opacity: 1,
+                "-webkit-transform": "scale(1)",
+                "transform": "scale(1)",
+                "-webkit-transition": ".5s",
+                "transition": ".5s"
+            });
+        });
+
+$(function(){
+            var form = $(".careltask-form");
 
             form.css({
                 opacity: 1,
@@ -86,7 +133,21 @@ $(function(){
 
 $(function()
 {
-    $(".cal-form").fadeOut()
+    $(".cal-form").hide()
+});
+         });
+
+$("#fecharreli").click( function() {
+
+$(function()
+{
+    $(".careltask-form").hide()
+});
+
+$(function()
+{
+    $("#relatogeralfi").show()
+
 });
          });
 
@@ -95,7 +156,7 @@ $(function()
 
 $(function()
 {
-    $(".cap-form").fadeOut()
+    $(".cap-form").hide()
 });
          });
 
@@ -103,7 +164,7 @@ $(function()
 
 $(function()
 {
-    $(".cac-form").fadeOut()
+    $(".cac-form").hide()
 });
          });
 
@@ -112,7 +173,7 @@ $(function()
 
 $(function()
 {
-    $(".calo-form").fadeOut()
+    $(".calo-form").hide()
 });
          });
 
@@ -120,8 +181,99 @@ $(function()
 
 $(function()
 {
-    $(".carl-form").fadeOut()
+    $(".carl-form").hide()
 });
+         });
+
+$("#relatogridfin").click( function() {
+
+$(function()
+{
+    $("#relatogeral").hide()
+
+});
+$(function()
+{
+    $("#relatogeralfi").show()
+
+});
+
+ $(function(){
+ $("#cadreltask").hide()
+   });
+
+ $(function(){
+$("#relatoinsert").before($("#relatogeralfi"))
+});
+
+         });
+
+$("#addativid").click( function() {
+
+$(function()
+{
+    $("#relatogeral").hide()
+
+});
+$(function()
+{
+    $("#cadreltask").show()
+
+});
+
+ $(function(){
+$("#relatoinsert").before($("#cadreltask"))
+});
+
+
+
+         });
+
+$("#addconsultor").click( function() {
+
+$(function()
+{
+    $("#consultorgeral").hide()
+
+});
+$(function()
+{
+    $("#cadconsultor").show()
+
+});
+
+ $(function(){
+$("#relatoinsertconsul").before($("#cadconsultor"))
+});
+
+
+
+         });
+
+
+
+
+$("#relatogrid").click( function() {
+
+$(function()
+{
+    $("#relatogeralfi").hide()
+
+});
+$(function()
+{
+    $("#relatogeral").show()
+
+});
+
+ $(function(){
+ $("#cadreltask").hide()
+});
+
+ $(function(){
+$("#relatoinsert").before($("#relatogeral"))
+});
+
          });
 
 $("#add").click( function() {
@@ -139,7 +291,7 @@ $(function(){
         });
 $(function()
 {
-    $(".cal-form").fadeIn()
+    $(".cal-form").show()
 });
 
 $(function(){
@@ -162,13 +314,52 @@ $(function(){
         });
 $(function()
 {
-    $(".cac-form").fadeIn()
+    $(".cac-form").show()
 });
 
 $(function(){
 $("#addcoc").before($(".cac-form"))});
 
          });
+
+
+
+$(function(){
+            var form1 = $(".cadedit-form");
+
+            form1.css({
+                opacity: 1,
+                "-webkit-transform": "scale(1)",
+                "transform": "scale(1)",
+                "-webkit-transition": ".5s",
+                "transition": ".5s"
+            });
+        });
+
+$(function(){
+            var form1 = $(".cadprojedit-form");
+
+            form1.css({
+                opacity: 1,
+                "-webkit-transform": "scale(1)",
+                "transform": "scale(1)",
+                "-webkit-transition": ".5s",
+                "transition": ".5s"
+            });
+        });
+
+$(function(){
+            var form1 = $(".caledit-form");
+
+            form1.css({
+                opacity: 1,
+                "-webkit-transform": "scale(1)",
+                "transform": "scale(1)",
+                "-webkit-transition": ".5s",
+                "transition": ".5s"
+            });
+        });
+
 
 $("#addrel").click( function() {
 
@@ -185,7 +376,7 @@ $(function(){
         });
 $(function()
 {
-    $(".carl-form").fadeIn()
+    $(".carl-form").show()
 });
 
 $(function(){
@@ -211,7 +402,7 @@ $(function(){
         });
 $(function()
 {
-    $(".cap-form").fadeIn()
+    $(".cap-form").show()
 });
 
 $(function(){
@@ -224,12 +415,12 @@ $("#calo").click( function() {
 
 $(function()
 {
-    $("#cli").fadeOut()
+    $("#cli").hide()
 });
 
 $(function()
 {
-    $("#local").fadeIn()
+    $("#local").show()
 });
       $(function(){
 $("#inserthere").before($("#local"))
@@ -240,16 +431,16 @@ $("#showcoc").click( function() {
 
 $(function()
 {
-    $("#showproj1").fadeOut()
+    $("#showproj1").hide()
 });
 $(function()
 {
-    $("#taskgeral").fadeOut()
+    $("#taskgeral").hide()
 });
 
 $(function()
 {
-    $("#cacgeral").fadeIn()
+    $("#cacgeral").show()
 });
       $(function(){
 $("#projethere").before($("#cacgeral"))
@@ -261,16 +452,16 @@ $("#showtask").click( function() {
 
 $(function()
 {
-    $("#cacgeral").fadeOut()
+    $("#cacgeral").hide()
 });
 $(function()
 {
-    $("#showproj1").fadeOut()
+    $("#showproj1").hide()
 });
 
 $(function()
 {
-    $("#taskgeral").fadeIn()
+    $("#taskgeral").show()
 });
       $(function(){
 $("#projethere").before($("#taskgeral"))
@@ -289,12 +480,12 @@ $("#clientgrid").click( function() {
 
 $(function()
 {
-    $("#local").fadeOut()
+    $("#local").hide()
 });
 
 $(function()
 {
-    $("#cli").fadeIn()
+    $("#cli").show()
 });
       $(function(){
 $("#inserthere").before($("#cli"))
@@ -307,16 +498,16 @@ $("#projetogrid").click( function() {
 
 $(function()
 {
-    $("#cacgeral").fadeOut()
+    $("#cacgeral").hide()
 });
 $(function()
 {
-    $("#taskgeral").fadeOut()
+    $("#taskgeral").hide()
 });
 
 $(function()
 {
-    $("#showproj1").fadeIn()
+    $("#showproj1").show()
 });
       $(function(){
 $("#projethere").before($("#showproj1"))
@@ -341,7 +532,7 @@ $(function(){
         });
 $(function()
 {
-    $(".calo-form").fadeIn()
+    $(".calo-form").show()
 });
 
 $(function(){
@@ -366,7 +557,15 @@ $(function(){
         });
 $(function()
 {
-    $(".catask-form").fadeIn()
+    $(".catask-form").show()
+});
+
+ $(function(){
+ $("#tabelinha").show()
+});
+
+ $(function(){
+ $("#taskgeral1").hide()
 });
 
 $(function(){

@@ -1,0 +1,3 @@
+      invoke  active_record
+      remove    db/migrate/20150727131054_add_latitude_and_longitude_to_relatos.rb
+      create    db/migrate/20150727131148_add_latitude_and_longitude_to_relatos.rb

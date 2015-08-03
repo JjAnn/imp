@@ -1,0 +1,172 @@
+<%= javascript_include_tag 'jquery.dataTables.min' %>
+
+
+<!-- Inicio do relatorio de erros --> 
+  <% if @relato.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@relato.errors.count, "error") %> prohibited this relato from being saved:</h2>
+
+      <ul>
+      <% @relato.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- Fim do relatorio de erros --> 
+
+
+  <!-- Inicio barra lateral -->
+<div class="page-content">
+        <div class="flex-grid no-responsive-future" style="height: 100%;">
+            <div class="row" style="height: 100%">
+                <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
+                    <ul class="sidebar">
+                        <li id="relatogrid" class="active" ><a>
+                            <span class="mif-apps icon"></span>
+                            <span class="title">Relatórios em Aberto</span>
+                            
+                        </a></li>
+  <li id="relatogridfin" ><a>
+                            <span class="mif-apps icon"></span>
+                            <span class="title">Relatórios Finalizados </span>
+                            
+                        </a></li>
+                       
+                 
+                    </ul>
+                </div>
+
+ <!-- Fim de Barra Lateral -->
+
+
+ <!-- Conteudo da Página -->
+
+
+<!-- Inicio do cadastro de relatórios --> 
+
+ <div class="cell auto-size padding20 bg-white" id="relatogeral">
+                    <h1 class="text-light"> Painel de Relatórios em Aberto </h1>
+                    <hr class="thin bg-grayLighter">
+                    <br />
+                    <br />
+                    <br /> 
+ <div class="carledit-form padding20 block-shadow" id="cadrelatoedit">
+<span class="m-btn blue-stripe">Iniciar Relatório</span> <button style="float: right;" id="fecharrel" class="button alert" onclick="pushMessage('alert')">Cancelar</button>
+            <hr class="thin"/>
+            
+            <br />
+
+<table >
+
+                        <thead>
+                        <tr>
+                            <td>Atividades do Projeto</td>
+<td>ID - Descrição - Identificador</td>
+ 
+                         	
+			      
+                             
+                        </tr>
+                        </thead>
+                        <tbody>
+                                   
+                          <% nested_set_options(Task.where(projeto_id: @projeto1.projeto_id)) { |i| "#{'–' * i.level} #{i.id} #{i.descr} #{i.raiz}" }.each do |raiz, id| %>
+                        <tr>
+                         
+                           	<td><%= raiz %> </td>
+				<td>
+</td>
+			            
+ 			</tr>
+                        <% end %>
+                        </tbody>
+                    </table>
+
+
+<%= nested_form_for @relato do |f| %>
+     <div data-role="input">
+    <label for="user_login">Finalizar Relatório </label>
+  <%= f.check_box :isdoe  %>
+  </div>
+           <br />  
+
+   <%= f.fields_for :reltasks do |ff| %> 
+
+ <%= f.grouped_collection_select :task_id, Projeto.where(id: @projeto1.projeto_id), :tasks, :name, :id, :descr, prompt: "Selecionar", :required => true %>
+ <%= ff.hidden_field(:user_id, :value => current_user.id) %>
+ <%= ff.hidden_field(:tempo, :value => Time.now) %>
+<%= ff.hidden_field(:ip_address, :value => request.remote_ip)  %>
+<%= ff.hidden_field(:getlocal, :value => request.location)  %>
+  <%= ff.hidden_field(:isdoe, :value => true)  %>
+  <%= ff.hidden_field(:relato, :value => @relato.id)  %>
+
+<br />
+<br />
+<br />
+<%= ff.link_to_remove "X", class: 'm-btn red icn-only' %>
+
+
+<% end %>
+
+
+ 
+
+ <%= f.link_to_add "Registrar Atividade", :reltasks, class: 'button success' %> <br>
+<br>
+
+
+
+
+ <div class="input-control text full-size" data-role="input">
+    <label for="user_login">Cliente: </label>
+  <%= f.collection_select :cliente_id, Cliente.order(:name), :id, :name, prompt: "Selecionar", :required => true %>
+  </div>
+<br />
+<br />
+ <div class="input-control text full-size" data-role="input">
+    <label for="user_login">Projeto: </label>
+   <%= f.grouped_collection_select :projeto_id, Cliente.order(:name), :projetos, :name, :id, :name, prompt: "Selecionar" , :required => true%>
+  </div>
+<br />
+<br />
+  <div class="input-control text full-size" data-role="input">
+    <label for="user_login">Local de Atendimento: </label>
+   <%= f.grouped_collection_select :local_id, Cliente.order(:name), :locals, :name, :id, :cep, prompt: "Selecionar", :required => true %>
+  </div>
+<br />
+<br />
+
+ <div class="input-control text full-size" data-role="input">
+    <label for="user_login">Observação: </label>
+  <%= f.text_area(:comment, :required => true, :size => 3) %>
+  </div>
+<br />
+<br />
+
+<br />
+<br />
+   <%= f.hidden_field(:user_id, :value => current_user.id) %>
+ <%= f.hidden_field(:time, :value => Time.now) %>
+<%= f.hidden_field(:ip_address, :value => request.remote_ip)  %>
+<%= f.hidden_field(:getlocal, :value => request.location)  %>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<div class="actions">
+
+ 
+  <%= f.submit 'Cadastrar', class: 'm-btn blue' %>
+</div>
+<br>
+<% end %>
+</div>
+</div>
+</div>
+

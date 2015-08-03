@@ -9,5 +9,11 @@ render(association.to_s.singularize + "_fields", :f => builder)
 end
 link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")", class: locals[:class])
 end
+
+def user_report
+Relato.where(user_id: @user1.find_by_id(@users)).count
+end
+
+
 end
 

@@ -2,6 +2,9 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 jQuery -> 
+
+ $('.best_in_place').best_in_place()
+
  projetos = $('#relato_projeto_id').html()
  $('#relato_cliente_id').change ->
   cliente = $('#relato_cliente_id :selected').text()
@@ -28,6 +31,7 @@ jQuery ->
    $('#relato_task_id').html(options)
   else
    $('#relato_task_id').empty();
+
 
 
 

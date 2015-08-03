@@ -25,7 +25,12 @@
                     <ul class="sidebar">
                         <li id="relatogrid" class="active" ><a>
                             <span class="mif-apps icon"></span>
-                            <span class="title">Listar Relatórios</span>
+                            <span class="title">Relatórios em Aberto</span>
+                            
+                        </a></li>
+  <li id="relatogridfin" ><a>
+                            <span class="mif-apps icon"></span>
+                            <span class="title">Relatórios Finalizados </span>
                             
                         </a></li>
                        
@@ -39,7 +44,7 @@
  <!-- Conteudo da Página -->
 <div id="relatoinsert"> </div>
   <div class="cell auto-size padding20 bg-white" id="relatogeral">
-                    <h1 class="text-light"> Painel de Relatórios </h1>
+                    <h1 class="text-light"> Painel de Relatórios em Aberto </h1>
                     <hr class="thin bg-grayLighter">
                     <br />
                     <br />
@@ -56,20 +61,17 @@
                             
                             <td class="sortable-column sort-asc" style="width: 100px">ID</td>
                        <td class="sortable-column" style="width: 45px">Cliente:</td>
-                           
                             <td class="sortable-column" style="width: 45px">Projeto:</td>
                             <td style="width: 45px">Local:</td>
-                                 <td style="width: 45px">Atividade:</td>
                                   <td style="width: 45px">Tempo:</td>
                                    <td style="width: 45px">Observação:</td>
-                                    <td style="width: 45px">Conclusão:</td>
-                                        <td style="width: 45px">Usúario:</td>
+
                                         <td style="width: 5px">Ações:</td>
                         </tr>
                         </thead>
 
                         <tbody>
-                           <% @relatos.each do |relato| %>
+                           <% @relatos1.each do |relato| %>
                            
                         <tr>
                            
@@ -77,12 +79,10 @@
                             <td><%= relato.cliente.name %></td>
  <td><%= relato.projeto.name %></td>
  <td><%= relato.local.logra %></td>
-  <td><%= relato.task_id %></td>
     <td><%= relato.time %></td>
       <td><%= relato.comment %></td>
-        <td><%= relato.isdoe %></td>
-        <td><%= relato.user %></td>
-           <td> <%= link_to 'Alterar', edit_relato_path(relato) , class: 'm-btn green icn-only' %> <%= link_to 'Excluir', relato, method: :delete, data: { confirm: 'Are you sure?' }, class: 'm-btn red icn-only'  %>  </td>
+
+           <td> <%= link_to 'Gerenciar', edit_relato_path(relato) , class: 'm-btn green icn-only' %> <%= link_to 'Excluir', relato, method: :delete, data: { confirm: 'Are you sure?' }, class: 'm-btn red icn-only'  %> </td>
                             
                           
                            
@@ -100,17 +100,86 @@
 
  <!-- FIm Conteudo da Página -->
 
+ <!-- Inicio Reg Atividade Rel -->
+
+
+
+ <!-- FIm Reg Atividade -->
+
+
+ <!-- Finalizado Relatorio Inicio -->
+
+  <div class="cell auto-size padding20 bg-white" id="relatogeralfi">
+                    <h1 class="text-light"> Painel de Relatórios Finalizados </h1>
+                    <hr class="thin bg-grayLighter">
+                    <br />
+                    <br />
+                    <br /> 
+                   
+         
+                    <hr class="thin bg-grayLighter" > 
+
+                   
+                    <table class="dataTable border bordered" data-role="datatable" data-auto-width="false">
+
+                        <thead>
+                        <tr>
+                            
+                            <td class="sortable-column sort-asc" style="width: 100px">ID</td>
+                       <td class="sortable-column" style="width: 45px">Cliente:</td>
+                            <td class="sortable-column" style="width: 45px">Projeto:</td>
+                            <td style="width: 45px">Local:</td>
+                                  <td style="width: 45px">Tempo:</td>
+                                   <td style="width: 45px">Observação:</td>
+                                     
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                           <% @relatos2.each do |relato| %>
+                           
+                        <tr>
+                           
+                            <td><%= relato.id %></td>
+                            <td><%= relato.cliente.name %></td>
+ <td><%= relato.projeto.name %></td>
+ <td><%= relato.local.logra %></td>
+    <td><%= relato.time %></td>
+      <td><%= relato.comment %></td>
+           <td> <%= link_to 'Visualizar Atividades', edit_relato_path(relato) , class: 'm-btn green icn-only' %>   </td>
+                            
+                          
+                           
+                        </tr>
+                        
+                        <% end %>
+                        </tbody>
+                    </table>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+ <!-- FIm Rel Finalizado -->
+
+
+
+
+
+
 
 
 <!-- Inicio do cadastro de relatórios --> 
  <div class="carl-form padding20 block-shadow" id="cadrelato">
-<span class="m-btn blue-stripe">Elaborar Relatório</span> <button style="float: right;" id="fecharrel" class="button alert" onclick="pushMessage('alert')">Cancelar</button>
+<span class="m-btn blue-stripe">Iniciar Relatório</span> <button style="float: right;" id="fecharrel" class="button alert" onclick="pushMessage('alert')">Cancelar</button>
             <hr class="thin"/>
-            <hr class="thin"/>
+            
             <br />
 
 <%= nested_form_for @relato do |f| %>
-     
+        <%= f.hidden_field(:isdoe, :value => false) %>
  <div class="input-control text full-size" data-role="input">
     <label for="user_login">Cliente: </label>
   <%= f.collection_select :cliente_id, Cliente.order(:name), :id, :name, prompt: "Selecionar", :required => true %>
@@ -123,29 +192,24 @@
   </div>
 <br />
 <br />
- <div class="input-control text full-size" data-role="input">
+  <div class="input-control text full-size" data-role="input">
     <label for="user_login">Local de Atendimento: </label>
    <%= f.grouped_collection_select :local_id, Cliente.order(:name), :locals, :name, :id, :cep, prompt: "Selecionar", :required => true %>
   </div>
 <br />
 <br />
+
  <div class="input-control text full-size" data-role="input">
-    <label for="user_login">Atividade: </label>
-   <%= f.grouped_collection_select :task_id, Projeto.order(:name), :tasks, :name, :id, :descr, prompt: "Selecionar", :required => true %>
-  </div>
-<br />
-<br />
- <div class="input-control text full-size" data-role="input">
-    <label for="user_login">Horas Executadas: </label>
-   <%= f.number_field :time, :required => true %>
-  </div>
-<br />
-<br />
- <div class="input-control text full-size" data-role="input">
-    <label for="user_login">Comentários: </label>
+    <label for="user_login">Observação: </label>
   <%= f.text_area(:comment, :required => true, :size => 3) %>
   </div>
-   <%= f.hidden_field(:user, :value => params[:user]) %>
+<br />
+<br />
+   <%= f.hidden_field(:user_id, :value => current_user.id) %>
+ <%= f.hidden_field(:time, :value => Time.now) %>
+<%= f.hidden_field(:ip_address, :value => request.remote_ip)  %>
+<%= f.hidden_field(:getlocal, :value => request.location)  %>
+
 <br />
 <br />
 <br />

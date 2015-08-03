@@ -1,0 +1,115 @@
+<%= javascript_include_tag 'jquery.dataTables.min' %>
+
+
+<!-- Inicio do localrio de erros --> 
+  <% if @local.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@local.errors.count, "error") %> prohibited this local from being saved:</h2>
+
+      <ul>
+      <% @local.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- Fim do localrio de erros --> 
+
+
+  <!-- Inicio barra lateral -->
+<div class="page-content">
+        <div class="flex-grid no-responsive-future" style="height: 100%;">
+            <div class="row" style="height: 100%">
+                <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
+                    <ul class="sidebar">
+                        <li id="localgrid" class="active" ><a href="/cliente">
+                            <span class="mif-apps icon"></span>
+                            <span class="title">Listar Clientes</span>
+                            
+                        </a></li>
+  <li id="localgridfin" ><a href="/cliente">
+                            <span class="mif-apps icon"></span>
+                            <span class="title">Locais de Atendimento </span>
+                            
+                        </a></li>
+                       
+                 
+                    </ul>
+                </div>
+
+ <!-- Fim de Barra Lateral -->
+
+
+ <!-- Conteudo da Página -->
+
+
+<!-- Inicio do cadastro de relatórios --> 
+
+
+
+ <div class="cell auto-size padding20 bg-white" id="cli">
+    
+  <div class="caledit-form padding20 block-shadow">
+      <span class="m-btn blue-stripe">Adicionar Local de Atendimento</span>  <button style="float: right;" id="fecharcalo" class="button alert" onclick="pushMessage('alert')">Cancelar</button>
+       
+            <hr class="thin"/>
+            <br />
+             <%= form_for(@local) do |f| %>
+            <div class="input-control text full-size" data-role="input">
+                <label for="user_login">Cliente: </label>
+                 
+  <%= f.collection_select(:cliente_id, Cliente.all, :id, :name, prompt: "Selecionar Cliente", id: 'user-login') %>
+                
+            </div>
+           
+  <br />
+  <br />
+            <div class="input-control text full-size" data-role="input">
+                <label for="user_login">Logradouro:</label>  
+               
+                  <%= f.text_field :logra, id: 'user-login', required: true, placeholder: "Endereço Completo" %>
+            </div>
+
+  <br />
+  <br />
+         <div class="input-control text full-size" data-role="input">
+                <label for="user_login">CEP:</label>      
+                <%= f.text_field :cep, id: 'user-login', required: true, placeholder: "CEP" %>
+            </div>
+
+  <br />
+  <br />
+      <div class="input-control text full-size" data-role="input">
+                <label for="user_login">Estado:</label>      
+                <%= f.text_field :uf, id: 'user-login', required: true, placeholder: "Estado/Região" %>
+            </div>
+
+  <br />
+  <br />
+   <div class="input-control text full-size" data-role="input">
+                <label for="user_login">Cidade:</label>      
+                <%= f.text_field :city, id: 'user-login', required: true, placeholder: "Cidade" %>
+            </div>
+
+  <br />
+  <br />
+   <div class="input-control text full-size" data-role="input">
+                <label for="user_login">Distancia:</label>      
+                <%= f.number_field :km, id: 'user-login', required: true, placeholder: "Distancia em KM" %>
+            </div>
+
+  <br />
+  <br />
+ 
+<br>
+  <div class="actions">
+  <%= f.submit 'Atualizar', class: 'm-btn blue' %>
+  </div>
+
+<% end %>
+  </div>
+
+
+</div>
+

@@ -1,25 +1,118 @@
-<%= form_for(@projeto) do |f| %>
-  <% if @projeto.errors.any? %>
+<%= javascript_include_tag 'jquery.dataTables.min' %>
+<!-- Inicio do report de erros -->
+<% if @projeto.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@projeto.errors.count, "error") %> prohibited this projeto from being saved:</h2>
 
       <ul>
       <% @projeto.errors.full_messages.each do |message| %>
+
         <li><%= message %></li>
+
       <% end %>
       </ul>
     </div>
   <% end %>
+  <!-- fim do report de erros -->
+<!-- Inicio barra lateral -->
+<div class="page-content">
+        <div class="flex-grid no-responsive-future" style="height: 100%;">
+            <div class="row" style="height: 100%">
+                <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
+                    <ul class="sidebar">
+                        <li id="projetogrid" class="active" ><a>
+                            <span class="mif-apps icon"></span>
+                            <span class="title">Projetos</span>
+                            
+                        </a></li>
+                        <li id="showtask"><a>
+                            <span class="mif-vpn-publ icon"></span>
+                            <span class="title">Atividades</span>
+                            
+                        </a></li>
+                        <li id="showcoc"><a>
+                            <span class="mif-database icon"></span>
+                            <span class="title">Condicionais</span>
+                            
+                        </a></li>
+                      
+                    </ul>
+                </div>
+
+ <!-- Fim de Barra Lateral -->
+
+ <div id="projethere"> </div>
+ <!-- Conteudo da Página -->
+
+  <div class="cell auto-size padding20 bg-white" id="showproj1">
+                    <h1 class="text-light"> Painel de Projetos</h1>
+                    <hr class="thin bg-grayLighter">
+                    <br />
+                    <br />
+                    <br /> 
+                    <button class="button primary" id="addproj" ><span class="mif-plus"></span> Novo Projeto</button>
+         
+                    <hr class="thin bg-grayLighter" > 
+
+                   
+                   
+                    <table class="dataTable border bordered" data-role="datatable" data-auto-width="false">
+
+                        <thead>
+                        <tr>
+                            
+                            <td class="sortable-column sort-asc" style="width: 100px">ID</td>
+                            <td class="sortable-column" style="width: 45px">Cliente:</td>
+                             <td class="sortable-column" style="width: 45px">Nome do Projeto:</td>
+                              <td class="sortable-column" style="width: 70px">Descrição:</td>
+                               <td class="sortable-column" style="width: 45px">Tipo:</td>
+                                <td class="sortable-column" style="width: 45px">Gerente:</td>
+                                 <td class="sortable-column" style="width: 45px">Data Inicial:</td>
+                            <td class="sortable-column" style="width: 45px">Data Final:</td>
+                                <td style="width: 5px">Ações:</td>
+
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                           <% @projetos.each do |projeto| %>
+                           
+                        <tr>
+                           
+                                            <td><%= projeto.id %></td>
+                            <td><%= projeto.cliente.name %></td>
+                             <td><%= projeto.name %></td>
+                               <td><%= projeto.descr %></td>
+                                 <td><%= projeto.typo %></td>
+                                   <td><%= projeto.user.name %></td>
+                                     <td><%= projeto.dateini %></td>
+                                       <td><%= projeto.datefin %></td>
+                                         <td> <%= link_to 'Adicionar Atividade', edit_projeto_path(projeto) , class: 'm-btn green icn-only' %> <%= link_to 'Excluir', projeto, method: :delete, data: { confirm: 'Are you sure?' }, class: 'm-btn red icn-only'  %>  </td>
+                            
+                          
+                           
+                        </tr>
+                        
+                        <% end %>
+                        </tbody>
+                    </table>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
 
 
-<div id="bodao">
-<body class="bg-darkTeal">
+<!--  Fim do Conteudo MAIN -->
 
- <div class="cal-form padding20 block-shadow">
-<span class="m-btn green-stripe">Cadastrar Projeto</span>
+
+<!--  Inicio Cad Projeto-->
+
+ <div id="cadproj" class="cap-form padding20 block-shadow">
+<span class="m-btn green-stripe">Cadastrar Projeto</span><button style="float: right;" id="fecharcap" class="button alert" onclick="pushMessage('alert')">Cancelar</button>
             <hr class="thin"/>
             <br />
-
+<%= form_for(@projeto) do |f| %>
     		<div class="input-control text full-size" data-role="input">
                	   <label for="user_login">Cliente: </label>
      			<%= f.collection_select(:cliente_id, Cliente.all, :id, :name, prompt: "Selecionar", :required => true) %>
@@ -71,3 +164,271 @@
   <%= f.submit 'Cadastrar', class: 'm-btn blue' %>
   </div>
 <% end %>
+
+</div>
+
+
+
+
+<!--  Inicio CaC Geral -->
+
+ <div class="cell auto-size padding20 bg-white"  id="cacgeral" >
+                    <h1 class="text-light"> Painel de Condicionais</h1>
+                    <hr class="thin bg-grayLighter">
+                    <br />
+                    <br />
+                    <br /> 
+                    <button class="button primary" id="addcoc" ><span class="mif-plus"></span> Nova Condicional</button>
+         
+                    <hr class="thin bg-grayLighter" > 
+
+                   
+                   
+                    <table class="dataTable border bordered" data-role="datatable" data-auto-width="false">
+
+                        <thead>
+                        <tr>
+                           
+                            <td class="sortable-column sort-asc" style="width: 100px">ID</td>
+                             <td class="sortable-column" style="width: 45px">Projeto:</td>
+                              <td class="sortable-column" style="width: 70px">Translado:</td>
+                               <td class="sortable-column" style="width: 45px">Intervalo:</td>
+                                <td class="sortable-column" style="width: 45px">Distancia:</td>
+                                 <td class="sortable-column" style="width: 45px">Data:</td>
+                                  <td class="sortable-column" style="width: 45px">Tempo:</td>
+                            <td class="sortable-column" style="width: 45px">Comentários:</td>
+
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                           <% @conditionals.each do |conditional| %>
+                           
+                        <tr>
+                           
+                                            <td><%= conditional.id %></td>
+                           <td><%= conditional.projeto.name %></td>
+        <td><%= conditional.transla %></td>
+        <td><%= conditional.interval %></td>
+        <td><%= conditional.km %></td>
+        <td><%= conditional.data %></td>
+        <td><%= conditional.time %></td>
+        <td><%= conditional.why %></td>
+                          
+                       </tr>
+                        
+                        <% end %>
+                        </tbody>
+                    </table>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!--  Fim do Conteudo MAIN  CAC -->
+
+
+
+
+
+<!--  Inicio Cad Condicional -->
+
+ <div class="cac-form padding20 block-shadow">
+<span class="m-btn red-stripe">Cadastrar Condicional</span><button style="float: right;" id="fecharcac" class="button alert" onclick="pushMessage('alert')">Cancelar</button>
+            <hr class="thin"/>
+            <br />
+<%= form_for(@conditional) do |f| %>
+<div class="input-control text full-size" data-role="input">
+    <label for="user_login">Projeto: </label>
+    <%= f.grouped_collection_select :projeto_id, Cliente.order(:name), :projetos, :name, :id, :name, include_blank: true, class: 'form-control' %>
+  </div>
+<br />
+<br />
+
+
+<label class="input-control checkbox"> Translado: </label>
+    <%= f.check_box :transla %> 
+<label class="input-control checkbox"> Intervalo: </label>
+    <%= f.check_box :interval %> 
+
+<br />
+<br />
+  <div class="input-control text full-size" data-role="input">
+     <label for="user_login">Descrição:</label> 
+<%= f.text_area(:why, :required => true, :size => 2) %>
+  </div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+   <label for="user_login">Data:</label>
+   <%= f.date_select :data, :required => true, class: 'input-control text' %>
+
+ 
+<br />
+<br />
+<label for="user_login">Duração:</label>
+    <%= f.time_select(:time) %>
+<br />
+<br />
+<br />
+
+  <div class="input-control text" data-role="input">
+    <label for="user_login">Distancia em KM: </label>
+    <%= f.number_field :km %>
+  </div>
+
+
+
+     
+
+<br />
+<br />
+<br />
+<br />
+  
+
+  <div class="actions">
+  <%= f.submit 'Cadastrar', class: 'm-btn blue' %>
+  </div>
+<% end %>
+</div>
+
+
+<!-- Inicio do Task Geral --> 
+
+<div class="cell auto-size padding20 bg-white"  id="taskgeral" >
+                    <h1 class="text-light"> Painel de Atividades</h1>
+                    <hr class="thin bg-grayLighter">
+                    <br />
+                    <br />
+                    <br /> 
+                    <button class="button primary" id="addtask" ><span class="mif-plus"></span> Nova Atividade </button>
+         
+                    <hr class="thin bg-grayLighter" > 
+
+                   
+                   <div id="taskgeral1" >
+                    <table class="dataTable border bordered" data-role="datatable" data-auto-width="false">
+
+                        <thead>
+                        <tr>
+                           
+                            <td class="sortable-column sort-asc" style="width: 100px">ID</td>
+                             <td class="sortable-column" style="width: 45px">Cliente:</td>
+                              <td class="sortable-column" style="width: 70px">Atividade Pai:</td>
+                            
+
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                           <% @tasks.each do |task| %>
+                           
+                        <tr>
+                        
+                                            <td><%= task.id %></td>
+                                              <td><%= task.projeto_id %></td>
+                           <td><%= task.parent_id %></td>
+                      
+      
+                          
+                       </tr>
+                        
+                        <% end %>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!--  Fim do Conteudo MAIN -->
+
+<!-- Inicio Cad Task --> 
+
+
+<div class="catask-form padding20 block-shadow" id="cadformtask">
+<span class="m-btn blue-stripe">Cadastrar Atividades</span>
+<br />
+
+<br />
+            <hr class="thin"/>
+            <br />
+  <br />
+<!-- TreeView Projeto --> 
+<div id="tabelinha" style="float: right;" width="20%" >
+<table >
+
+                        <thead>
+                        <tr>
+                            <td>Descrição</td>
+                         	
+			      
+                             
+                        </tr>
+                        </thead>
+                        <tbody>
+                                   
+                         <% nested_set_options(@tasks) { |i| "#{'–' * i.level} #{i.descr}" }.each do |descr, id| %>
+                        <tr>
+                         
+                           	<td><%= descr %></td>
+				<td></td>
+			            
+ 			</tr>
+                        <% end %>
+                        </tbody>
+                    </table>
+</div>
+<!-- Fim TreeView --> 
+
+
+
+<div style="float: left;">
+            <%= nested_form_for @task do |f| %>
+
+
+<div class="input-control text full-size" data-role="input" id="selection1">
+   <label for="user_login">Projeto :</label>
+<%= f.grouped_collection_select :projeto_id, Cliente.order(:name), :projetos, :name, :id, :name, prompt: "Projeto"  %> 
+</div> <br><br><div class="input-control text full-size" data-role="input">
+   <label for="user_login">Identificador:</label>
+ <%=  f.number_field :raiz, :placeholder => "Exe: 1, 2, 3..." %></div> <br><br> <div class="input-control text full-size" data-role="input">
+   <label for="user_login">Descrição:</label>
+ <%=  f.text_field :descr, :placeholder => "Exe: Análise de processos" %> </div><br> <br><div class="input-control text full-size" data-role="input">
+   <label for="user_login">Cara Horária Prévista:</label>
+   <%=  f.number_field :tempo, :placeholder => "Exe: 1" %> </div> <br><br> <div class="input-control text full-size" data-role="input">
+   <label for="user_login">Tipo de Atividade:</label>
+ <%= f.select("typo", {"Analitica" => "Analitica", "Sintetica" => "Sintetica"}) %></div> <br><br> <div class="input-control text full-size" data-role="input">
+   <label for="user_login">Raiz:</label>
+<%= f.select :parent_id, nested_set_options(Task){|i| "#{'-' * i.level} #{i.raiz}" }, { select: @task.parent_id, prompt: "Raiz"} %>
+</div>
+
+
+  <br /> 
+
+  <br />
+
+  <br />
+
+
+
+  <div class="actions">
+
+
+
+ 
+  <%= f.submit 'Cadastrar', class: 'm-btn blue' %>
+</div>
+</div>
+<br><% end %>
+</div>
+</div>

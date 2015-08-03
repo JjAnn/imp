@@ -24,21 +24,17 @@
 <div class="input-control text full-size" data-role="input">
 <%= f.grouped_collection_select :projeto_id, Cliente.order(:name), :projetos, :name, :id, :name, prompt: "Projeto" %> 
  </div>
- <%= f.link_to_add "Adicionar Atividade", :tsk1s, class: 'm-btn blue' %>
+
 <ul>
 
   
-
- <%= f.fields_for :tsk1s do |tsk1| %>
+<div class="field>
+<%= f.label :parent_id %><br>
+<%= f.select :parent_id, nested_set_options(Task){|i| "#{'-' * i.level} #{i.name}" }, { select: @task.parent_id, include_blank: true} %>
+</div>
  
 <li>
-   <%=  tsk1.number_field :raiz, :placeholder => "Identificador" %> 
-   <%=  tsk1.text_field :descr, :placeholder => "Descrição"  %> 
-   <%=  tsk1.number_field :hour , :placeholder => "Carga Horária" %> 
-   <%= tsk1.select("typo", {"Analitica" => "Analitica", "Sintetica" => "Sintetica"}) %>
-<%= f.link_to_add "Expandir", :tsk2s, class: 'm-btn blue', id: 'taskin2' %>
-<%= tsk1.link_to_remove "X",class: 'm-btn red icn-only' %>
-    <%= tsk1.hidden_field(:task_id , :value => params[:task_id]) %>
+
  
 </li>
 
@@ -47,43 +43,19 @@
 <% end %>
 
 <ul>
- <%= f.fields_for :tsk2s do |tsk2| %>
 
 
 
 
- <li>
 
- <%=  tsk2.number_field :raiz, :placeholder => "Identificador" %> 
-    <%=  tsk2.text_field :descr, :placeholder => "Descrição" %> 
-   <%=  tsk2.number_field :hour, :placeholder => "Carga Horária" %> 
- <%= tsk2.select("typo", {"Analitica" => "Analitica", "Sintetica" => "Sintetica"}) %>
-
- <%= f.link_to_add "Expandir", :tsk3s, class: 'm-btn blue', id: 'taskin1' %>
-<%= tsk2.link_to_remove "X",class: 'm-btn red icn-only' %>
-    <%= tsk2.hidden_field(:task_id, :value => params[:task_id]) %>
- </li>
 
 
  
 
-<% end %>
+
 
 <ul>
-  <%= f.fields_for :tsk3s do |tsk3| %>
 
-
-<li>
-   <span class="node-toggle"></span>
- <%=  tsk3.number_field :raiz, :placeholder => "Identificador" %> 
-    <%=  tsk3.text_field :descr, :placeholder => "Descrição" %> 
-   <%=  tsk3.number_field :hour, :placeholder => "Carga Horária" %> 
- <%= tsk3.select("typo", {"Analitica" => "Analitica", "Sintetica" => "Sintetica"}) %> 
- <%= tsk3.link_to_remove "X",class: 'm-btn red icn-only' %>
-     <%= tsk3.hidden_field(:task_id, :value => params[:task_id]) %>
-</li>
-
-<% end %>
 
 </ul>
 </ul>

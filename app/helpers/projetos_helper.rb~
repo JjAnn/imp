@@ -1,0 +1,7 @@
+module ProjetosHelper
+
+def total_horas
+@projeto = Relato.all.each.where(projeto_id: @projetao.id)
+@projetao = Projeto.where(projeto_id: Projeto.id)
+end
+end

@@ -15,7 +15,7 @@ gem 'therubyracer'
 
 gem 'jstree-rails-4'
 
-gem 'awesome_nested_set' # or any similar gem (gem 'nested_set')
+gem 'awesome_nested_set', '~> 3.0.2'
 
 gem 'validates_email_format_of'
 
@@ -54,6 +54,11 @@ gem 'jbuilder'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'sorcery'
+
+gem 'geokit-rails'
+gem 'geocoder'
+
+gem 'best_in_place', '~> 3.0.1'
 
 # Use ActiveModel has_secure_password
  gem 'bcrypt', '~> 3.1.7'

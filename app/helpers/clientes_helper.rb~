@@ -1,3 +1,5 @@
 module ClientesHelper
-helper_method :count
+def localuf
+Cliente.where(id: @local.cliente_id[uf:])
+end
 end

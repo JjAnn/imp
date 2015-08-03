@@ -21,10 +21,18 @@ class ProjetosController < ApplicationController
  @conditionals = Conditional.all
 @tasks = Task.all
 @task = Task.new
+
   end
 
   # GET /projetos/1/edit
   def edit
+   @projeto = Projeto.new
+     @projetos = Projeto.all
+      @conditional = Conditional.new
+ @conditionals = Conditional.all
+@tasks = Task.all
+@task = Task.new
+  @projeto1 = Projeto.find(params[:id])
   end
 
   # POST /projetos
@@ -34,7 +42,7 @@ class ProjetosController < ApplicationController
 
     respond_to do |format|
       if @projeto.save
-        format.html { redirect_to taski_path, notice: 'Projeto criado com sucesso! Agora adicione uma Atividade para este projeto!' }
+        format.html { redirect_to projetopo_path, notice: 'Projeto criado com sucesso! Agora adicione uma Atividade para este projeto!' }
         format.json { render :show, status: :created, location: @projeto }
       else
         format.html { render :new }

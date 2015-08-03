@@ -14,7 +14,7 @@ class LocalsController < ApplicationController
 
   # GET /locals/new
   def new
-    @local = Local.new
+   5.times{ @local = Local.new}
   end
 
   # GET /locals/1/edit

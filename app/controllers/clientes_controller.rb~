@@ -32,19 +32,19 @@ end
   # POST /clientes.json
   def create
 
- if params[:commit] == 'A' 
+ if params[:commit] == 'Cadastrar' 
     @cliente = Cliente.new(cliente_params)
 
     respond_to do |format|
       if @cliente.save
-        format.html { redirect_to @cliente, notice: 'Cliente cadastrado com sucesso!' }
+        format.html { redirect_to clienta_path, notice: 'Cliente cadastrado com sucesso!' }
         format.json { render :show, status: :created, location: @cliente }
       else
         format.html { render :new }
         format.json { render json: @cliente.errors, status: :unprocessable_entity }
       end
     end
- elsif params[:commit] == 'B'
+ elsif params[:commit] == 'Adicionar'
 
   @local = Local.new(local_params)
 

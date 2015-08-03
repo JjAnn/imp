@@ -23,26 +23,17 @@
             <div class="row" style="height: 100%">
                 <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
                     <ul class="sidebar">
-                        <li id="cli1" class="active" ><a href="#">
+                        <li id="clientgrid" class="active" ><a>
                             <span class="mif-apps icon"></span>
                             <span class="title">Listar Clientes</span>
                             
                         </a></li>
-                        <li id="calo" ><a href="#">
+                        <li id="calo" ><a >
                             <span class="mif-vpn-publ icon"></span>
                             <span class="title">Locais de Atendimento</span>
                             
                         </a></li>
-                        <li><a href="#">
-                            <span class="mif-database icon"></span>
-                            <span class="title">Dados do Cliente</span>
-                            
-                        </a></li>
-                        <li><a href="#">
-                            <span class="mif-cogs icon"></span>
-                            <span class="title">Projetos</span>
-                           
-                        </a></li>
+                 
                     </ul>
                 </div>
 
@@ -50,12 +41,12 @@
   <!-- Conteudo da Página -->
 <div id="inserthere"> </div>
   <div class="cell auto-size padding20 bg-white" id="cli">
-                    <h1 class="text-light"> DashBoard</h1>
+                    <h1 class="text-light"> Painel de Clientes </h1>
                     <hr class="thin bg-grayLighter">
                     <br />
                     <br />
                     <br /> 
-                    <button class="button primary" id="add" ><span class="mif-plus"></span> Novo Cliete</button>
+                    <button class="button primary" id="add" ><span class="mif-plus"></span> Novo Cliente</button>
          
                     <hr class="thin bg-grayLighter" > 
 
@@ -64,13 +55,13 @@
 
                         <thead>
                         <tr>
-                            <td style="width: 20px">
-                            </td>
-                            <td class="sortable-column sort-asc" style="width: 100px">ID</td>
-                            <td class="sortable-column">Nome:</td>
+                            
+                            <td class="sortable-column sort-asc" style="width: 10px">ID</td>
+                          <td class="sortable-column" style="width: 60px">Nome:</td>
                            
                             <td class="sortable-column" style="width: 45px">Email:</td>
                             <td style="width: 45px">Telefone:</td>
+                            <td style="width: 5px">Ações:</td>
                         </tr>
                         </thead>
 
@@ -78,16 +69,11 @@
                            <% @clientes.each do |cliente| %>
                            
                         <tr>
-                            <td>
-                                <label class="input-control checkbox small-check no-margin">
-                                    <input type="checkbox">
-                                    <span class="check"></span>
-                                </label>
-                            </td>
                             <td><%= cliente.id %></td>
                             <td><%= cliente.name %></td>
  <td><%= cliente.email %></td>
  <td><%= cliente.telefone %></td>
+  <td> <%= link_to 'Alterar', edit_cliente_path(cliente) , class: 'm-btn green icn-only' %> <%= link_to 'Excluir', cliente, method: :delete, data: { confirm: 'Are you sure?' }, class: 'm-btn red icn-only'  %>  </td>
                             
                           
                            
@@ -106,7 +92,7 @@
 <!--  Conteudo Local -->
 
   <div class="cell auto-size padding20 bg-white" id="local">
-                    <h1 class="text-light"> Locais de Atendimento</h1>
+                    <h1 class="text-light"> Locais de Atendimento </h1>
                     <hr class="thin bg-grayLighter">
                     <br />
                     <br />
@@ -119,17 +105,16 @@
                     <table class="dataTable border bordered" data-role="datatable" data-auto-width="false">
 
                         <thead>
-                        <tr>
-                            <td style="width: 20px">
-                            </td>
-                            <td class="sortable-column sort-asc" style="width: 100px">ID</td>
-                            <td class="sortable-column">Cliente:</td>
+                      
+                            <td class="sortable-column sort-asc" style="width: 10px">ID</td>
+                           <td class="sortable-column" style="width: 45px">Cliente:</td>
                            
                             <td class="sortable-column" style="width: 45px">Logradouro:</td>
                             <td style="width: 45px">CEP:</td>
      <td style="width: 45px">Estado:</td>
      <td style="width: 45px">Cidade:</td>
      <td style="width: 45px">Distancia em KM:</td>
+     <td style="width: 5px"> Ações: </td>
                         </tr>
                         </thead>
 
@@ -137,19 +122,15 @@
                            <% @locals.each do |local| %>
                            
                         <tr>
-                            <td>
-                                <label class="input-control checkbox small-check no-margin">
-                                    <input type="checkbox">
-                                    <span class="check"></span>
-                                </label>
-                            </td>
+                          
                             <td><%= local.id %></td>
-                            <td><%= local.cliente_id %></td>
+                            <td><%= local.cliente.name %></td>
  <td><%= local.logra %></td>
  <td><%= local.cep %></td>
  <td><%= local.uf %></td>
  <td><%= local.city %></td>
  <td><%= local.km %></td>
+   <td> <%= link_to 'Alterar', edit_local_path(local) , class: 'm-btn green icn-only' %> <%= link_to 'Excluir', local, method: :delete, data: { confirm: 'Are you sure?' }, class: 'm-btn red icn-only'  %>  </td>
                             
                           
                            
@@ -237,16 +218,17 @@
 <!-- Inicio Local cad--> 
 
 
-<%= form_for(@local) do |fl| %>
+
 <div class="calo-form padding20 block-shadow">
       <span class="m-btn blue-stripe">Adicionar Local de Atendimento</span>  <button style="float: right;" id="fecharcalo" class="button alert" onclick="pushMessage('alert')">Voltar</button>
-        
+       
             <hr class="thin"/>
             <br />
+             <%= form_for(@local) do |f| %>
             <div class="input-control text full-size" data-role="input">
                 <label for="user_login">Cliente: </label>
                  
-  <%= fl.collection_select(:cliente_id, Cliente.all, :id, :name, prompt: "Selecionar Cliente", id: 'user-login') %>
+  <%= f.collection_select(:cliente_id, Cliente.all, :id, :name, prompt: "Selecionar Cliente", id: 'user-login') %>
                 
             </div>
            
@@ -255,36 +237,35 @@
             <div class="input-control text full-size" data-role="input">
                 <label for="user_login">Logradouro:</label>  
                
-                  <%= fl.text_field :logra, id: 'user-login', required: true, placeholder: "Endereço Completo" %>
+                  <%= f.text_field :logra, id: 'user-login', required: true, placeholder: "Endereço Completo" %>
             </div>
 
   <br />
   <br />
          <div class="input-control text full-size" data-role="input">
                 <label for="user_login">CEP:</label>      
-                <%= fl.text_field :cep, id: 'user-login', required: true, placeholder: "CEP" %>
+                <%= f.text_field :cep, id: 'user-login', required: true, placeholder: "CEP" %>
             </div>
 
   <br />
   <br />
       <div class="input-control text full-size" data-role="input">
                 <label for="user_login">Estado:</label>      
-                <%= fl.text_field :uf, id: 'user-login', required: true, placeholder: "Estado/Região" %>
+                <%= f.text_field :uf, id: 'user-login', required: true, placeholder: "Estado/Região" %>
             </div>
 
   <br />
   <br />
    <div class="input-control text full-size" data-role="input">
                 <label for="user_login">Cidade:</label>      
-                <%= fl.text_field :city, id: 'user-login', required: true, placeholder: "Cidade" %>
+                <%= f.text_field :city, id: 'user-login', required: true, placeholder: "Cidade" %>
             </div>
 
   <br />
   <br />
    <div class="input-control text full-size" data-role="input">
                 <label for="user_login">Distancia:</label>      
-                <%= fl.number_field :km, id: 'user-login', required: true, placeholder: "Distancia em KM" %>
- <%=  %>
+                <%= f.number_field :km, id: 'user-login', required: true, placeholder: "Distancia em KM" %>
             </div>
 
   <br />
@@ -292,15 +273,15 @@
  
 <br>
   <div class="actions">
-  <%= fl.submit 'Cadastrar', class: 'm-btn blue' %>
+  <%= f.submit 'Adicionar', class: 'm-btn blue' %>
   </div>
 
+<% end %>
   </div>
 
 
 </div>
 
-<% end %>
 
 
  

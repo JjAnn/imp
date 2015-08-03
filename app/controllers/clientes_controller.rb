@@ -37,7 +37,7 @@ end
 
     respond_to do |format|
       if @cliente.save
-        format.html { redirect_to @cliente, notice: 'Cliente cadastrado com sucesso!' }
+        format.html { redirect_to clienta_path, notice: 'Cliente cadastrado com sucesso!' }
         format.json { render :show, status: :created, location: @cliente }
       else
         format.html { render :new }
@@ -50,7 +50,7 @@ end
 
     respond_to do |format|
       if @local.save
-        format.html { redirect_to projete_path, notice: 'Local adicionado com sucesso! Agora adicione um novo Projeto!' }
+        format.html { redirect_to clienta_path, notice: 'Local adicionado com sucesso! Agora adicione um novo Projeto!' }
         format.json { render :show, status: :created, location: @local }
       else
         format.html { render :new }

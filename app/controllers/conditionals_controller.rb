@@ -28,7 +28,7 @@ class ConditionalsController < ApplicationController
 
     respond_to do |format|
       if @conditional.save
-        format.html { redirect_to @conditional, notice: 'Conditional was successfully created.' }
+        format.html { redirect_to projetopo_path, notice: 'Conditional was successfully created.' }
         format.json { render :show, status: :created, location: @conditional }
       else
         format.html { render :new }

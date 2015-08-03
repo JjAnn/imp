@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   resources :projetos
   resources :locals
   resources :clientes
-  resources :users, only: [:new, :create] do
+  resources :reltasks
+  resources :users, only: [:new, :create, :update, :destroy] do
     member do
       get :activate
     end
@@ -19,7 +20,7 @@ Rails.application.routes.draw do
 
   get '/consultor', to: 'users#new', as: :sign_up
 get '/cliente', to: 'clientes#new', as: :clienta
-get '/projetos', to: 'projetos#index', as: :projetopo
+get '/projetos/new', to: 'projetos#new', as: :projetopo
 get '/atividades', to: 'tasks#new', as: :taski
 get '/relatorio', to: 'relatos#new', as: :relatoss
 get '/condicional', to: 'conditionals#new', as: :condit

@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   resources :projetos
   resources :locals
   resources :clientes
-  resources :users, only: [:new, :create] do
+  resources :reltasks
+  resources :users, only: [:new, :create, :update, :destroy] do
     member do
       get :activate
     end
