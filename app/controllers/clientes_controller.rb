@@ -92,7 +92,7 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cliente_params
-      params.require(:cliente).permit(:name, :telefone, :celular, :email, :locals_attributes => [:logra, :cep, :uf, :city, :km, :_destroy])
+      params.require(:cliente).permit(:id, :name, :telefone, :celular, :email, :locals_attributes => [:logra, :cep, :uf, :city, :km, :id, :_destroy])
     end
 
  def local_params

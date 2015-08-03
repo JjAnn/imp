@@ -69,6 +69,6 @@ class LocalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def local_params
-      params.require(:local).permit(:cliente_id, :logra, :cep, :uf, :city, :km)
+      params.require(:local).permit(:cliente_id, :id,  :logra, :cep, :uf, :city, :km)
     end
 end

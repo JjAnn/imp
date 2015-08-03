@@ -52,7 +52,7 @@
     
   <div class="cadedit-form padding20 block-shadow">
    
-         <span class="m-btn blue-stripe">Atualizar Dados Cadastrais</span>  <button style="float: right;" id="fecharcad" class="button alert" onclick="pushMessage('alert')">Cancelar</button>
+         <span class="m-btn blue-stripe">Atualizar Dados Cadastrais</span> <a href="/cliente"> <button style="float: right;" id="fecharcad" class="button alert" onclick="pushMessage('alert')">Cancelar</button> </a>
             <hr class="thin"/>
             <br />
              <%= nested_form_for @cliente do |f| %>
@@ -86,7 +86,7 @@
             <br />  
 
    <%= f.fields_for :locals do |ff| %> 
-
+<%= hidden_field "cliente[local_attributes][id]", @cliente.id %>
 
 <%= ff.text_field :logra, placeholder: "Logradouro"  %>  
   <%= ff.text_field :cep, placeholder: "CEP"  %>  

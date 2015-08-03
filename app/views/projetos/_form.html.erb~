@@ -76,11 +76,11 @@
                         <tr>
                            
                                             <td><%= projeto.id %></td>
-                            <td><%= projeto.cliente.name %></td>
+                            <td><%= projeto.cliente_id %></td>
                              <td><%= projeto.name %></td>
                                <td><%= projeto.descr %></td>
                                  <td><%= projeto.typo %></td>
-                                   <td><%= projeto.user.name %></td>
+                                   <td><%= projeto.user_id %></td>
                                      <td><%= projeto.dateini %></td>
                                        <td><%= projeto.datefin %></td>
                                          <td> <%= link_to 'Adicionar Atividade', edit_projeto_path(projeto) , class: 'm-btn green icn-only' %> <%= link_to 'Excluir', projeto, method: :delete, data: { confirm: 'Are you sure?' }, class: 'm-btn red icn-only'  %>  </td>
@@ -302,83 +302,5 @@
 
 <!--  Fim do Conteudo MAIN -->
 
-<!-- Inicio Cad Task --> 
 
-
-<div class="catask-form padding20 block-shadow" id="cadformtask">
-<span class="m-btn blue-stripe">Cadastrar Atividades</span>
-<br />
-
-<br />
-            <hr class="thin"/>
-            <br />
-  <br />
-<!-- TreeView Projeto --> 
-<div id="tabelinha" style="float: right;" width="20%" >
-<table >
-
-                        <thead>
-                        <tr>
-                            <td>Descrição</td>
-                         	
-			      
-                             
-                        </tr>
-                        </thead>
-                        <tbody>
-                                   
-                         <% nested_set_options(@tasks) { |i| "#{'–' * i.level} #{i.descr}" }.each do |descr, id| %>
-                        <tr>
-                         
-                           	<td><%= descr %></td>
-				<td></td>
-			            
- 			</tr>
-                        <% end %>
-                        </tbody>
-                    </table>
-</div>
-<!-- Fim TreeView --> 
-
-
-
-<div style="float: left;">
-            <%= nested_form_for @task do |f| %>
-
-
-<div class="input-control text full-size" data-role="input" id="selection1">
-   <label for="user_login">Projeto :</label>
-<%= f.grouped_collection_select :projeto_id, Cliente.order(:name), :projetos, :name, :id, :name, prompt: "Projeto"  %> 
-</div> <br><br><div class="input-control text full-size" data-role="input">
-   <label for="user_login">Identificador:</label>
- <%=  f.number_field :raiz, :placeholder => "Exe: 1, 2, 3..." %></div> <br><br> <div class="input-control text full-size" data-role="input">
-   <label for="user_login">Descrição:</label>
- <%=  f.text_field :descr, :placeholder => "Exe: Análise de processos" %> </div><br> <br><div class="input-control text full-size" data-role="input">
-   <label for="user_login">Cara Horária Prévista:</label>
-   <%=  f.number_field :tempo, :placeholder => "Exe: 1" %> </div> <br><br> <div class="input-control text full-size" data-role="input">
-   <label for="user_login">Tipo de Atividade:</label>
- <%= f.select("typo", {"Analitica" => "Analitica", "Sintetica" => "Sintetica"}) %></div> <br><br> <div class="input-control text full-size" data-role="input">
-   <label for="user_login">Raiz:</label>
-<%= f.select :parent_id, nested_set_options(Task){|i| "#{'-' * i.level} #{i.raiz}" }, { select: @task.parent_id, prompt: "Raiz"} %>
-</div>
-
-
-  <br /> 
-
-  <br />
-
-  <br />
-
-
-
-  <div class="actions">
-
-
-
- 
-  <%= f.submit 'Cadastrar', class: 'm-btn blue' %>
-</div>
-</div>
-<br><% end %>
-</div>
 </div>

@@ -3,7 +3,7 @@ class CreateTasks < ActiveRecord::Migration
     create_table :tasks do |t|
       t.references :projeto
       t.references :user
-      t.references :tasks
+      
      
 
       t.timestamps null: false

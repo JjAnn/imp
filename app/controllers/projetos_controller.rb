@@ -25,13 +25,10 @@ class ProjetosController < ApplicationController
 
   # GET /projetos/1/edit
   def edit
-   @projeto = Projeto.new
-     @projetos = Projeto.all
-      @conditional = Conditional.new
- @conditionals = Conditional.all
-@tasks = Task.all
-@task = Task.new
+  @projetos = Projeto.all
   @projeto1 = Projeto.find(params[:id])
+
+
   end
 
   # POST /projetos
@@ -56,7 +53,7 @@ class ProjetosController < ApplicationController
   def update
     respond_to do |format|
       if @projeto.update(projeto_params)
-        format.html { redirect_to @projeto, notice: 'Projeto was successfully updated.' }
+        format.html { redirect_to projetopo_path, notice: 'Projeto was successfully updated.' }
         format.json { render :show, status: :ok, location: @projeto }
       else
         format.html { render :edit }
@@ -83,7 +80,7 @@ class ProjetosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def projeto_params
-      params.require(:projeto).permit(:cliente_id, :name, :descr, :typo, :user_id, :dateini, :datefin, :status)
+      params.require(:projeto).permit(:id, :cliente_id, :name, :descr, :typo, :user_id, :dateini, :datefin, :status, :tasks_attributes => [:projeto_id, :raiz, :descr, :tempo, :typo, :id,  :parent_id])
     end
 
 end

@@ -124,46 +124,6 @@ ActiveRecord::Schema.define(version: 20150729162741) do
 # Could not dump table "tasks" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass
 
-  create_table "tsk1s", force: :cascade do |t|
-    t.integer  "raiz"
-    t.string   "descr"
-    t.integer  "hour"
-    t.string   "typo"
-    t.integer  "task_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "tsk1s", ["task_id"], name: "index_tsk1s_on_task_id"
-
-  create_table "tsk2s", force: :cascade do |t|
-    t.integer  "raiz"
-    t.string   "descr"
-    t.integer  "hour"
-    t.string   "typo"
-    t.integer  "task_id"
-    t.integer  "tsk1_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "tsk2s", ["task_id"], name: "index_tsk2s_on_task_id"
-  add_index "tsk2s", ["tsk1_id"], name: "index_tsk2s_on_tsk1_id"
-
-  create_table "tsk3s", force: :cascade do |t|
-    t.integer  "raiz"
-    t.string   "descr"
-    t.integer  "hour"
-    t.string   "typo"
-    t.integer  "task_id"
-    t.integer  "tsk2_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "tsk3s", ["task_id"], name: "index_tsk3s_on_task_id"
-  add_index "tsk3s", ["tsk2_id"], name: "index_tsk3s_on_tsk2_id"
-
   create_table "users", force: :cascade do |t|
     t.string   "email",                                       null: false
     t.string   "crypted_password"

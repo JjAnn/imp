@@ -78,9 +78,9 @@
                         <% end %>
                         </tbody>
                     </table>
-
 <%= nested_form_for @projeto do |f| %>
-<div id="tabelinha" style="float: right;" width="20%" >
+
+<div style="float: right;" width="20%" >
 <table >
 
                         <thead>
@@ -100,19 +100,17 @@
 
 
 <%= f.fields_for :tasks do |ff| %>
-   <%= ff.hidden_field(:projeto_id, :value => @projeto.id) %>
+   
 
 <td>
+<%= hidden_field "projeto[task_attributes][id]", @task.id %>
  <%=  ff.number_field :raiz, :placeholder => "Identificador" %></div></td> <td> 
  <%=  ff.text_field :descr, :placeholder => "Descrição" %> </div> </td><td> 
    <%=  ff.number_field :tempo, :placeholder => "Carga Horária Estimada" %> </div> </td><td>
    <label for="user_login">Tipo de Atividade:</label>
  <%= ff.select("typo", {"Analitica" => "Analitica", "Sintetica" => "Sintetica"}) %></div></td><td> 
 <%= ff.number_field :parent_id , :placeholder => "ID Pertecente"  %>
-</div></td>
-
-
-	<td></td>
+</div></td><%= ff.hidden_field(:projeto_id, :value => @projeto.id) %>
 			            
  			</tr>
                         <% end %>
@@ -125,19 +123,19 @@
 <div id="editproj1">
     		<div class="input-control text full-size" data-role="input">
                	   <label for="user_login">Cliente: </label>
-     			<%= f.collection_select(:cliente_id, Cliente.all, :id, :name, prompt: "Selecionar", :required => true) %>
+     			<%= f.collection_select(:cliente_id, Cliente.all, :id, :name, prompt: "Selecionar") %>
   		</div>
  <br />
   <br />
 <div class="input-control text full-size" data-role="input">
     <label for="user_login">Apelido do Projeto:</label>  
-    <%= f.text_field :name, :required => true, id: 'user-login' %>
+    <%= f.text_field :name, id: 'user-login' %>
   </div>
  <br />
   <br />
  <div class="input-control text full-size" data-role="input">
     <label for="user_login">Descrição do Projeto:</label>  
-    <%= f.text_area(:descr, :required => true, :size => 5) %>
+    <%= f.text_area(:descr, :size => 5) %>
   </div>
  <br />
   <br />
@@ -147,30 +145,30 @@
   <br />
   <div class="input-control text full-size" data-role="input">
      <label for="user_login">Tipo:</label>  
-    <%= f.select("typo", {"Avulso" => "Avulso", "Padrão" => "Padrao"}, :required => true, id: 'user-login') %>
+    <%= f.select("typo", {"Avulso" => "Avulso", "Padrão" => "Padrao"}, id: 'user-login') %>
   </div>
  <br />
   <br />
  <div class="input-control text full-size" data-role="input">
    <label for="user_login">Gerente:</label>  
-     <%= f.collection_select(:user_id, User.all, :id, :name, prompt: "Selecionar", :required => true, id: 'user-login') %>
+     <%= f.collection_select(:user_id, User.all, :id, :name, prompt: "Selecionar", id: 'user-login') %>
   </div>
  <br />
   <br />
  <div class="calendar-cell year-cell align-center year" data-role="input">
      <label for="user_login">Data Inicio:</label>  
-    <%= f.date_select :dateini, :required => true , id: 'user-login'%>
+    <%= f.date_select :dateini, id: 'user-login'%>
   </div>
  <br />
   <br />
  <div class="calendar-cell year-cell align-center year" data-role="input">
     <label for="user_login">Data Fim:</label>  
-    <%= f.date_select :datefin, :required => true, id: 'user-login' %>
+    <%= f.date_select :datefin, id: 'user-login' %>
   </div>
  <br />
   <br />
- 
-</div>
+ </div>
+
   <div class="actions">
   <%= f.submit 'Cadastrar', class: 'm-btn blue' %>
   </div>
